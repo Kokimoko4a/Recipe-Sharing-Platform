@@ -14,7 +14,7 @@ namespace RecipeSharingPlatform.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        public virtual IdentityUser Author { get; set; } = null!;
+        public virtual ApplicationUser Author { get; set; } = null!;
 
         [ForeignKey(nameof(Author))]
         [Required]
@@ -29,5 +29,12 @@ namespace RecipeSharingPlatform.Data.Models
 
         [Required]
         public int Dislikes { get; set; }
+
+        [Required]
+        public virtual Recipe Recipe { get; set; } = null!;
+
+        [Required]
+        [ForeignKey(nameof(Recipe))]
+        public Guid RecipeId { get; set; } 
     }
 }

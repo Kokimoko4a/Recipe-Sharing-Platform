@@ -21,7 +21,23 @@ namespace RecipeSharingPlatform.Data.Configurations
                 .HasForeignKey(r => r.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(r => r.Ingredients).WithOne
+            builder
+                .HasMany(i => i.Ingredients)
+                .WithOne(r => r.Recipe)
+                .HasForeignKey(r => r.RecipeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasMany(c => c.Comments)
+                .WithOne(r => r.Recipe)
+                .HasForeignKey(c => c.RecipeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.
+                HasOne(r => r.Author)
+                .WithMany(r => r.Recipes)
+                .HasForeignKey(r => r.AuthorId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

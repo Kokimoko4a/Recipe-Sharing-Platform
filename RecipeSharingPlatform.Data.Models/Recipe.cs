@@ -2,6 +2,7 @@
 
 namespace RecipeSharingPlatform.Data.Models
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,8 @@ namespace RecipeSharingPlatform.Data.Models
             Id = Guid.NewGuid();
 
             Ingredients = new HashSet<Ingredient>();
+
+            Comments = new HashSet<Comment>();
         }
 
         [Key]
@@ -64,5 +67,15 @@ namespace RecipeSharingPlatform.Data.Models
         [Required]
         [MaxLength(MaxImageUrlLength)]
         public string ImageUrl { get; set; } = null!;
+
+        [Required]
+        public virtual ICollection<Comment> Comments { get; set; } = null!;
+
+        [Required]
+        public virtual ApplicationUser? Author { get; set; } 
+
+        [Required]
+        [ForeignKey(nameof(Author))]
+        public Guid AuthorId { get; set; }
     }
 }
