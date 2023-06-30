@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecipeSharingPlatform.Common\RecipeSharingPlatform.Common.csproj" />
+    <ProjectReference Include="..\RecipeSharingPlatform.Data.Models\RecipeSharingPlatform.Data.Models.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Data\RecipeSharingPlatform.Data.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Web.ViewModels\RecipeSharingPlatform.Web.ViewModels.csproj" />
   </ItemGroup>

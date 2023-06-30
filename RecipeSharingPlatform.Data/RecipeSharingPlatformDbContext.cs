@@ -2,7 +2,7 @@
 
 namespace Recipe_Sharing_Platform.Data
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
+    //using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;

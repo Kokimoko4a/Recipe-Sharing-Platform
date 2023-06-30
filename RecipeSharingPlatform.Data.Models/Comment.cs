@@ -2,7 +2,7 @@
 
 namespace RecipeSharingPlatform.Data.Models
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
+   // using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

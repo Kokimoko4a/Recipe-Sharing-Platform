@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Recipe_Sharing_Platform.Data;
+
 
 namespace Recipe_Sharing_Platform
 {
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +30,8 @@ namespace Recipe_Sharing_Platform
                 options.Password.RequiredLength = 1;
             })
                 .AddEntityFrameworkStores<RecipeSharingPlatformDbContext>();
+              // .AddDefaultTokenProviders();
+
             builder.Services.AddControllersWithViews();
 
             WebApplication app = builder.Build();
