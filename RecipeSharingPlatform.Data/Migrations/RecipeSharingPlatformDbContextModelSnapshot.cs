@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Recipe_Sharing_Platform.Data;
+using Recipe_Sharing_Platform_2.Data;
 
 #nullable disable
 
-namespace RecipeSharingPlatform.Data.Migrations
+namespace RecipesSharingPlatform.Data.Migrations
 {
     [DbContext(typeof(RecipeSharingPlatformDbContext))]
     partial class RecipeSharingPlatformDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace RecipeSharingPlatform.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.18")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);

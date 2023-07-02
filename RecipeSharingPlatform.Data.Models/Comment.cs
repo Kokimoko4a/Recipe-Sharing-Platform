@@ -1,12 +1,7 @@
-﻿
-
-namespace RecipeSharingPlatform.Data.Models
+﻿namespace RecipeSharingPlatform.Data.Models
 {
-   // using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
     using static RecipeSharingPlatform.Common.EntityValidationConstants.Comment;
     public class Comment
     {
@@ -35,6 +30,6 @@ namespace RecipeSharingPlatform.Data.Models
 
         [Required]
         [ForeignKey(nameof(Recipe))]
-        public Guid RecipeId { get; set; } 
+        public Guid RecipeId { get; set; }
     }
 }

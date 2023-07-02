@@ -7,27 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
-        "dependencies": {
-          "RecipeSharingPlatform.Common": "1.0.0"
-        },
         "runtime": {
           "RecipeSharingPlatform.Web.ViewModels.dll": {}
-        }
-      },
-      "RecipeSharingPlatform.Common/1.0.0": {
-        "runtime": {
-          "RecipeSharingPlatform.Common.dll": {}
         }
       }
     }
   },
   "libraries": {
     "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RecipeSharingPlatform.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

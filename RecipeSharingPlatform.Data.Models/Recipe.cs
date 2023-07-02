@@ -1,10 +1,5 @@
-﻿
-
-namespace RecipeSharingPlatform.Data.Models
+﻿namespace RecipeSharingPlatform.Data.Models
 {
-   // using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using static RecipeSharingPlatform.Common.EntityValidationConstants.Recipe;
@@ -36,11 +31,11 @@ namespace RecipeSharingPlatform.Data.Models
         public int CookingTime { get; set; }
 
         [Required]
-        [Range(MinCountOfPortions,MaxCountOfPortions)]
+        [Range(MinCountOfPortions, MaxCountOfPortions)]
         public int CountOfPortions { get; set; }
 
         [Required]
-        [Range(MinTimeForPreparing,MaxTimeForPreparing)]
+        [Range(MinTimeForPreparing, MaxTimeForPreparing)]
         public int PreparingTime { get; set; }
 
         public int TotalTime { get => PreparingTime + CookingTime; }
@@ -72,7 +67,7 @@ namespace RecipeSharingPlatform.Data.Models
         public virtual ICollection<Comment> Comments { get; set; } = null!;
 
         [Required]
-        public virtual ApplicationUser? Author { get; set; } 
+        public virtual ApplicationUser? Author { get; set; }
 
         [Required]
         [ForeignKey(nameof(Author))]

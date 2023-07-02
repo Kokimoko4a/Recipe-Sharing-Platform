@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe-Sharing-Platform-2", "Recipe-Sharing-Platform-2.csproj", "{73B7DB5C-8736-482A-9561-6455350D12E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Common", "..\GeneralApplicationConstants\RecipeSharingPlatform.Common.csproj", "{9717B09C-6543-4C30-B235-9699A2EE0F30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{ECE3132E-1713-4D3C-AE70-CE205A3DDCF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BA473DAB-1934-4E29-A07F-0A3CF08BC43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesSharingPlatform.Data", "..\RecipeSharingPlatform.Data\RecipesSharingPlatform.Data.csproj", "{23DA8146-1316-4902-96EA-06EC238C4858}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Data.Models", "..\RecipeSharingPlatform.Data.Models\RecipeSharingPlatform.Data.Models.csproj", "{C46C1A5C-0EB4-439B-94C2-295CB9127098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Web.ViewModels", "..\RecipeSharingPlatform.Web.ViewModels\RecipeSharingPlatform.Web.ViewModels.csproj", "{4D38E2C9-B9BB-4B05-AD31-81E914B12D15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73B7DB5C-8736-482A-9561-6455350D12E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B7DB5C-8736-482A-9561-6455350D12E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B7DB5C-8736-482A-9561-6455350D12E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B7DB5C-8736-482A-9561-6455350D12E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9717B09C-6543-4C30-B235-9699A2EE0F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9717B09C-6543-4C30-B235-9699A2EE0F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9717B09C-6543-4C30-B235-9699A2EE0F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9717B09C-6543-4C30-B235-9699A2EE0F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23DA8146-1316-4902-96EA-06EC238C4858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DA8146-1316-4902-96EA-06EC238C4858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DA8146-1316-4902-96EA-06EC238C4858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DA8146-1316-4902-96EA-06EC238C4858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46C1A5C-0EB4-439B-94C2-295CB9127098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46C1A5C-0EB4-439B-94C2-295CB9127098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46C1A5C-0EB4-439B-94C2-295CB9127098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46C1A5C-0EB4-439B-94C2-295CB9127098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D38E2C9-B9BB-4B05-AD31-81E914B12D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D38E2C9-B9BB-4B05-AD31-81E914B12D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D38E2C9-B9BB-4B05-AD31-81E914B12D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D38E2C9-B9BB-4B05-AD31-81E914B12D15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73B7DB5C-8736-482A-9561-6455350D12E9} = {ECE3132E-1713-4D3C-AE70-CE205A3DDCF0}
+		{23DA8146-1316-4902-96EA-06EC238C4858} = {BA473DAB-1934-4E29-A07F-0A3CF08BC43B}
+		{C46C1A5C-0EB4-439B-94C2-295CB9127098} = {BA473DAB-1934-4E29-A07F-0A3CF08BC43B}
+		{4D38E2C9-B9BB-4B05-AD31-81E914B12D15} = {ECE3132E-1713-4D3C-AE70-CE205A3DDCF0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA7FFA42-AE27-4854-842A-E73276BE8227}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Recipe-Sharing-Platform-2.props" />
+</Project>

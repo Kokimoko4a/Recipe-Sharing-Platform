@@ -1,9 +1,14 @@
-﻿namespace RecipeSharingPlatform.Data.Models
+﻿
+
+
+
+namespace RecipeSharingPlatform.Data.Models
+
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using static RecipeSharingPlatform.Common.EntityValidationConstants.Ingredient;
+
     public class Ingredient
     {
         [Key]
