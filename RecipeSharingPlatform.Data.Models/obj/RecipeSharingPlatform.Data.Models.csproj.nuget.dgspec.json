@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kaloyan\\Zadachi_Softuni_C#\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj": {}
+    "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj": {}
   },
   "projects": {
-    "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
+    "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj",
+        "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj",
         "projectName": "RecipeSharingPlatform.Common",
-        "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj",
+        "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\obj\\",
+        "outputPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Kaloyan\\Zadachi_Softuni_C#\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj": {
+    "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj",
+        "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj",
         "projectName": "RecipeSharingPlatform.Data.Models",
-        "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj",
+        "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data.Models\\RecipeSharingPlatform.Data.Models.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\RecipeSharingPlatform.Data.Models\\obj\\",
+        "outputPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -91,8 +91,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
-                "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj"
+              "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
+                "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj"
               }
             }
           }
