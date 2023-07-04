@@ -32,6 +32,28 @@ namespace RecipesSharingPlatform.Data.Configurations
                 .WithMany(r => r.Recipes)
                 .HasForeignKey(r => r.AuthorId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.
+                HasOne(r => r.CookingType)
+                .WithMany(c => c.Recipes)
+                .HasForeignKey(r => r.CookingTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.
+                HasOne(r => r.Difficulty)
+                .WithMany(d => d.Recipes)
+                .HasForeignKey(r => r.DifficultyId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
+
+      /*  private Recipe[] GenerateRecipes()
+        {
+            ICollection<Recipe> recipes = new HashSet<Recipe>();
+
+            Recipe recipe = new Recipe()
+            {
+                
+            };
+        }*/
     }
 }

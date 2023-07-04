@@ -20,6 +20,10 @@ namespace Recipe_Sharing_Platform_2.Data
         public DbSet<Ingredient> Ingredients { get; set; } = null!;
         public DbSet<Recipe> Recipes { get; set; } = null!;
 
+        public DbSet<CookingType> CookingTypes { get; set; }
+
+        public DbSet<DifficultyType> DifficultyTypes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             Assembly configAssembly = Assembly.GetAssembly(typeof(RecipeSharingPlatformDbContext)) ??

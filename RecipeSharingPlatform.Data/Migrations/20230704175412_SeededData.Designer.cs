@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Recipe_Sharing_Platform_2.Data;
 
@@ -11,9 +12,10 @@ using Recipe_Sharing_Platform_2.Data;
 namespace RecipesSharingPlatform.Data.Migrations
 {
     [DbContext(typeof(RecipeSharingPlatformDbContext))]
-    partial class RecipeSharingPlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230704175412_SeededData")]
+    partial class SeededData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -295,6 +297,11 @@ namespace RecipesSharingPlatform.Data.Migrations
                         {
                             Id = 11,
                             Name = "Seafood"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Meals with beef"
                         },
                         new
                         {

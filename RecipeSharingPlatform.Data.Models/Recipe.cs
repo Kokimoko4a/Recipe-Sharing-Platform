@@ -51,13 +51,18 @@
         public virtual ICollection<Ingredient> Ingredients { get; set; } = null!;
 
         [Required]
-        public string CookingType { get; set; } = null!;
+        public CookingType CookingType { get; set; } = null!;
 
         [Required]
-        public string RecipeType { get; set; } = null!;
+        [ForeignKey(nameof(CookingType))]
+        public int CookingTypeId { get; set; }
 
         [Required]
-        public string Difficulty { get; set; } = null!;
+        public DifficultyType Difficulty { get; set; } = null!;
+
+        [Required]
+        [ForeignKey(nameof(Difficulty))]
+        public int DifficultyId { get; set; }
 
         [Required]
         [MaxLength(MaxImageUrlLength)]
