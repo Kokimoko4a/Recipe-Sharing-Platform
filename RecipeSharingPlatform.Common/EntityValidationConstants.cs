@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecipeSharingPlatform.Common
 {
-    public static class EntityValidationConstants
+    public class EntityValidationConstants
     {
         public static class Category
         {
@@ -66,9 +66,20 @@ namespace RecipeSharingPlatform.Common
             public const int MaxUsernameLength = 100;
 
             public const int MinUsernameLength = 3;
+        }
 
+        public static class CookingType
+        {
+            public const int MaxTextLength = 50;
 
+            public const int MinTextLength = 5;
+        }
 
+        public static class DifficultyType
+        {
+            public const int MaxTextLength = 50;
+
+            public const int MinTextLength = 5;
         }
     }
 }
