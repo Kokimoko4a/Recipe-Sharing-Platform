@@ -8,6 +8,7 @@ namespace RecipeSharingPlatform.Data.Models
     {
         public ApplicationUser()
         {
+            Id = Guid.NewGuid();
             Recipes = new HashSet<Recipe>();
         }
 

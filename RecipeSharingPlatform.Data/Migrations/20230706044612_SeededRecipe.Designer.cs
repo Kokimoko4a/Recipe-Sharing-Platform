@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Recipe_Sharing_Platform_2.Data;
 
@@ -11,9 +12,10 @@ using Recipe_Sharing_Platform_2.Data;
 namespace RecipesSharingPlatform.Data.Migrations
 {
     [DbContext(typeof(RecipeSharingPlatformDbContext))]
-    partial class RecipeSharingPlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230706044612_SeededRecipe")]
+    partial class SeededRecipe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -557,9 +559,6 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.Property<int>("PreparingTime")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalTime")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
@@ -585,8 +584,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                             DifficultyId = 3,
                             ImageUrl = "https://www.google.com/search?q=chicken+with+potatoes&tbm=isch&ved=2ahUKEwj_kPr9mfn_AhWa76QKHS4eAPEQ2-cCegQIABAA&oq=chicken+with+po&gs_lcp=CgNpbWcQARgAMgUIABCABDIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjoECCMQJzoICAAQgAQQsQNQiw1YgDVgyj5oAHAAeACAAaoBiAHLD5IBBDAuMTaYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=fT2mZL_eB5rfkwWuvICIDw&bih=754&biw=1536&rlz=1C1GCEU_enBG996BG996#imgrc=ss8xt7oFot-aoM",
                             Name = "Пиле с картофи по селски",
-                            PreparingTime = 15,
-                            TotalTime = 115
+                            PreparingTime = 15
                         });
                 });
 

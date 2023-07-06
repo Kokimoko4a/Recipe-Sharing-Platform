@@ -38,7 +38,7 @@
         [Range(MinTimeForPreparing, MaxTimeForPreparing)]
         public int PreparingTime { get; set; }
 
-        public int TotalTime { get => PreparingTime + CookingTime; }
+        public int TotalTime { get => PreparingTime + CookingTime; protected set { } }
 
         [Required]
         public virtual Category Category { get; set; } = null!;
