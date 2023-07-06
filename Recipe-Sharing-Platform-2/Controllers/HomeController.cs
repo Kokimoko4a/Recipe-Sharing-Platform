@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Recipe_Sharing_Platform_2.Data;
 using RecipeSharingPlatform.Web.ViewModels.Home;
 //using Recipe_Sharing_Platform_2.Models;
 using System.Diagnostics;
@@ -7,16 +8,17 @@ namespace Recipe_Sharing_Platform_2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly RecipeSharingPlatformDbContext dbContext;
+   
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(RecipeSharingPlatformDbContext dbContext)
         {
-            _logger = logger;
+            this.dbContext = dbContext;        
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(dbContext.Recipes.ToList());
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,30 @@
-﻿@{
+﻿@using RecipeSharingPlatform.Data.Models
+@model List<Recipe> 
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Recipe Sharing Platform</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Recipe Sharing Platform</h1>
+        <hr />
+
+        <h2>Latest Recipes</h2>
+
+        @foreach (var recipe in Model)
+        {
+                <div class="recipe-card">
+                    <h3 class="recipe-title">@recipe.Name</h3>
+                    <p class="recipe-description">@recipe.Description</p>
+                    <p class="recipe-author">Author: @recipe.Author!.Email.ToLower()</p>
+                </div>
+        }
+    </div>
+</body>
+</html>
