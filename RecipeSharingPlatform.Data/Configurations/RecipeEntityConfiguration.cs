@@ -65,7 +65,7 @@ namespace RecipesSharingPlatform.Data.Configurations
                 CategoryId = 5,
                 CookingTypeId = 14,
                 DifficultyId = 3,
-                ImageUrl = "https://www.google.com/search?q=chicken+with+potatoes&tbm=isch&ved=2ahUKEwj_kPr9mfn_AhWa76QKHS4eAPEQ2-cCegQIABAA&oq=chicken+with+po&gs_lcp=CgNpbWcQARgAMgUIABCABDIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjoECCMQJzoICAAQgAQQsQNQiw1YgDVgyj5oAHAAeACAAaoBiAHLD5IBBDAuMTaYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=fT2mZL_eB5rfkwWuvICIDw&bih=754&biw=1536&rlz=1C1GCEU_enBG996BG996#imgrc=ss8xt7oFot-aoM",
+                ImageUrl = "https://www.simplyrecipes.com/thmb/e9uYiUCjh79zFsVWlkbIxR3L5Dw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__10__2016-10-31-OnePanChickenThighs-6-c360034c6ca5479fadffa7e92d288fe0.jpg",
                 AuthorId = Guid.Parse("499C5B1F-008E-498E-18B8-08DB7AD03031"),
                 
                 /*Ingredients = new HashSet<Ingredient>() { new Ingredient()

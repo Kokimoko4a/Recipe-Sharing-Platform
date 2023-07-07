@@ -71,3 +71,10 @@ body {
     color: #888;
 }
 </style >
+
+ <style>
+    .image-container {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
