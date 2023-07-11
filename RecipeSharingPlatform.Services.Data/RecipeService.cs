@@ -2,6 +2,7 @@
 using Recipe_Sharing_Platform_2.Data;
 using RecipeSharingPlatform.Services.Data.Interfaces;
 using RecipeSharingPlatform.Web.ViewModels.Home;
+using RecipeSharingPlatform.Web.ViewModels.Recipe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace RecipeSharingPlatform.Services.Data
             this.data = data;
         }
 
-        public async Task<IEnumerable<IndexViewModel>> LastSixRecipes()
+        public async Task<IEnumerable<IndexViewModel>> LastSixRecipesAsync()
         {
             List<IndexViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new IndexViewModel()
             {
@@ -30,5 +31,20 @@ namespace RecipeSharingPlatform.Services.Data
 
             return recipes;
         }
+
+        public async Task<IEnumerable<RecipeViewModel>> AllRecipesAsync()
+        {
+            List<RecipeViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new RecipeViewModel()
+            {
+                Id = x.Id,
+                AuthorName = x.Author!.Email,
+                ImageURL = x.ImageUrl,
+                Title = x.Name,
+                Category = x.Category.Name
+            }).ToListAsync();
+
+            return recipes;
+        }
+
     }
 }

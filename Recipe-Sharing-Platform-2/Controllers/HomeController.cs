@@ -18,7 +18,7 @@
 
         public async Task<IActionResult> Index()
         {
-            return View(await service.LastSixRecipes());
+            return View(await service.LastSixRecipesAsync());
         }
 
         public IActionResult Privacy()
