@@ -13,6 +13,8 @@
             Ingredients = new HashSet<Ingredient>();
 
             Comments = new HashSet<Comment>();
+
+            CreatedOn = DateTime.UtcNow;
         }
 
         [Key]
@@ -77,5 +79,8 @@
         [Required]
         [ForeignKey(nameof(Author))]
         public Guid AuthorId { get; set; }
+
+        [Required]
+        public DateTime CreatedOn { get; set; } 
     }
 }

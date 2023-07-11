@@ -1,0 +1,12 @@
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.deps.json
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.csproj.AssemblyReference.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.AssemblyInfoInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.AssemblyInfo.cs
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\refint\RecipeSharingPlatfrom.Web.Infrastructure.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\ref\RecipeSharingPlatfrom.Web.Infrastructure.dll

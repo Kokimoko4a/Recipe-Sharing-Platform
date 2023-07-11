@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "w3EAuf3zBp98kZWmkQiy30ZRgtRMGP1R1fGycZZ2YEn9pFizGkdOyvX8WRnuiUYLDYoSYPF8A42r/wF9/S0FQA==",
+  "success": true,
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatfrom.Web.Infrastructure\\RecipeSharingPlatfrom.Web.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

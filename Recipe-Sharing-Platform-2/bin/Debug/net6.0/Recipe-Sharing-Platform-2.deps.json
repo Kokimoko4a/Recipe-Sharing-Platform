@@ -14,7 +14,9 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.10",
           "RecipeSharingPlatform.Data.Models": "1.0.0",
+          "RecipeSharingPlatform.Services.Data": "1.0.0",
           "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
+          "RecipeSharingPlatfrom.Web.Infrastructure": "1.0.0",
           "RecipesSharingPlatform.Data": "1.0.0"
         },
         "runtime": {
@@ -554,9 +556,28 @@
           "RecipeSharingPlatform.Data.Models.dll": {}
         }
       },
+      "RecipeSharingPlatform.Services.Data/1.0.0": {
+        "dependencies": {
+          "RecipeSharingPlatform.Common": "1.0.0",
+          "RecipeSharingPlatform.Data.Models": "1.0.0",
+          "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
+          "RecipesSharingPlatform.Data": "1.0.0"
+        },
+        "runtime": {
+          "RecipeSharingPlatform.Services.Data.dll": {}
+        }
+      },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
         "runtime": {
           "RecipeSharingPlatform.Web.ViewModels.dll": {}
+        }
+      },
+      "RecipeSharingPlatfrom.Web.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "RecipeSharingPlatfrom.Web.Infrastructure.dll": {}
         }
       },
       "RecipesSharingPlatform.Data/1.0.0": {
@@ -951,7 +972,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "RecipeSharingPlatform.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RecipeSharingPlatfrom.Web.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,10 +1,14 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Recipe_Sharing_Platform_2.Data;
-using RecipeSharingPlatform.Data.Models;
+
 
 namespace Recipe_Sharing_Platform_2
 {
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Recipe_Sharing_Platform_2.Data;
+    using RecipeSharingPlatform.Data.Models;
+    using RecipeSharingPlatform.Services.Data.Interfaces;
+    using RecipeSharingPlatfrom.Web.Infrastructure.Extensions;
+
     public class Program
     {
         public static void Main(string[] args)
@@ -19,6 +23,9 @@ namespace Recipe_Sharing_Platform_2
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<RecipeSharingPlatformDbContext>();
+
+            builder.Services.AddApplicationServices(typeof(IRecipeService));
+
             builder.Services.AddControllersWithViews();
 
             WebApplication app = builder.Build();

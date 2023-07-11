@@ -19,7 +19,13 @@
   <ItemGroup>
     <ProjectReference Include="..\RecipeSharingPlatform.Data.Models\RecipeSharingPlatform.Data.Models.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Data\RecipesSharingPlatform.Data.csproj" />
+    <ProjectReference Include="..\RecipeSharingPlatform.Services.Data\RecipeSharingPlatform.Services.Data.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Web.ViewModels\RecipeSharingPlatform.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Recipe\" />
   </ItemGroup>
 
 </Project>

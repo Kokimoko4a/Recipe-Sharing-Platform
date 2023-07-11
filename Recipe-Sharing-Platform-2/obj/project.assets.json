@@ -976,6 +976,22 @@
           "bin/placeholder/RecipeSharingPlatform.Data.Models.dll": {}
         }
       },
+      "RecipeSharingPlatform.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "RecipeSharingPlatform.Common": "1.0.0",
+          "RecipeSharingPlatform.Data.Models": "1.0.0",
+          "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
+          "RecipesSharingPlatform.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipeSharingPlatform.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeSharingPlatform.Services.Data.dll": {}
+        }
+      },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -984,6 +1000,19 @@
         },
         "runtime": {
           "bin/placeholder/RecipeSharingPlatform.Web.ViewModels.dll": {}
+        }
+      },
+      "RecipeSharingPlatfrom.Web.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipeSharingPlatfrom.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeSharingPlatfrom.Web.Infrastructure.dll": {}
         }
       },
       "RecipesSharingPlatform.Data/1.0.0": {
@@ -2502,10 +2531,20 @@
       "path": "../RecipeSharingPlatform.Data.Models/RecipeSharingPlatform.Data.Models.csproj",
       "msbuildProject": "../RecipeSharingPlatform.Data.Models/RecipeSharingPlatform.Data.Models.csproj"
     },
+    "RecipeSharingPlatform.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../RecipeSharingPlatform.Services.Data/RecipeSharingPlatform.Services.Data.csproj",
+      "msbuildProject": "../RecipeSharingPlatform.Services.Data/RecipeSharingPlatform.Services.Data.csproj"
+    },
     "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../RecipeSharingPlatform.Web.ViewModels/RecipeSharingPlatform.Web.ViewModels.csproj",
       "msbuildProject": "../RecipeSharingPlatform.Web.ViewModels/RecipeSharingPlatform.Web.ViewModels.csproj"
+    },
+    "RecipeSharingPlatfrom.Web.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../RecipeSharingPlatfrom.Web.Infrastructure/RecipeSharingPlatfrom.Web.Infrastructure.csproj",
+      "msbuildProject": "../RecipeSharingPlatfrom.Web.Infrastructure/RecipeSharingPlatfrom.Web.Infrastructure.csproj"
     },
     "RecipesSharingPlatform.Data/1.0.0": {
       "type": "project",
@@ -2521,7 +2560,9 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
       "RecipeSharingPlatform.Data.Models >= 1.0.0",
+      "RecipeSharingPlatform.Services.Data >= 1.0.0",
       "RecipeSharingPlatform.Web.ViewModels >= 1.0.0",
+      "RecipeSharingPlatfrom.Web.Infrastructure >= 1.0.0",
       "RecipesSharingPlatform.Data >= 1.0.0"
     ]
   },
@@ -2563,8 +2604,14 @@
             "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data\\RecipesSharingPlatform.Data.csproj": {
               "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Data\\RecipesSharingPlatform.Data.csproj"
             },
+            "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Services.Data\\RecipeSharingPlatform.Services.Data.csproj": {
+              "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Services.Data\\RecipeSharingPlatform.Services.Data.csproj"
+            },
             "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Web.ViewModels\\RecipeSharingPlatform.Web.ViewModels.csproj": {
               "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatform.Web.ViewModels\\RecipeSharingPlatform.Web.ViewModels.csproj"
+            },
+            "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatfrom.Web.Infrastructure\\RecipeSharingPlatfrom.Web.Infrastructure.csproj": {
+              "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\RecipeSharingPlatfrom.Web.Infrastructure\\RecipeSharingPlatfrom.Web.Infrastructure.csproj"
             }
           }
         }

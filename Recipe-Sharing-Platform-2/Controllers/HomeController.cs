@@ -1,32 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Recipe_Sharing_Platform_2.Data;
-using RecipeSharingPlatform.Data.Models;
-using RecipeSharingPlatform.Web.ViewModels.Home;
-//using Recipe_Sharing_Platform_2.Models;
-using System.Diagnostics;
-
-namespace Recipe_Sharing_Platform_2.Controllers
+﻿namespace Recipe_Sharing_Platform_2.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Recipe_Sharing_Platform_2.Data;
+    using RecipeSharingPlatform.Services.Data.Interfaces;
+    using RecipeSharingPlatform.Web.ViewModels.Home;
+    using System.Diagnostics;
+
     public class HomeController : Controller
     {
-        private readonly RecipeSharingPlatformDbContext dbContext;
+        private readonly IRecipeService service;
    
 
-        public HomeController(RecipeSharingPlatformDbContext dbContext)
+        public HomeController(IRecipeService service)
         {
-            this.dbContext = dbContext;        
+            this.service = service;        
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           List<RecipeViewModel> recipes = dbContext.Recipes.Select(x => new RecipeViewModel()
-           { 
-            AuthorName = x.Author!.Email,
-            ImageURL = x.ImageUrl,
-            Title = x.Name
-           }).ToList();
-
-            return View(recipes);
+            return View(await service.LastSixRecipes());
         }
 
         public IActionResult Privacy()

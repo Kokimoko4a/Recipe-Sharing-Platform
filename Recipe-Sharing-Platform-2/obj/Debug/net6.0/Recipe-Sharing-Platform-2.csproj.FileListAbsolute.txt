@@ -166,3 +166,7 @@ D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platf
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\obj\Debug\net6.0\Recipe-Sharing-Platform-2.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\obj\Debug\net6.0\Recipe-Sharing-Platform-2.genruntimeconfig.cache
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\obj\Debug\net6.0\ref\Recipe-Sharing-Platform-2.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\bin\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\Recipe-Sharing-Platform-2\bin\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.pdb
