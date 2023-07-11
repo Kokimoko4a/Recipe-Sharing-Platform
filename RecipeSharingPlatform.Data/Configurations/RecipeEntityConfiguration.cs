@@ -68,7 +68,7 @@ namespace RecipesSharingPlatform.Data.Configurations
                 ImageUrl = "https://www.simplyrecipes.com/thmb/e9uYiUCjh79zFsVWlkbIxR3L5Dw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__10__2016-10-31-OnePanChickenThighs-6-c360034c6ca5479fadffa7e92d288fe0.jpg",
                 AuthorId = Guid.Parse("499C5B1F-008E-498E-18B8-08DB7AD03031"),
                 
-                /*Ingredients = new HashSet<Ingredient>() { new Ingredient()
+               /* Ingredients = new HashSet<Ingredient>() { new Ingredient()
                 {
                     Id = 1,
                     Name = "potato",
@@ -90,7 +90,7 @@ namespace RecipesSharingPlatform.Data.Configurations
                     TypeMeasurement = "gr",
                     Quantity = 50,
                     RecipeId = Guid.Parse("3f1a2f97-f79e-44a8-8513-0a7d7c7acb9f")
-                } },*/
+                } }*/
                 
             };
 

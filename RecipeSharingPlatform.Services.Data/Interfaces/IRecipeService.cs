@@ -12,5 +12,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         public Task<IEnumerable<RecipeViewModel>> AllRecipesAsync();
 
+        public Recipe GetRecipeByIdAsync(Guid id);
+
     }
 }

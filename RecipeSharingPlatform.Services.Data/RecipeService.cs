@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Recipe_Sharing_Platform_2.Data;
+using RecipeSharingPlatform.Data.Models;
 using RecipeSharingPlatform.Services.Data.Interfaces;
 using RecipeSharingPlatform.Web.ViewModels.Home;
 using RecipeSharingPlatform.Web.ViewModels.Recipe;
@@ -46,5 +47,18 @@ namespace RecipeSharingPlatform.Services.Data
             return recipes;
         }
 
+        public  Recipe GetRecipeByIdAsync(Guid id)
+        {
+            Recipe recipe = data.Recipes.
+                Include(r => r.Category)
+                .Include(r => r.Author)
+                .Include(r => r.CookingType)
+                .Include(r => r.Difficulty)
+                .Include(r => r.Ingredients)
+                .FirstOrDefault(r => r.Id == id)!;
+
+
+            return recipe;
+        }
     }
 }

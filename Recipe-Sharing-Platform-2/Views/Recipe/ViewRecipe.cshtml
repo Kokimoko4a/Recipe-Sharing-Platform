@@ -1,0 +1,42 @@
+﻿@using RecipeSharingPlatform.Data.Models;
+@model Recipe
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-4">
+    <h2>@Model.Name</h2>
+    <p>Category: @Model.Category.Name</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name">
+        </div>
+        <div class="col-md-6">
+            <div class="my-3">
+                <h4>Description</h4>
+                <p>@Model.Description</p>
+            </div>
+            <div class="my-3">
+                <h4>Ingredients</h4>
+                <ul>
+                    @foreach (var ingredient in Model.Ingredients)
+                    {
+                        <li>@ingredient.Name</li>
+                    }
+                </ul>
+            </div>
+            <div class="my-3">
+                <h4>How to Prepare</h4>
+                <p>Cooking Type: @Model.CookingType.Name</p>
+                <p>Cooking Time: @Model.CookingTime</p>
+                <p>Preparing Time: @Model.PreparingTime</p>
+                <p>Total Time: @Model.TotalTime</p>
+                <p>Difficulty: @Model.Difficulty.Name</p>
+                <p>Count of Portions: @Model.CountOfPortions</p>
+                <p>Created On: @Model.CreatedOn</p>
+                <p>Author: @Model.Author!.Email</p>
+            </div>
+        </div>
+    </div>
+</div>
