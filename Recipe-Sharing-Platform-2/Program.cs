@@ -3,6 +3,7 @@
 namespace Recipe_Sharing_Platform_2
 {
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Recipe_Sharing_Platform_2.Data;
     using RecipeSharingPlatform.Data.Models;
@@ -26,7 +27,10 @@ namespace Recipe_Sharing_Platform_2
 
             builder.Services.AddApplicationServices(typeof(IRecipeService));
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddMvcOptions(options => 
+            {
+                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+            });
 
             WebApplication app = builder.Build();
 

@@ -37,6 +37,8 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (await recipeService.GetRecipeByIdAsync(id) == null)
             {
+                TempData["ErrorMessage"] = "Bazinga!! No such a recipe";
+
                 return RedirectToAction("All");
             }
 

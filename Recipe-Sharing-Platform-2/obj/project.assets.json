@@ -2576,9 +2576,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\Recipe-Sharing-Platform-2\\Recipe-Sharing-Platform-2.csproj",
-      "projectName": "Recipe-Sharing-Platform-2",
-      "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\Recipe-Sharing-Platform-2\\Recipe-Sharing-Platform-2.csproj",
+      "projectUniqueName": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\Recipe-Sharing-Platform-2\\Recipe-Sharing-Platform-2.web.csproj",
+      "projectName": "Recipe-Sharing-Platform-2.web",
+      "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\Recipe-Sharing-Platform-2\\Recipe-Sharing-Platform-2.web.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\Recipe-Sharing-Platform-2\\obj\\",
       "projectStyle": "PackageReference",

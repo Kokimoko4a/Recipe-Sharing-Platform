@@ -1,43 +1,42 @@
 ﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
 @model RecipeFormModel
-<div class="row">
- <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
- <form method="post">
- <div class="form-group">
- <label asp-for="Title"></label>
- <input asp-for="Title" class="form-control" placeholder="Title...">
- <span asp-validation-for="Title" class="small text-danger"></span>
- </div>
- <div class="form-group">
- <label asp-for="Description"></label>
- <textarea asp-for="Description" rows="4" class="form-control"
-placeholder="Take the pot and..."></textarea>
- <span asp-validation-for="Description" class="small textdanger"></span>
- </div>
- <div class="form-group">
- <label asp-for="ImageUrl"></label>
- <input asp-for="ImageUrl" class="form-control" placeholder="Your
-fine URL here...">
- <span asp-validation-for="ImageUrl" class="small textdanger"></span>
- </div>
- <div class="form-group">
- <label asp-for="Description"></label>
- <input asp-for="Description" class="form-control">
- <span asp-validation-for="Description" class="small textdanger"></span>
- </div>
- <div class="form-group">
- <label asp-for="CategoryId"></label>
- <select asp-for="CategoryId" class="form-control">
-                    @foreach (var category in Model.Categories)
-                    {
-     <option value="@category.Id">@category.Name</option>
-                    }
- </select>
- <span asp-validation-for="CategoryId" class="small textdanger"></span>
- </div>
- <div class="text-center">
- <input class="btn btn-primary mt-3" type="submit" value="Save" />
- </div>
- </form>
- </div>
-</div>
+
+
+
+<h2>Add Recipe</h2>
+
+<div class="card bg-light p-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 text-center">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjVoZWFzMXFhcWtzZGluOXFyM3FwY3NhNmc1cHlza3o5eXE4ZWh6dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/64eXJvsGa1VdKwWtlk/giphy.gif" alt="Cooking Turtle" class="img-fluid mb-3" />
+            </div>
+            <div class="col-lg-8">
+                <h3 class="card-title text-center text-dark">Share Your Recipe</h3>
+                <hr class="my-4">
+
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label asp-for="Title" class="form-label text-dark">Recipe Title</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Ingredients" class="form-label text-dark">Ingredients</label>
+                        <textarea asp-for="Ingredients" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Ingredients" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label text-dark">Instructions</label>
+                        <textarea asp-for="Description" class="form-control" rows="8"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Share Recipe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

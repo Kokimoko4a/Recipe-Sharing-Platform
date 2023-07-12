@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe-Sharing-Platform-2", "Recipe-Sharing-Platform-2.csproj", "{73B7DB5C-8736-482A-9561-6455350D12E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe-Sharing-Platform-2.Web", "Recipe-Sharing-Platform-2.Web.csproj", "{73B7DB5C-8736-482A-9561-6455350D12E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Common", "..\GeneralApplicationConstants\RecipeSharingPlatform.Common.csproj", "{9717B09C-6543-4C30-B235-9699A2EE0F30}"
 EndProject
@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Web.V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{50153330-112F-4C04-A7EE-89D8DEF804C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Services.Data", "..\RecipeSharingPlatform.Services.Data\RecipeSharingPlatform.Services.Data.csproj", "{84868E7D-04A2-4566-AA91-F53D0D0079CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Services.Data", "..\RecipeSharingPlatform.Services.Data\RecipeSharingPlatform.Services.Data.csproj", "{84868E7D-04A2-4566-AA91-F53D0D0079CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatfrom.Web.Infrastructure", "..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj", "{C8109982-3887-40DB-9F9D-7EA1092ACBC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatfrom.Web.Infrastructure", "..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj", "{C8109982-3887-40DB-9F9D-7EA1092ACBC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

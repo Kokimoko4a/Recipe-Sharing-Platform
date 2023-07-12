@@ -169,4 +169,50 @@ h1 {
     text-decoration: none;
     }
 
+}
+
+</style >
+
+
+<style >
+.bg-cooking {
+    background-image: url('cooking-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.form-label {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+    .form-control:focus {
+        box-shadow: none;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+.btn-primary {
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #ff751a;
+    }
+
 </style >
