@@ -9,17 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Recipe Sharing Platform</title>
-    <style>
-        .recipe-card {
-            width: 300px; 
-            margin-bottom: 20px;
-        }
-
-        .recipe-card img {
-            width: 50%;
-            height: auto;
-        }
-    </style>
+   
 </head>
 <body>
     <div class="container">
@@ -32,13 +22,15 @@
         {
             string link = recipe.ImageURL;
 
-                    <div class="recipe-card">
-                        <h3 class="recipe-title">@recipe.Title</h3>
-                        <div class="image-container">
-                            <img src="@link" alt="Description of the image">
-                        </div>
-                        <p class="recipe-author">Author: @recipe.AuthorName</p>
-                    </div>
+                       <div class="recipe-card">
+                        <a href="@Url.Action("ViewRecipe", "Recipe", new { id = recipe.Id })" class="recipe-link">
+                       <img src="@recipe.ImageURL" alt="Recipe Image"> 
+                       <div class="category-overlay">@recipe.Category</div>
+                       <div class="recipe-details">
+                          <h2>@recipe.Title</h2>
+                       </div>
+                    </a>
+                 </div>
         }
     </div>
 </body>

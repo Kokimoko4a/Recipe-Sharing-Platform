@@ -13,18 +13,19 @@
             <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name">
         </div>
         <div class="col-md-6">
+            <h4>Ingredients</h4>
+                <ul>
+                @foreach (var ingredient in Model.Ingredients)
+                {
+                            <li>@ingredient.Name</li>
+                }
+                </ul>
             <div class="my-3">
                 <h4>Description</h4>
                 <p>@Model.Description</p>
             </div>
             <div class="my-3">
-                <h4>Ingredients</h4>
-                <ul>
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>@ingredient.Name</li>
-                    }
-                </ul>
+                
             </div>
             <div class="my-3">
                 <h4>How to Prepare</h4>

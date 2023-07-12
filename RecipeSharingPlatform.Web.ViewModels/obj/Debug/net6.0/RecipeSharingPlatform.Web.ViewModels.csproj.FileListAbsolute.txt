@@ -22,3 +22,6 @@ D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatfor
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\obj\Debug\net6.0\refint\RecipeSharingPlatform.Web.ViewModels.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\obj\Debug\net6.0\RecipeSharingPlatform.Web.ViewModels.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\obj\Debug\net6.0\ref\RecipeSharingPlatform.Web.ViewModels.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\bin\Debug\net6.0\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\bin\Debug\net6.0\RecipeSharingPlatform.Common.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-papka\RecipeSharingPlatform.Web.ViewModels\obj\Debug\net6.0\RecipeSharingPlatform.Web.ViewModels.csproj.CopyComplete

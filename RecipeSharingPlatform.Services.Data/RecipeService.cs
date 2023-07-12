@@ -25,9 +25,11 @@ namespace RecipeSharingPlatform.Services.Data
         {
             List<IndexViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new IndexViewModel()
             {
+                Id = x.Id,
                 AuthorName = x.Author!.Email,
                 ImageURL = x.ImageUrl,
-                Title = x.Name
+                Title = x.Name,
+                Category = x.Category.Name
             }).Take(6).ToListAsync();
 
             return recipes;
@@ -47,15 +49,15 @@ namespace RecipeSharingPlatform.Services.Data
             return recipes;
         }
 
-        public  Recipe GetRecipeByIdAsync(Guid id)
+        public async Task<Recipe> GetRecipeByIdAsync(Guid id)
         {
-            Recipe recipe = data.Recipes.
+            Recipe recipe = await data.Recipes.
                 Include(r => r.Category)
                 .Include(r => r.Author)
                 .Include(r => r.CookingType)
                 .Include(r => r.Difficulty)
                 .Include(r => r.Ingredients)
-                .FirstOrDefault(r => r.Id == id)!;
+                .FirstOrDefaultAsync(r => r.Id == id)!;
 
 
             return recipe;

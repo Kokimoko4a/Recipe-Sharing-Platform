@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "RecipeSharingPlatform.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RecipeSharingPlatform.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeSharingPlatform.Common.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RecipeSharingPlatform.Common/1.0.0": {
+      "type": "project",
+      "path": "../GeneralApplicationConstants/RecipeSharingPlatform.Common.csproj",
+      "msbuildProject": "../GeneralApplicationConstants/RecipeSharingPlatform.Common.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "RecipeSharingPlatform.Common >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Admin\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
+              "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -410,7 +410,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj": {
+                "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-papka\\GeneralApplicationConstants\\RecipeSharingPlatform.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

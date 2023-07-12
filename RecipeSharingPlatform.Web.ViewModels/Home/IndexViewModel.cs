@@ -15,5 +15,7 @@ namespace RecipeSharingPlatform.Web.ViewModels.Home
         public string AuthorName { get; set; } = null!;
 
         public string ImageURL { get; set; } = null!;
+
+        public string Category { get; set; } = null!;
     }
 }
