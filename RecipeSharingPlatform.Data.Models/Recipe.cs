@@ -1,4 +1,4 @@
-﻿namespace RecipeSharingPlatform.Data.Models
+﻿namespace RecipesSharingPlatform.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -12,9 +12,7 @@
 
             Ingredients = new HashSet<Ingredient>();
 
-            Comments = new HashSet<Comment>();
-
-            CreatedOn = DateTime.UtcNow;
+            CreatedOn = DateTime.Now;
         }
 
         [Key]
@@ -22,7 +20,7 @@
 
         [Required]
         [StringLength(RecipeNameMaxLength, MinimumLength = RecipeNameMinLength)]
-        public string Name { get; set; } = null!;
+        public string Title { get; set; } = null!;
 
         [Required]
         [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength)]
@@ -70,17 +68,15 @@
         [MaxLength(MaxImageUrlLength)]
         public string ImageUrl { get; set; } = null!;
 
-        [Required]
-        public virtual ICollection<Comment> Comments { get; set; } = null!;
 
         [Required]
         public virtual ApplicationUser? Author { get; set; }
 
-        [Required]
+
         [ForeignKey(nameof(Author))]
         public Guid AuthorId { get; set; }
 
         [Required]
-        public DateTime CreatedOn { get; set; } 
+        public DateTime CreatedOn { get; set; }
     }
 }

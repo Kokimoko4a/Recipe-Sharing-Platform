@@ -1,0 +1,31 @@
+﻿﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model List<RecipeViewModel>
+
+<html>
+<head>
+   <title>Recipes</title>
+   <style>
+      .recipe-link {
+         text-decoration: none;
+         color: inherit;
+      }
+   </style>
+</head>
+<body>
+   <h1>Recipes</h1>
+   <div class="recipe-container">
+        @foreach (var recipe in Model)
+        { 
+                 <div class="recipe-card">
+                        <a href="@Url.Action("ViewRecipe", "Recipe", new { id = recipe.Id })" class="recipe-link">
+                       <img src="@recipe.ImageURL" alt="Recipe Image"> 
+                       <div class="category-overlay">@recipe.Category</div>
+                       <div class="recipe-details">
+                          <h2>@recipe.Title</h2>
+                       </div>
+                    </a>
+                 </div>
+        } 
+   </div>
+</body>
+</html>

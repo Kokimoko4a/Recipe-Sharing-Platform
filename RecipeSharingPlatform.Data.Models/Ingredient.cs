@@ -1,9 +1,7 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-
-
-namespace RecipeSharingPlatform.Data.Models
-
+namespace RecipesSharingPlatform.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -22,9 +20,9 @@ namespace RecipeSharingPlatform.Data.Models
         [Range(MinNeededQuantity, MaxNeededQuantity)]
         public double Quantity { get; set; }
 
-       
+
         [StringLength(MaxLengthOfTypeMeasurement, MinimumLength = MinLengthOfTypeMeasurement)]
-        public string? TypeMeasurement { get; set; } 
+        public string? TypeMeasurement { get; set; }
 
         [Required]
         public Recipe Recipe { get; set; } = null!;

@@ -1,0 +1,37 @@
+﻿﻿@using RecipeSharingPlatform.Web.ViewModels.Home
+@model List<IndexViewModel> 
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Recipe Sharing Platform</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Recipe Sharing Platform</h1>
+        <hr />
+
+        <h2>Latest Recipes</h2>
+
+        @foreach (var recipe in Model)
+        {
+            string link = recipe.ImageURL;
+
+                           <div class="recipe-card">
+                            <a href="@Url.Action("ViewRecipe", "Recipe", new { id = recipe.Id })" class="recipe-link">
+                           <img src="@recipe.ImageURL" alt="Recipe Image"> 
+                           <div class="category-overlay">@recipe.Category</div>
+                           <div class="recipe-details">
+                              <h2>@recipe.Title</h2>
+                           </div>
+                        </a>
+                     </div>
+        }
+    </div>
+</body>
+</html>

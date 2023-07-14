@@ -1,12 +1,12 @@
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.deps.json
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.dll
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.pdb
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.csproj.AssemblyReference.cache
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.GeneratedMSBuildEditorConfig.editorconfig
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.AssemblyInfoInputs.cache
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.AssemblyInfo.cs
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.csproj.CoreCompileInputs.cache
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.dll
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\refint\RecipeSharingPlatform.Common.dll
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.pdb
-D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform\Recipe-Sharing-Platform\RecipeSharingPlatform.Common\obj\Debug\net6.0\ref\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.deps.json
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\bin\Debug\net6.0\RecipeSharingPlatform.Common.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.csproj.AssemblyReference.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.AssemblyInfoInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.AssemblyInfo.cs
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\refint\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\RecipeSharingPlatform.Common.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Common\obj\Debug\net6.0\ref\RecipeSharingPlatform.Common.dll

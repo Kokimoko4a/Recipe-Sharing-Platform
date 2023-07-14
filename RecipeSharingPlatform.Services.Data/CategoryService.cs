@@ -4,13 +4,13 @@
 namespace RecipeSharingPlatform.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
-    using Recipe_Sharing_Platform_2.Data;
+    using Recipe_Sharing_Platform.Data;
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Web.ViewModels.Category;
 
     public class CategoryService : ICategoryService
     {
-        private readonly RecipeSharingPlatformDbContext data;
+        private readonly  RecipeSharingPlatformDbContext data;
 
         public CategoryService(RecipeSharingPlatformDbContext data)
         {

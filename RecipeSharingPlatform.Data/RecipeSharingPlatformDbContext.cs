@@ -1,28 +1,25 @@
-﻿
-
-namespace Recipe_Sharing_Platform_2.Data
+﻿namespace Recipe_Sharing_Platform.Data
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using RecipeSharingPlatform.Data.Models;
+    using RecipesSharingPlatform.Data.Models;
     using System.Reflection;
 
-    public class RecipeSharingPlatformDbContext : IdentityDbContext<ApplicationUser,IdentityRole<Guid>,Guid>
+    public class RecipeSharingPlatformDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public RecipeSharingPlatformDbContext(DbContextOptions<RecipeSharingPlatformDbContext> options)
-            : base(options)
+           : base(options)
         {
         }
 
         public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<Comment> Comments { get; set; } = null!;
         public DbSet<Ingredient> Ingredients { get; set; } = null!;
         public DbSet<Recipe> Recipes { get; set; } = null!;
 
-        public DbSet<CookingType> CookingTypes { get; set; }
+        public DbSet<CookingType> CookingTypes { get; set; } = null!;
 
-        public DbSet<DifficultyType> DifficultyTypes { get; set; }
+        public DbSet<DifficultyType> DifficultyTypes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,5 +30,6 @@ namespace Recipe_Sharing_Platform_2.Data
 
             base.OnModelCreating(builder);
         }
+
     }
 }

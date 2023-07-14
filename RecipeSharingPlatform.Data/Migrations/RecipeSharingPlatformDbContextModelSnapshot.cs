@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Recipe_Sharing_Platform_2.Data;
+using Recipe_Sharing_Platform.Data;
 
 #nullable disable
 
-namespace RecipesSharingPlatform.Data.Migrations
+namespace RecipeSharingPlatform.Data.Migrations
 {
     [DbContext(typeof(RecipeSharingPlatformDbContext))]
     partial class RecipeSharingPlatformDbContextModelSnapshot : ModelSnapshot
@@ -157,7 +157,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.ApplicationUser", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.ApplicationUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -223,7 +223,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Category", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -323,39 +323,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Comment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(5000)
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Dislikes")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Likes")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("RecipeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.CookingType", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.CookingType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -445,7 +413,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.DifficultyType", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.DifficultyType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -485,7 +453,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Ingredient", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Ingredient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -515,7 +483,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.ToTable("Ingredients");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Recipe", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Recipe", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -552,13 +520,13 @@ namespace RecipesSharingPlatform.Data.Migrations
                         .HasMaxLength(2048)
                         .HasColumnType("nvarchar(2048)");
 
-                    b.Property<string>("Name")
+                    b.Property<int>("PreparingTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("PreparingTime")
-                        .HasColumnType("int");
 
                     b.Property<int>("TotalTime")
                         .HasColumnType("int");
@@ -578,18 +546,18 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3f1a2f97-f79e-44a8-8513-0a7d7c7acb9f"),
-                            AuthorId = new Guid("499c5b1f-008e-498e-18b8-08db7ad03031"),
+                            Id = new Guid("519453b3-fe82-4528-a70b-14be52c80dfb"),
+                            AuthorId = new Guid("72095eff-7d9a-4f5d-b84a-7be5e8703865"),
                             CategoryId = 5,
                             CookingTime = 100,
                             CookingTypeId = 14,
                             CountOfPortions = 6,
-                            CreatedOn = new DateTime(2023, 7, 11, 11, 1, 19, 41, DateTimeKind.Utc).AddTicks(1966),
+                            CreatedOn = new DateTime(2023, 7, 14, 11, 6, 51, 520, DateTimeKind.Local).AddTicks(4629),
                             Description = "Пилето почистете и измийте. Разполовете го, но го оставете цяло. В купичка сложете размекнатото краве масло, черния, червеният пипер, солта пикантината и стритата суха мащерка. Разбъркайте. Намажете хубаво пилето с получената смес. Картофите обелете и измийте. Нарежете ги по селски на едри резени. Сложете ги в тава. Нарежете на ситно кубче кромида и моркова и ги прибавете при картофите. Посолете ги, прибавете олиото и разбъркайте хубаво. Сложете пилето в средата на тавата при картофите. Сипете вода, колкото да ги покрие. Завийте с алуминиево фолио и сложете във загрята фурна на 220 градуса за около час и половина. Печете до готовност, като последните 10 минути отстраните фолиото. Накъсайте пилето на порции и сервирайте пиле с картофи. Да ви е вкусно!",
                             DifficultyId = 3,
                             ImageUrl = "https://www.simplyrecipes.com/thmb/e9uYiUCjh79zFsVWlkbIxR3L5Dw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__10__2016-10-31-OnePanChickenThighs-6-c360034c6ca5479fadffa7e92d288fe0.jpg",
-                            Name = "Пиле с картофи по селски",
                             PreparingTime = 15,
+                            Title = "Пиле с картофи по селски",
                             TotalTime = 115
                         });
                 });
@@ -605,7 +573,7 @@ namespace RecipesSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", null)
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -614,7 +582,7 @@ namespace RecipesSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", null)
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -629,7 +597,7 @@ namespace RecipesSharingPlatform.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", null)
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -638,35 +606,16 @@ namespace RecipesSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", null)
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Comment", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Ingredient", b =>
                 {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RecipeSharingPlatform.Data.Models.Recipe", "Recipe")
-                        .WithMany("Comments")
-                        .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Recipe");
-                });
-
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Ingredient", b =>
-                {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.Recipe", "Recipe")
+                    b.HasOne("RecipesSharingPlatform.Data.Models.Recipe", "Recipe")
                         .WithMany("Ingredients")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -675,27 +624,27 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.Navigation("Recipe");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Recipe", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Recipe", b =>
                 {
-                    b.HasOne("RecipeSharingPlatform.Data.Models.ApplicationUser", "Author")
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", "Author")
                         .WithMany("Recipes")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("RecipeSharingPlatform.Data.Models.Category", "Category")
+                    b.HasOne("RecipesSharingPlatform.Data.Models.Category", "Category")
                         .WithMany("Recipes")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("RecipeSharingPlatform.Data.Models.CookingType", "CookingType")
+                    b.HasOne("RecipesSharingPlatform.Data.Models.CookingType", "CookingType")
                         .WithMany("Recipes")
                         .HasForeignKey("CookingTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("RecipeSharingPlatform.Data.Models.DifficultyType", "Difficulty")
+                    b.HasOne("RecipesSharingPlatform.Data.Models.DifficultyType", "Difficulty")
                         .WithMany("Recipes")
                         .HasForeignKey("DifficultyId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -710,30 +659,28 @@ namespace RecipesSharingPlatform.Data.Migrations
                     b.Navigation("Difficulty");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.ApplicationUser", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Recipes");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Category", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Category", b =>
                 {
                     b.Navigation("Recipes");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.CookingType", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.CookingType", b =>
                 {
                     b.Navigation("Recipes");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.DifficultyType", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.DifficultyType", b =>
                 {
                     b.Navigation("Recipes");
                 });
 
-            modelBuilder.Entity("RecipeSharingPlatform.Data.Models.Recipe", b =>
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Recipe", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618

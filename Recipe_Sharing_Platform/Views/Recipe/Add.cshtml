@@ -1,0 +1,92 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model RecipeFormModel
+@{
+    ViewData["Title"] = "Add Recipe";
+}
+
+<h2>Add Recipe</h2>
+
+<div class="card bg-light p-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="card-title text-center text-dark">Share Your Recipe</h3>
+                <hr class="my-4">
+
+                <form asp-action="Add" method="post">
+                    <div class="form-group">
+                        <label asp-for="Title" class="form-label text-dark">Recipe Title</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label text-dark">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CookingTime" class="form-label text-dark">Cooking Time (minutes)</label>
+                        <input asp-for="CookingTime" class="form-control" />
+                        <span asp-validation-for="CookingTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CountOfPortions" class="form-label text-dark">Number of Portions</label>
+                        <input asp-for="CountOfPortions" class="form-control" />
+                        <span asp-validation-for="CountOfPortions" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PreparingTime" class="form-label text-dark">Preparing Time (minutes)</label>
+                        <input asp-for="PreparingTime" class="form-control" />
+                        <span asp-validation-for="PreparingTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="form-label text-dark">Category</label>
+                        <select asp-for="CategoryId" class="form-control">
+                            <option value="">Select a category</option>
+                            @foreach (var category in Model.Categories)
+                            {
+                                    <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Ingredients" class="form-label text-dark">Ingredients</label>
+                        <textarea asp-for="Ingredients" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Ingredients" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CookingTypes" class="form-label text-dark">Cooking Type</label>
+                        <select asp-for="CookingTypeId" class="form-control">
+                            <option value="">Select a cooking type</option>
+                            @foreach (var cookingType in Model.CookingTypes)
+                            {
+                                    <option value="@cookingType.Id">@cookingType.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CookingTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DifficultyTypes" class="form-label text-dark">Difficulty Type</label>
+                        <select asp-for="DifficultyTypeId" class="form-control">
+                            <option value="">Select a difficulty type</option>
+                            @foreach (var difficultyType in Model.DifficultyTypes)
+                            {
+                                    <option value="@difficultyType.Id">@difficultyType.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="DifficultyTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageUrl" class="form-label text-dark">Image URL</label>
+                        <input asp-for="ImageUrl" class="form-control" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Share Recipe</button>
+                </form>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://media4.giphy.com/media/64eXJvsGa1VdKwWtlk/giphy.gif" alt="Cooking Turtle" class="img-fluid mb-3" />
+            </div>
+        </div>
+    </

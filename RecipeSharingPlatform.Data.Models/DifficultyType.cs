@@ -1,10 +1,8 @@
-﻿
-
-
-namespace RecipeSharingPlatform.Data.Models
+﻿namespace RecipesSharingPlatform.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using static RecipeSharingPlatform.Common.EntityValidationConstants.DifficultyType;
+
 
     public class DifficultyType
     {

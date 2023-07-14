@@ -8,10 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "RecipeSharingPlatform.Services.Data/1.0.0": {
         "dependencies": {
-          "RecipeSharingPlatform.Common": "1.0.0",
-          "RecipeSharingPlatform.Data.Models": "1.0.0",
+          "RecipeSharingPlatform.Data": "1.0.0",
           "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
-          "RecipesSharingPlatform.Data": "1.0.0"
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
         },
         "runtime": {
           "RecipeSharingPlatform.Services.Data.dll": {}
@@ -521,13 +520,15 @@
           "RecipeSharingPlatform.Common.dll": {}
         }
       },
-      "RecipeSharingPlatform.Data.Models/1.0.0": {
+      "RecipeSharingPlatform.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
-          "RecipeSharingPlatform.Common": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
+          "RecipeSharingPlatform.Common": "1.0.0",
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
         },
         "runtime": {
-          "RecipeSharingPlatform.Data.Models.dll": {}
+          "RecipeSharingPlatform.Data.dll": {}
         }
       },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
@@ -538,14 +539,13 @@
           "RecipeSharingPlatform.Web.ViewModels.dll": {}
         }
       },
-      "RecipesSharingPlatform.Data/1.0.0": {
+      "RecipesSharingPlatform.Data.Models/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
-          "RecipeSharingPlatform.Data.Models": "1.0.0"
+          "RecipeSharingPlatform.Common": "1.0.0"
         },
         "runtime": {
-          "RecipesSharingPlatform.Data.dll": {}
+          "RecipesSharingPlatform.Data.Models.dll": {}
         }
       }
     }
@@ -876,7 +876,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "RecipeSharingPlatform.Data.Models/1.0.0": {
+    "RecipeSharingPlatform.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -886,7 +886,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "RecipesSharingPlatform.Data/1.0.0": {
+    "RecipesSharingPlatform.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,9 +1,9 @@
 ﻿
 
-using Microsoft.AspNetCore.Identity;
-
-namespace RecipeSharingPlatform.Data.Models
+namespace RecipesSharingPlatform.Data.Models
 {
+    using Microsoft.AspNetCore.Identity;
+
     public class ApplicationUser : IdentityUser<Guid>
     {
         public ApplicationUser()

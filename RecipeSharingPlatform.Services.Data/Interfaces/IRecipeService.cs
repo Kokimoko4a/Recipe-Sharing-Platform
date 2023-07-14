@@ -2,7 +2,7 @@
 
 namespace RecipeSharingPlatform.Services.Data.Interfaces
 {
-    using RecipeSharingPlatform.Data.Models;
+    using RecipesSharingPlatform.Data.Models;
     using RecipeSharingPlatform.Web.ViewModels.Home;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
 
@@ -13,6 +13,8 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         public Task<IEnumerable<RecipeViewModel>> AllRecipesAsync();
 
         public Task<Recipe> GetRecipeByIdAsync(Guid id);
+
+        public Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId);
 
     }
 }

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Recipe-Sharing-Platform-2.props" />
-</Project>

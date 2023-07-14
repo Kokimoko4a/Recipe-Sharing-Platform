@@ -1,10 +1,8 @@
-﻿
-
-namespace RecipesSharingPlatform.Data.Configurations
+﻿namespace RecipesSharingPlatform.Data.Configurations
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using RecipeSharingPlatform.Data.Models;
+    using RecipesSharingPlatform.Data.Models;
     public class CategoryEntityConfiguration : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
