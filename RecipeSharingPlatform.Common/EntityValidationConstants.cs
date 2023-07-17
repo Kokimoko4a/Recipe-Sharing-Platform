@@ -20,7 +20,7 @@
 
                 public const int DescriptionMinLength = 10;
 
-                public const int MaxTimeForCooking = 24;
+                public const int MaxTimeForCooking = 2400;
 
                 public const int MinTimeForCooking = 1;
 
@@ -44,9 +44,9 @@
 
                 public const int NameMinLength = 3;
 
-                public const int MaxNeededQuantity = 99999;
+                public const decimal MaxNeededQuantity = 99999.9999m;
 
-                public const int MinNeededQuantity = 1;
+                public const decimal MinNeededQuantity = 1.0m;
 
                 public const int MaxLengthOfTypeMeasurement = 50;
 

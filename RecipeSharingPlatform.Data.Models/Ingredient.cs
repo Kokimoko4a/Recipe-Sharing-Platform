@@ -17,8 +17,8 @@ namespace RecipesSharingPlatform.Data.Models
         public string Name { get; set; } = null!;
 
         [Required]
-        [Range(MinNeededQuantity, MaxNeededQuantity)]
-        public double Quantity { get; set; }
+        [Range((double)MinNeededQuantity, (double)MaxNeededQuantity)]
+        public decimal Quantity { get; set; }
 
 
         [StringLength(MaxLengthOfTypeMeasurement, MinimumLength = MinLengthOfTypeMeasurement)]

@@ -8,5 +8,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
     {
         public Task<IEnumerable<RecipeCategorySelectFormModel>> GetAllCategoriesAsync();
 
+        public Task<bool> ExistsById(int id);
+
     }
 }

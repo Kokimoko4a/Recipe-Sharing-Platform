@@ -9,6 +9,7 @@ namespace Recipe_Sharing_Platform_2
     using RecipesSharingPlatform.Data.Models;
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatfrom.Web.Infrastructure.Extensions;
+    using RecipeSharingPlatform.Web.Infrastructure.ModelBinders;
 
     public class Program
     {
@@ -25,11 +26,15 @@ namespace Recipe_Sharing_Platform_2
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<RecipeSharingPlatformDbContext>();
 
+     
+
             builder.Services.AddApplicationServices(typeof(IRecipeService));
 
             builder.Services.AddControllersWithViews().AddMvcOptions(options =>
             {
+                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+
             });
 
             WebApplication app = builder.Build();

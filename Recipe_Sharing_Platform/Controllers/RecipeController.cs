@@ -72,21 +72,54 @@ namespace Recipe_Sharing_Platform_2.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Add(RecipeFormModel recipeFormModel)
         {
+            bool cookingTypeExists = await cookingTypeService.ExistsById(recipeFormModel.CookingTypeId);
+            bool difficultyTypeExists = await difficultyTypeService.ExistsById(recipeFormModel.DifficultyTypeId);
+            bool categoryTypeExists = await categoryService.ExistsById(recipeFormModel.CategoryId);
+
+            if (!cookingTypeExists)
+            {
+                ModelState.AddModelError(nameof(recipeFormModel.CookingTypeId), "Selected cooking type does not exist");
+            }
+
+            if (!difficultyTypeExists)
+            {
+                ModelState.AddModelError(nameof(recipeFormModel.DifficultyTypeId), "Selected difficulty does not exist");
+            }
+
+            if (!categoryTypeExists)
+            {
+                ModelState.AddModelError(nameof(recipeFormModel.CategoryId), "Selected categoty does not exist");
+            }
+
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
+                recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
+                recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
+
+                return View(recipeFormModel);
             }
 
 
-            await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
 
+           // try
+           // {
+                await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
 
+                return RedirectToAction("All");
+           // }
+           /* catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
 
+                recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
+                recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
+                recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
 
-            return RedirectToAction("All");
+                return View(recipeFormModel);
+            }*/
         }
     }
 }

@@ -73,17 +73,23 @@ namespace RecipeSharingPlatform.Services.Data
 
             foreach (var ingredientRow in ingredients)
             {
-                string[] ingredientInfo = ingredientRow.Split(new char[] { ' ', '-' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+
+                string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
+
+                // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
+
+                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ',StringSplitOptions.RemoveEmptyEntries);
 
                 Ingredient ingredientForDb = new Ingredient()
                 { 
                     Name= ingredientInfo[0],
-                    Quantity = double.Parse(ingredientInfo[1]),
-                    TypeMeasurement = ingredientInfo[2]
+                   
+                    TypeMeasurement = ingredientQuanAndMT[1]
                 };
 
-                ingredientsForDb.Add(ingredientForDb);   
+                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0]);
 
+                ingredientsForDb.Add(ingredientForDb);   
             }
 
             Recipe recipe  = new Recipe()

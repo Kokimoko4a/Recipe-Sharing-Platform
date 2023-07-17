@@ -10,5 +10,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
     public interface ICookingTypeService
     {
         public Task<IEnumerable<RecipeCookingTypeSelectFormModel>> GetAllCookingTypesAsync();
+
+        public Task<bool> ExistsById(int id);
     }
 }

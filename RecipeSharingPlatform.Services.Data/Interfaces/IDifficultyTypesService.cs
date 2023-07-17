@@ -5,5 +5,7 @@
     public interface IDifficultyTypesService
     {
         public Task<IEnumerable<RecipeDifficultyTypeSelectFormModel>> GetAllDifficultyTypesAsync();
+
+        public Task<bool> ExistsById(int id);
     }
 }

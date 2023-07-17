@@ -1,37 +1,30 @@
-﻿﻿@using RecipeSharingPlatform.Web.ViewModels.Home
-@model List<IndexViewModel> 
+﻿@model List<IndexViewModel>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Recipe Sharing Platform</title>
-
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to Recipe Sharing Platform</h1>
-        <hr />
-
-        <h2>Latest Recipes</h2>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Welcome to Recipe Sharing Platform</h2>
+        </div>
+    </div>
+    <div class="row">
         @foreach (var recipe in Model)
         {
-            string link = recipe.ImageURL;
-
-                           <div class="recipe-card">
-                            <a href="@Url.Action("ViewRecipe", "Recipe", new { id = recipe.Id })" class="recipe-link">
-                           <img src="@recipe.ImageURL" alt="Recipe Image"> 
-                           <div class="category-overlay">@recipe.Category</div>
-                           <div class="recipe-details">
-                              <h2>@recipe.Title</h2>
-                           </div>
-                        </a>
-                     </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@recipe.ImageURL" class="card-img-top" alt="@recipe.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@recipe.Title</h5>
+                            <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@recipe.Id" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
         }
     </div>
-</body>
-</html>
+</div>
+
+
+

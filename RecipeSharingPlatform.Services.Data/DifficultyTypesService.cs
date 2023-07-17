@@ -19,6 +19,11 @@ namespace RecipeSharingPlatform.Services.Data
             this.data = data;
         }
 
+        public async Task<bool> ExistsById(int id)
+        {
+            return await data.DifficultyTypes.AnyAsync(x => x.Id == id);
+        }
+
         public async Task<IEnumerable<RecipeDifficultyTypeSelectFormModel>> GetAllDifficultyTypesAsync()
         {
             IEnumerable<RecipeDifficultyTypeSelectFormModel> recipeDifficultyTypes = await data.DifficultyTypes.

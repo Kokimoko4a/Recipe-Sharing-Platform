@@ -40,10 +40,10 @@ namespace RecipesSharingPlatform.Data.Configurations
                 .HasForeignKey(r => r.DifficultyId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasData(GenerateRecipe());
+           // builder.HasData(GenerateRecipe());
         }
 
-        private Recipe GenerateRecipe()
+       /* private Recipe GenerateRecipe()
         {
 
 
@@ -83,11 +83,11 @@ namespace RecipesSharingPlatform.Data.Configurations
                      TypeMeasurement = "gr",
                      Quantity = 50,
                      RecipeId = Guid.Parse("3f1a2f97-f79e-44a8-8513-0a7d7c7acb9f")
-                 } }*/
+                 } }
 
             };
 
             return recipe;
-        }
+        }*/
     }
 }

@@ -17,7 +17,7 @@
                 <ul>
                 @foreach (var ingredient in Model.Ingredients)
                 {
-                                <li>@ingredient.Name</li>
+                                <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
                 }
                 </ul>
             <div class="my-3">

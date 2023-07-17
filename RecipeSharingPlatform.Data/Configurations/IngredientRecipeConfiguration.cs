@@ -16,6 +16,8 @@ namespace RecipesSharingPlatform.Data.Configurations
                  .WithMany(r => r.Ingredients)
                  .HasForeignKey(i => i.RecipeId)
                  .OnDelete(DeleteBehavior.Restrict);
+
+          
         }
 
     }
