@@ -7,5 +7,7 @@
         public Task<IEnumerable<RecipeDifficultyTypeSelectFormModel>> GetAllDifficultyTypesAsync();
 
         public Task<bool> ExistsById(int id);
+
+        Task<IEnumerable<string>> AllDifficultyTypeNamesAsync();
     }
 }

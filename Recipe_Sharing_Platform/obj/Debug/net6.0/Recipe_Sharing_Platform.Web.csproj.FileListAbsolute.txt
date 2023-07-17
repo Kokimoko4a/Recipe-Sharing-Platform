@@ -96,3 +96,5 @@ D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.pdb

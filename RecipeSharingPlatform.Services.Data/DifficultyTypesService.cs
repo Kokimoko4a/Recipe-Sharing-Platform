@@ -19,6 +19,13 @@ namespace RecipeSharingPlatform.Services.Data
             this.data = data;
         }
 
+        public async Task<IEnumerable<string>> AllDifficultyTypeNamesAsync()
+        {
+            IEnumerable<string> difficultyTypeNames = await data.DifficultyTypes.Select(c => c.Name).ToArrayAsync();
+
+            return difficultyTypeNames;
+        }
+
         public async Task<bool> ExistsById(int id)
         {
             return await data.DifficultyTypes.AnyAsync(x => x.Id == id);

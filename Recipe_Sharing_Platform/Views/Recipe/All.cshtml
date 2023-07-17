@@ -1,24 +1,95 @@
 ﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
-@model List<RecipeViewModel>
+@model AllRecipesQueryModel
 
 @{
     ViewData["Title"] = "All Recipes";
 }
 
-<h2>All Recipes</h2>
+<div class="container">
+    <h2 class="text-center mb-4">All Recipes</h2>
 
-<div class="row">
-    @foreach (var recipe in Model)
-    {
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="@recipe.ImageURL" class="card-img-top" alt="@recipe.Title">
-                    <div class="card-body">
-                        <h5 class="card-title">@recipe.Title</h5>
-                       
-                        <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@recipe.Id" class="btn btn-primary">View</a>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Category">Category:</label>
+            <select id="Category" name="category" class="form-control">
+                <option value="">All Categories</option>
+                @foreach (var category in Model.Categories)
+                {
+                        <option value="@category">@category</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Categories">Difficulty:</label>
+            <select id="Categories" name="difficulty" class="form-control">
+                <option value="">All Difficulty Levels</option>
+                @foreach (var difficulty in Model.DifficultyTypes)
+                {
+                        <option value="@difficulty">@difficulty</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="CookingType">Cooking Type:</label>
+            <select id="CookingType" name="cookingType" class="form-control">
+                <option value="">All Cooking Types</option>
+                @foreach (var cookingType in Model.CookingTypes)
+                {
+                        <option value="@cookingType">@cookingType</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <form method="get">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Search by keyword" value="@Model.SearchString">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
-            </div>
-    }
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var recipe in Model.Recipes)
+        {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@recipe.ImageURL" class="card-img-top" alt="@recipe.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@recipe.Title</h5>
+                   
+                            <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@recipe.Id" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <nav aria-label="Recipe Pagination">
+                <ul class="pagination">
+                    @if (Model.CurrentPage > 1)
+                    {
+                            <li class="page-item">
+                                <a class="page-link" href="?page=@(Model.CurrentPage - 1)">&laquo;</a>
+                            </li>
+                    }
+
+                    @for (int i = 1; i <= Model.TotalRecipes / Model.RecipesByPage; i++)
+                    {
+                            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="?page=@i">@i</a>
+                            </li>
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    </div>
 </div>

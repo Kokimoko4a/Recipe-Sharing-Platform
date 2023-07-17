@@ -21,3 +21,5 @@ D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.I
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatform.Web.ViewModels.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipesSharingPlatform.Data.Models.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.Infrastructure\obj\Debug\net6.0\RecipeSharingPlatfrom.Web.Infrastructure.csproj.CopyComplete
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatfrom.Web.Infrastructure\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.pdb

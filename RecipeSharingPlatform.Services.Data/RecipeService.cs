@@ -13,6 +13,7 @@ namespace RecipeSharingPlatform.Services.Data
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using RecipeSharingPlatform.Services.Data.Models.Recipe;
 
     public class RecipeService : IRecipeService
     {
@@ -44,8 +45,8 @@ namespace RecipeSharingPlatform.Services.Data
                 Id = x.Id,
                 AuthorName = x.Author!.Email,
                 ImageURL = x.ImageUrl,
-                Title = x.Title,
-                Category = x.Category.Name
+                Title = x.Title
+                // Category = x.Category.Name
             }).ToListAsync();
 
             return recipes;
@@ -78,23 +79,23 @@ namespace RecipeSharingPlatform.Services.Data
 
                 // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
 
-                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ',StringSplitOptions.RemoveEmptyEntries);
+                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                 Ingredient ingredientForDb = new Ingredient()
-                { 
-                    Name= ingredientInfo[0],
-                   
+                {
+                    Name = ingredientInfo[0],
+
                     TypeMeasurement = ingredientQuanAndMT[1]
                 };
 
                 ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0]);
 
-                ingredientsForDb.Add(ingredientForDb);   
+                ingredientsForDb.Add(ingredientForDb);
             }
 
-            Recipe recipe  = new Recipe()
-            { 
-                Description= recipeFormModel.Description,
+            Recipe recipe = new Recipe()
+            {
+                Description = recipeFormModel.Description,
                 DifficultyId = recipeFormModel.DifficultyTypeId,
                 AuthorId = Guid.Parse(userId),
                 CategoryId = recipeFormModel.CategoryId,
@@ -103,13 +104,60 @@ namespace RecipeSharingPlatform.Services.Data
                 CountOfPortions = recipeFormModel.CountOfPortions,
                 ImageUrl = recipeFormModel.ImageUrl!,
                 PreparingTime = recipeFormModel.PreparingTime,
-                Title= recipeFormModel.Title,
-                Ingredients= ingredientsForDb
+                Title = recipeFormModel.Title,
+                Ingredients = ingredientsForDb
             };
 
             await data.Recipes.AddAsync(recipe);
 
             await data.SaveChangesAsync();
+        }
+
+        public async Task<AllRecipesFilteredAndPagedServiceModel> AllFilteredAsync(AllRecipesQueryModel queryModel)
+        {
+            IQueryable<Recipe> recipes = data.Recipes.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(queryModel.Category))
+            {
+                recipes = data.Recipes.Where(r => r.Category.Name == queryModel.Category);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+            {
+                string wildCard = $"%{queryModel.SearchString}%";
+
+                recipes = data.Recipes.Where(r => EF.Functions.Like(r.Title, wildCard) || EF.Functions.Like(r.Category.Name, wildCard) ||
+                EF.Functions.Like(r.CookingType.Name, wildCard) || EF.Functions.Like(r.Difficulty.Name, wildCard) ||
+                EF.Functions.Like(r.Ingredients.ToString()!, wildCard));
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.CookingType))
+            {
+                recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.DifficultyType))
+            {
+                recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType);
+            }
+
+            IEnumerable<RecipeViewModel> recipeViews = await recipes.Skip((queryModel.CurrentPage - 1) * queryModel.RecipesByPage)
+                .Take(queryModel.RecipesByPage)
+                .Select(r => new RecipeViewModel()
+                {
+                    Id = r.Id,
+                    AuthorName = r.Author!.Email,
+                    ImageURL = r.ImageUrl,
+                    Title = r.Title,
+                }).ToArrayAsync();
+
+            int totalRecipes = queryModel.TotalRecipes;
+
+            return new AllRecipesFilteredAndPagedServiceModel()
+            {
+                Recipes = recipeViews,
+                TotalRecipesCount = totalRecipes
+            };
         }
     }
 }

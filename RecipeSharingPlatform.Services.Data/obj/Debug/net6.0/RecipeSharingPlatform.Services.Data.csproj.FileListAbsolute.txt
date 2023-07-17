@@ -19,3 +19,5 @@ D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Servi
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Services.Data\obj\Debug\net6.0\refint\RecipeSharingPlatform.Services.Data.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Services.Data\obj\Debug\net6.0\RecipeSharingPlatform.Services.Data.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Services.Data\obj\Debug\net6.0\ref\RecipeSharingPlatform.Services.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Services.Data\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Services.Data\bin\Debug\net6.0\RecipeSharingPlatform.Services.Data.Models.pdb

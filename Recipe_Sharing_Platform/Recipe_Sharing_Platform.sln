@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Web.V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{72F55F29-00C0-4E94-8FA3-33AFC6CAAF1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Services.Data", "..\RecipeSharingPlatform.Services.Data\RecipeSharingPlatform.Services.Data.csproj", "{3B4D4A07-1423-4E32-A145-4136D4F397F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Services.Data", "..\RecipeSharingPlatform.Services.Data\RecipeSharingPlatform.Services.Data.csproj", "{3B4D4A07-1423-4E32-A145-4136D4F397F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatfrom.Web.Infrastructure", "..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj", "{C89B02E4-3307-4202-AF1B-252F34ACF3E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatfrom.Web.Infrastructure", "..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj", "{C89B02E4-3307-4202-AF1B-252F34ACF3E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Services.Data.Models", "..\RecipeSharingPlatform.Services.Data.Models\RecipeSharingPlatform.Services.Data.Models.csproj", "{D7903C55-3DB6-4F83-9E87-FB0F663C3798}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{C89B02E4-3307-4202-AF1B-252F34ACF3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C89B02E4-3307-4202-AF1B-252F34ACF3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C89B02E4-3307-4202-AF1B-252F34ACF3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7903C55-3DB6-4F83-9E87-FB0F663C3798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7903C55-3DB6-4F83-9E87-FB0F663C3798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7903C55-3DB6-4F83-9E87-FB0F663C3798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7903C55-3DB6-4F83-9E87-FB0F663C3798}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{4C7D3F7D-831D-4F47-9D07-BA5ED5AD035D} = {35384BEE-1BBC-4D27-AE51-1CD5B487D416}
 		{3B4D4A07-1423-4E32-A145-4136D4F397F6} = {72F55F29-00C0-4E94-8FA3-33AFC6CAAF1A}
 		{C89B02E4-3307-4202-AF1B-252F34ACF3E3} = {35384BEE-1BBC-4D27-AE51-1CD5B487D416}
+		{D7903C55-3DB6-4F83-9E87-FB0F663C3798} = {72F55F29-00C0-4E94-8FA3-33AFC6CAAF1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3092CA08-27EC-4180-A594-4EF21322409B}

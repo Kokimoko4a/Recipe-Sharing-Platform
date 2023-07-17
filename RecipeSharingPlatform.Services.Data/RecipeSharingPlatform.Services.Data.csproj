@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RecipeSharingPlatform.Data.Models\RecipesSharingPlatform.Data.Models.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Data\RecipeSharingPlatform.Data.csproj" />
+    <ProjectReference Include="..\RecipeSharingPlatform.Services.Data.Models\RecipeSharingPlatform.Services.Data.Models.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Web.ViewModels\RecipeSharingPlatform.Web.ViewModels.csproj" />
   </ItemGroup>
 

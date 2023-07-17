@@ -6,9 +6,12 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 {
     public interface ICategoryService
     {
-        public Task<IEnumerable<RecipeCategorySelectFormModel>> GetAllCategoriesAsync();
+         Task<IEnumerable<RecipeCategorySelectFormModel>> GetAllCategoriesAsync();
 
-        public Task<bool> ExistsById(int id);
+         Task<bool> ExistsById(int id);
+
+        Task<IEnumerable<string>> AllCategoryNamesAsync();
+
 
     }
 }

@@ -846,6 +846,20 @@
           "bin/placeholder/RecipeSharingPlatform.Data.dll": {}
         }
       },
+      "RecipeSharingPlatform.Services.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipeSharingPlatform.Services.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeSharingPlatform.Services.Data.Models.dll": {}
+        }
+      },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2139,6 +2153,11 @@
       "path": "../RecipeSharingPlatform.Data/RecipeSharingPlatform.Data.csproj",
       "msbuildProject": "../RecipeSharingPlatform.Data/RecipeSharingPlatform.Data.csproj"
     },
+    "RecipeSharingPlatform.Services.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../RecipeSharingPlatform.Services.Data.Models/RecipeSharingPlatform.Services.Data.Models.csproj",
+      "msbuildProject": "../RecipeSharingPlatform.Services.Data.Models/RecipeSharingPlatform.Services.Data.Models.csproj"
+    },
     "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../RecipeSharingPlatform.Web.ViewModels/RecipeSharingPlatform.Web.ViewModels.csproj",
@@ -2153,6 +2172,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "RecipeSharingPlatform.Data >= 1.0.0",
+      "RecipeSharingPlatform.Services.Data.Models >= 1.0.0",
       "RecipeSharingPlatform.Web.ViewModels >= 1.0.0",
       "RecipesSharingPlatform.Data.Models >= 1.0.0"
     ]
@@ -2194,6 +2214,9 @@
             },
             "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Data\\RecipeSharingPlatform.Data.csproj": {
               "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Data\\RecipeSharingPlatform.Data.csproj"
+            },
+            "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Services.Data.Models\\RecipeSharingPlatform.Services.Data.Models.csproj": {
+              "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Services.Data.Models\\RecipeSharingPlatform.Services.Data.Models.csproj"
             },
             "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Web.ViewModels\\RecipeSharingPlatform.Web.ViewModels.csproj": {
               "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Web.ViewModels\\RecipeSharingPlatform.Web.ViewModels.csproj"

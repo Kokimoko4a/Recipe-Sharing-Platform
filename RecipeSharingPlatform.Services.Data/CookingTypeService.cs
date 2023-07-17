@@ -19,6 +19,13 @@ namespace RecipeSharingPlatform.Services.Data
             this.data = data;
         }
 
+        public async Task<IEnumerable<string>> AllCookingTypeNamesAsync()
+        {
+            IEnumerable<string> cookingTypeNames = await data.CookingTypes.Select(c => c.Name).ToArrayAsync();
+
+            return cookingTypeNames;
+        }
+
         public async Task<bool> ExistsById(int id)
         {
             return await data.CookingTypes.AnyAsync(c => c.Id == id);

@@ -16,6 +16,7 @@
           "RecipeSharingPlatform.Common": "1.0.0",
           "RecipeSharingPlatform.Data": "1.0.0",
           "RecipeSharingPlatform.Services.Data": "1.0.0",
+          "RecipeSharingPlatform.Services.Data.Models": "1.0.0",
           "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
           "RecipeSharingPlatfrom.Web.Infrastructure": "1.0.0"
         },
@@ -1783,11 +1784,21 @@
       "RecipeSharingPlatform.Services.Data/1.0.0": {
         "dependencies": {
           "RecipeSharingPlatform.Data": "1.0.0",
+          "RecipeSharingPlatform.Services.Data.Models": "1.0.0",
           "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
           "RecipesSharingPlatform.Data.Models": "1.0.0"
         },
         "runtime": {
           "RecipeSharingPlatform.Services.Data.dll": {}
+        }
+      },
+      "RecipeSharingPlatform.Services.Data.Models/1.0.0": {
+        "dependencies": {
+          "RecipeSharingPlatform.Web.ViewModels": "1.0.0",
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "RecipeSharingPlatform.Services.Data.Models.dll": {}
         }
       },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
@@ -3180,6 +3191,11 @@
       "sha512": ""
     },
     "RecipeSharingPlatform.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RecipeSharingPlatform.Services.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

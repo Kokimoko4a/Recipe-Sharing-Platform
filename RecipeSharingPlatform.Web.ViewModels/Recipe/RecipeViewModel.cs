@@ -10,6 +10,10 @@
 
         public string ImageURL { get; set; } = null!;
 
-        public string Category { get; set; } = null!;
+      /*  public string Category { get; set; } = null!;
+
+        public string CookingType { get; set; } = null!;
+
+        public string DifficultyType { get; set; } = null!;*/
     }
 }

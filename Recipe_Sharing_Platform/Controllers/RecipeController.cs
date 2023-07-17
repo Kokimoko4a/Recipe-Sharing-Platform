@@ -6,6 +6,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore.Metadata.Internal;
     using RecipeSharingPlatform.Services.Data.Interfaces;
+    using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
     using RecipesSharingPlatform.Data.Models;
 
@@ -27,9 +28,17 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All([FromQuery]AllRecipesQueryModel queryModel)
         {
-            return View(await recipeService.AllRecipesAsync());
+            AllRecipesFilteredAndPagedServiceModel serviceRecipes = await recipeService.AllFilteredAsync(queryModel);
+
+            queryModel.Recipes = serviceRecipes.Recipes;
+            queryModel.TotalRecipes = serviceRecipes.TotalRecipesCount;
+            queryModel.Categories = await categoryService.AllCategoryNamesAsync();
+            queryModel.DifficultyTypes = await difficultyTypeService.AllDifficultyTypeNamesAsync();
+            queryModel.CookingTypes = await cookingTypeService.AllCookingTypeNamesAsync();
+
+            return View(queryModel);
         }
 
         [AllowAnonymous]
