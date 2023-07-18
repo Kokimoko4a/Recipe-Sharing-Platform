@@ -13,30 +13,30 @@
                 <h3 class="card-title text-center text-dark">Share Your Recipe</h3>
                 <hr class="my-4">
 
-                <form asp-action="Add" method="post">
-                    <div class="form-group">
+                <form asp-action="Edit" method="post">
+                   <div class="form-group">
                         <label asp-for="Title" class="form-label text-dark">Recipe Title</label>
-                        <input asp-for="Title" class="form-control" />
+                        <input asp-for="Title" class="form-control" value="@Model.Title" />
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Description" class="form-label text-dark">Description</label>
-                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <textarea asp-for="Description" class="form-control" rows="3">@Model.Description</textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CookingTime" class="form-label text-dark">Cooking Time (minutes)</label>
-                        <input asp-for="CookingTime" class="form-control" />
+                        <input asp-for="CookingTime" class="form-control" value="@Model.CookingTime" />
                         <span asp-validation-for="CookingTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CountOfPortions" class="form-label text-dark">Number of Portions</label>
-                        <input asp-for="CountOfPortions" class="form-control" />
+                        <input asp-for="CountOfPortions" class="form-control" value="@Model.CountOfPortions" />
                         <span asp-validation-for="CountOfPortions" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="PreparingTime" class="form-label text-dark">Preparing Time (minutes)</label>
-                        <input asp-for="PreparingTime" class="form-control" />
+                        <input asp-for="PreparingTime" class="form-control" value="@Model.PreparingTime" />
                         <span asp-validation-for="PreparingTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -45,14 +45,14 @@
                             <option value="">Select a category</option>
                             @foreach (var category in Model.Categories)
                             {
-                                        <option value="@category.Id">@category.Name</option>
+                                    <option value="@category.Id">@category.Name</option>
                             }
                         </select>
                         <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Ingredients" class="form-label text-dark">Ingredients</label>
-                        <textarea asp-for="Ingredients" class="form-control" rows="5"></textarea>
+                        <textarea asp-for="Ingredients" class="form-control" rows="5">@Model.Ingredients</textarea>
                         <span asp-validation-for="Ingredients" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -61,7 +61,7 @@
                             <option value="">Select a cooking type</option>
                             @foreach (var cookingType in Model.CookingTypes)
                             {
-                                        <option value="@cookingType.Id">@cookingType.Name</option>
+                                    <option value="@cookingType.Id">@cookingType.Name</option>
                             }
                         </select>
                         <span asp-validation-for="CookingTypeId" class="text-danger"></span>
@@ -72,14 +72,14 @@
                             <option value="">Select a difficulty type</option>
                             @foreach (var difficultyType in Model.DifficultyTypes)
                             {
-                                        <option value="@difficultyType.Id">@difficultyType.Name</option>
+                                    <option value="@difficultyType.Id">@difficultyType.Name</option>
                             }
                         </select>
                         <span asp-validation-for="DifficultyTypeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="ImageUrl" class="form-label text-dark">Image URL</label>
-                        <input asp-for="ImageUrl" class="form-control" />
+                        <input asp-for="ImageUrl" class="form-control" value="@Model.ImageUrl" />
                         <span asp-validation-for="ImageUrl" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Share Recipe</button>
@@ -89,4 +89,5 @@
                 <img src="https://media4.giphy.com/media/64eXJvsGa1VdKwWtlk/giphy.gif" alt="Cooking Turtle" class="img-fluid mb-3" />
             </div>
         </div>
-    </
+    </div>
+</div>

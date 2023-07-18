@@ -8,7 +8,7 @@
             <h6>
             </h6>
             <br />
-            <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@Model.Id" class="btn btn-success">Details</a>
+            <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@Model.Id" class="btn btn-success">View</a>
             @if (User.Identity!.IsAuthenticated && User.Identity.Name == Model.AuthorName)
             {
                     <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>

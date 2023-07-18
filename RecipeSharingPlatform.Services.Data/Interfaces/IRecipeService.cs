@@ -25,5 +25,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         Task<RecipeFormModel> GetRecipeAsFormModel(string recipeId);
 
+        Task<bool> ExistsByIdAsync(string recipeId);
+
     }
 }

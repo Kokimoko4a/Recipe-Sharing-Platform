@@ -302,9 +302,9 @@ namespace RecipeSharingPlatform.Services.Data
             }).FirstOrDefaultAsync(r => r.Id == recipeId);
 
 
-            Recipe recipeFromDb = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId!);
+            ICollection<Ingredient> ingredients = await data.Ingredients.Where(i => i.RecipeId.ToString() == recipeId).ToListAsync();
 
-            foreach (var ingredient in recipeFromDb!.Ingredients)
+            foreach (var ingredient in ingredients)
             {
                 sb.AppendLine($"{ingredient.Name} - {ingredient.Quantity} {ingredient.TypeMeasurement}");
             }
@@ -312,6 +312,11 @@ namespace RecipeSharingPlatform.Services.Data
             recipeFormModel.Ingredients = sb.ToString().TrimEnd();    
 
             return recipeFormModel;
+        }
+
+        public async Task<bool> ExistsByIdAsync(string recipeId)
+        {
+            return await data.Recipes.AnyAsync(r => r.Id.ToString() == recipeId);
         }
     }
 }

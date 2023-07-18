@@ -8,7 +8,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
-   // using RecipesSharingPlatform.Data.Models;
+    // using RecipesSharingPlatform.Data.Models;
 
     [Authorize]
     public class RecipeController : Controller
@@ -28,7 +28,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> All([FromQuery]AllRecipesQueryModel queryModel)
+        public async Task<IActionResult> All([FromQuery] AllRecipesQueryModel queryModel)
         {
             AllRecipesFilteredAndPagedServiceModel serviceRecipes = await recipeService.AllFilteredAsync(queryModel);
 
@@ -53,7 +53,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
             }
 
             try
-            { 
+            {
 
                 return View(await recipeService.GetRecipeByIdAsync(id));
 
@@ -111,22 +111,22 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
 
 
-           // try
-           // {
-                await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
+            // try
+            // {
+            await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
 
-                return RedirectToAction("All");
-           // }
-           /* catch (Exception)
-            {
-                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+            return RedirectToAction("All");
+            // }
+            /* catch (Exception)
+             {
+                 ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
 
-                recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
-                recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
-                recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
+                 recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
+                 recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
+                 recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
 
-                return View(recipeFormModel);
-            }*/
+                 return View(recipeFormModel);
+             }*/
         }
 
         [HttpGet]
@@ -138,27 +138,38 @@ namespace Recipe_Sharing_Platform_2.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(string recipeId)
+        public async Task<IActionResult> Edit(string id)
         {
-            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeId);
+            bool recipeExists = await recipeService.ExistsByIdAsync(id);
 
-            
-
-            if (!isRecipeYours)
+            if (!recipeExists)
             {
                 return BadRequest(); //TODO: Make it with custom error pages
             }
 
-            RecipeFormModel recipeFormModel = await recipeService.GetRecipeAsFormModel(recipeId);
+            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, id);
 
-             recipeFormModel = new RecipeFormModel()
+
+            if (!isRecipeYours)
             {
-                Categories = await categoryService.GetAllCategoriesAsync(),
-                DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync(),
-                CookingTypes = await cookingTypeService.GetAllCookingTypesAsync()
-            };
+                return BadRequest(); //TODO: Make it with custom error pages
+            }       
+
+            RecipeFormModel recipeFormModel = await recipeService.GetRecipeAsFormModel(id);
+
+            recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
+            recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
+            recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
 
             return View(recipeFormModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(RecipeFormModel recipeFormModel)
+        { 
+            
+        }
+
+           
     }
 }
