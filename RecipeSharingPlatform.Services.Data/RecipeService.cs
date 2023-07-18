@@ -116,6 +116,8 @@ namespace RecipeSharingPlatform.Services.Data
         public async Task<AllRecipesFilteredAndPagedServiceModel> AllFilteredAsync(AllRecipesQueryModel queryModel)
         {
             IQueryable<Recipe> recipes = data.Recipes.AsQueryable();
+            string wildcard = string.Empty;
+
 
             if (!string.IsNullOrWhiteSpace(queryModel.Category))
             {
@@ -124,21 +126,122 @@ namespace RecipeSharingPlatform.Services.Data
 
             if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
             {
-                string wildCard = $"%{queryModel.SearchString}%";
+                wildcard = $"%{queryModel.SearchString}%";
 
-                recipes = data.Recipes.Where(r => EF.Functions.Like(r.Title, wildCard) || EF.Functions.Like(r.Category.Name, wildCard) ||
-                EF.Functions.Like(r.CookingType.Name, wildCard) || EF.Functions.Like(r.Difficulty.Name, wildCard) ||
-                EF.Functions.Like(r.Ingredients.ToString()!, wildCard));
+                if (!string.IsNullOrWhiteSpace(queryModel.Category))
+                {
+                    recipes = data.Recipes.Where(r => EF.Functions.Like(r.Title, wildcard) || EF.Functions.Like(r.Category.Name, wildcard) ||
+                    EF.Functions.Like(r.CookingType.Name, wildcard) || EF.Functions.Like(r.Difficulty.Name, wildcard)).Where((r => r.Category.Name == queryModel.Category));
+                }
+
+                else
+                {
+                    recipes = data.Recipes.Where(r => EF.Functions.Like(r.Title, wildcard) || EF.Functions.Like(r.Category.Name, wildcard) ||
+                   EF.Functions.Like(r.CookingType.Name, wildcard) || EF.Functions.Like(r.Difficulty.Name, wildcard));
+                }
+
             }
 
             if (!string.IsNullOrWhiteSpace(queryModel.CookingType))
             {
-                recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType);
+                if (!string.IsNullOrWhiteSpace(queryModel.SearchString) && !string.IsNullOrWhiteSpace(queryModel.Category))
+                {
+                    recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType)
+                    .Where(r => r.Category.Name == queryModel.Category)
+                   .Where(r => EF.Functions.Like(r.Title, wildcard) || EF.Functions.Like(r.Category.Name, wildcard) ||
+                EF.Functions.Like(r.CookingType.Name, wildcard) || EF.Functions.Like(r.Difficulty.Name, wildcard));
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+                {
+                    recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType)
+                        .Where(r => EF.Functions.Like(r.Title, wildcard)
+                        || EF.Functions.Like(r.Category.Name, wildcard)
+                        || EF.Functions.Like(r.CookingType.Name, wildcard)
+                        || EF.Functions.Like(r.Difficulty.Name, wildcard));
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.Category))
+                {
+                    recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType)
+                   .Where(r => r.Category.Name == queryModel.Category);
+                }
+
+                else
+                {
+                    recipes = data.Recipes.Where(r => r.CookingType.Name == queryModel.CookingType);
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(queryModel.DifficultyType))
             {
-                recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType);
+                if (!string.IsNullOrWhiteSpace(queryModel.Category) && !string.IsNullOrWhiteSpace(queryModel.SearchString)
+                    && !string.IsNullOrWhiteSpace(queryModel.CookingType))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => r.Category.Name == queryModel.Category)
+                        .Where(r => EF.Functions.Like(r.Title, wildcard)
+                        || EF.Functions.Like(r.Category.Name, wildcard)
+                        || EF.Functions.Like(r.CookingType.Name, wildcard)
+                        || EF.Functions.Like(r.Difficulty.Name, wildcard))
+                        .Where(r => r.CookingType.Name == queryModel.CookingType);
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.SearchString)
+                    && !string.IsNullOrWhiteSpace(queryModel.CookingType))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => EF.Functions.Like(r.Title, wildcard)
+                        || EF.Functions.Like(r.Category.Name, wildcard)
+                        || EF.Functions.Like(r.CookingType.Name, wildcard)
+                        || EF.Functions.Like(r.Difficulty.Name, wildcard))
+                        .Where(r => r.CookingType.Name == queryModel.CookingType);
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.SearchString)
+                    && !string.IsNullOrWhiteSpace(queryModel.Category))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => EF.Functions.Like(r.Title, wildcard)
+                        || EF.Functions.Like(r.Category.Name, wildcard)
+                        || EF.Functions.Like(r.CookingType.Name, wildcard)
+                        || EF.Functions.Like(r.Difficulty.Name, wildcard))
+                        .Where(r => r.Category.Name == queryModel.Category);
+
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.Category) && !string.IsNullOrWhiteSpace(queryModel.CookingType))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => r.CookingType.Name == queryModel.CookingType)
+                        .Where(r => r.Category.Name == queryModel.Category);
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.Category))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => r.Category.Name == queryModel.Category);
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.CookingType))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                        .Where(r => r.CookingType.Name == queryModel.CookingType);
+                }
+
+                else if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType)
+                       .Where(r => EF.Functions.Like(r.Title, wildcard)
+                       || EF.Functions.Like(r.Category.Name, wildcard)
+                       || EF.Functions.Like(r.CookingType.Name, wildcard)
+                       || EF.Functions.Like(r.Difficulty.Name, wildcard));
+                }
+
+                else
+                {
+                    recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType);
+                }          
             }
 
             IEnumerable<RecipeViewModel> recipeViews = await recipes.Skip((queryModel.CurrentPage - 1) * queryModel.RecipesByPage)

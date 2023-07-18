@@ -1,0 +1,23 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model RecipeViewModel
+<div class="col-md-4">
+ <div class="card mb-3">
+ <img class="card-img-top" src="@Model.ImageURL" alt="House Image">
+ <div class="card-body text-center">
+ <h4>@Model.Title</h4>
+ <h6>
+ </h6>
+ <br />
+ <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@Model.Id"
+ class="btn btn-success">Details</a>
+            @if (this.User.Identity!.IsAuthenticated)
+            {
+     <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id"
+ class="btn btn-warning">Edit</a>
+     <a asp-controller="Recipe" asp-action="Delete" asp-routeid="@Model.Id"
+ class="btn btn-danger">Delete</a>
+     <p></p>
+            }
+ </div>
+ </div>
+</div>

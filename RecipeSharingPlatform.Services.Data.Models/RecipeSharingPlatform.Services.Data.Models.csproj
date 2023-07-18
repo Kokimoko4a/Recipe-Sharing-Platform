@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RecipeSharingPlatform.Data.Models\RecipesSharingPlatform.Data.Models.csproj" />
     <ProjectReference Include="..\RecipeSharingPlatform.Web.ViewModels\RecipeSharingPlatform.Web.ViewModels.csproj" />
   </ItemGroup>
 

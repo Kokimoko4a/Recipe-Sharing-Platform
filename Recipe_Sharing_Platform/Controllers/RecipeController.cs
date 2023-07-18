@@ -8,7 +8,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
-    using RecipesSharingPlatform.Data.Models;
+   // using RecipesSharingPlatform.Data.Models;
 
     [Authorize]
     public class RecipeController : Controller
@@ -54,10 +54,9 @@ namespace Recipe_Sharing_Platform_2.Controllers
             }
 
             try
-            {
-                Recipe recipe = await recipeService.GetRecipeByIdAsync(id);
+            { 
 
-                return View(recipe);
+                return View(await recipeService.GetRecipeByIdAsync(id));
 
             }
             catch (Exception)
