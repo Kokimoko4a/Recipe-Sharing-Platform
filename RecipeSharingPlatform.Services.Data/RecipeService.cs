@@ -33,7 +33,7 @@ namespace RecipeSharingPlatform.Services.Data
                 ImageURL = x.ImageUrl,
                 Title = x.Title,
                 Category = x.Category.Name
-            }).Take(6).ToListAsync();
+            }).Take(3).ToListAsync();
 
             return recipes;
         }
@@ -46,13 +46,12 @@ namespace RecipeSharingPlatform.Services.Data
                 AuthorName = x.Author!.Email,
                 ImageURL = x.ImageUrl,
                 Title = x.Title
-                // Category = x.Category.Name
             }).ToListAsync();
 
             return recipes;
         }
 
-        public async Task<Recipe> GetRecipeByIdAsync(Guid id)
+        public async Task<Recipe> GetRecipeByIdAsync(string recipeId)
         {
             Recipe recipe = await data.Recipes.
                 Include(r => r.Category)
@@ -60,7 +59,7 @@ namespace RecipeSharingPlatform.Services.Data
                 .Include(r => r.CookingType)
                 .Include(r => r.Difficulty)
                 .Include(r => r.Ingredients)
-                .FirstOrDefaultAsync(r => r.Id == id)!;
+                .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
 
 
             return recipe;
@@ -241,7 +240,7 @@ namespace RecipeSharingPlatform.Services.Data
                 else
                 {
                     recipes = data.Recipes.Where(r => r.Difficulty.Name == queryModel.DifficultyType);
-                }          
+                }
             }
 
             IEnumerable<RecipeViewModel> recipeViews = await recipes.Skip((queryModel.CurrentPage - 1) * queryModel.RecipesByPage)
@@ -261,6 +260,58 @@ namespace RecipeSharingPlatform.Services.Data
                 Recipes = recipeViews,
                 TotalRecipesCount = totalRecipes
             };
+        }
+
+        public async Task<IEnumerable<RecipeViewModel>> GetAllRecipesByUserId(string userId)
+        {
+            ICollection<RecipeViewModel> recipes = await data.Recipes.Where(r => r.AuthorId.ToString() == userId)
+                .Select(x => new RecipeViewModel()
+                {
+                    Id = x.Id,
+                    AuthorName = x.Author!.Email,
+                    ImageURL = x.ImageUrl,
+                    Title = x.Title
+                }).ToListAsync();
+
+            return recipes;
+        }
+
+        public async Task<bool> IsRecipeYours(string userId, string recipeId)
+        {
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
+
+            return recipe!.AuthorId.ToString() == userId;
+        }
+
+        public async Task<RecipeFormModel> GetRecipeAsFormModel(string recipeId)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            RecipeFormModel recipeFormModel = await data.Recipes.Select(r => new RecipeFormModel()
+            {
+                Id = r.Id.ToString(),
+                CookingTime = r.CookingTime,
+                CountOfPortions = r.CountOfPortions,
+                ImageUrl = r.ImageUrl,
+                Description = r.Description,
+                Title = r.Title,
+                CategoryId = r.CategoryId,
+                DifficultyTypeId = r.DifficultyId,
+                CookingTypeId = r.CookingTypeId,
+                PreparingTime= r.PreparingTime
+            }).FirstOrDefaultAsync(r => r.Id == recipeId);
+
+
+            Recipe recipeFromDb = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId!);
+
+            foreach (var ingredient in recipeFromDb!.Ingredients)
+            {
+                sb.AppendLine($"{ingredient.Name} - {ingredient.Quantity} {ingredient.TypeMeasurement}");
+            }
+
+            recipeFormModel.Ingredients = sb.ToString().TrimEnd();    
+
+            return recipeFormModel;
         }
     }
 }

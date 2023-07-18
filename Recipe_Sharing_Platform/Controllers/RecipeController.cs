@@ -43,12 +43,11 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> ViewRecipe(Guid id)
+        public async Task<IActionResult> ViewRecipe(string id)
         {
 
             if (await recipeService.GetRecipeByIdAsync(id) == null)
             {
-                TempData["ErrorMessage"] = "Bazinga!! No such a recipe";
 
                 return RedirectToAction("All");
             }
@@ -128,6 +127,38 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                 return View(recipeFormModel);
             }*/
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Mine()
+        {
+
+
+            return View(await recipeService.GetAllRecipesByUserId(User.GetId()!));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string recipeId)
+        {
+            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeId);
+
+            
+
+            if (!isRecipeYours)
+            {
+                return BadRequest(); //TODO: Make it with custom error pages
+            }
+
+            RecipeFormModel recipeFormModel = await recipeService.GetRecipeAsFormModel(recipeId);
+
+             recipeFormModel = new RecipeFormModel()
+            {
+                Categories = await categoryService.GetAllCategoriesAsync(),
+                DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync(),
+                CookingTypes = await cookingTypeService.GetAllCookingTypesAsync()
+            };
+
+            return View(recipeFormModel);
         }
     }
 }

@@ -13,11 +13,17 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         Task<IEnumerable<RecipeViewModel>> AllRecipesAsync();
 
-         Task<Recipe> GetRecipeByIdAsync(Guid id);
+        Task<Recipe> GetRecipeByIdAsync(string id);
 
-         Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId);
+        Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId);
 
-        public Task<AllRecipesFilteredAndPagedServiceModel> AllFilteredAsync(AllRecipesQueryModel queryModel);
+        Task<AllRecipesFilteredAndPagedServiceModel> AllFilteredAsync(AllRecipesQueryModel queryModel);
+
+        Task<IEnumerable<RecipeViewModel>> GetAllRecipesByUserId(string userId);
+
+        Task<bool> IsRecipeYours(string userId, string recipeId);
+
+        Task<RecipeFormModel> GetRecipeAsFormModel(string recipeId);
 
     }
 }
