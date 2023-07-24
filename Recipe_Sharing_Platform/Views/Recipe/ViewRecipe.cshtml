@@ -1,4 +1,4 @@
-﻿﻿@using RecipesSharingPlatform.Data.Models;
+﻿﻿﻿@using RecipesSharingPlatform.Data.Models;
 @model Recipe
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,7 +17,7 @@
                 <ul>
                 @foreach (var ingredient in Model.Ingredients)
                 {
-                                <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
+                                    <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
                 }
                 </ul>
             <div class="my-3">
@@ -37,6 +37,31 @@
                 <p>Count of Portions: @Model.CountOfPortions</p>
                 <p>Created On: @Model.CreatedOn.Date</p>
                 <p>Author: @Model.Author!.Email</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Display comments -->
+<div class="container my-4">
+    <h3>Comments</h3>
+    <hr>
+    @foreach (var comment in Model.Comments)
+    {
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Author: @comment.Author.Email</h5>
+                    <p class="card-text">@comment.Content</p>
+                </div>
+            </div>
+    }
+</div>
+
+        <!-- Button for redirecting to another view -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <a asp-controller="Comment" asp-action="AddComment" asp-route-id="@Model.Id" class="btn btn-primary">Add comment</a>
             </div>
         </div>
     </div>

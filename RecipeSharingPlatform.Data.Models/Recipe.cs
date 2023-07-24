@@ -13,6 +13,8 @@
             Ingredients = new HashSet<Ingredient>();
 
             CreatedOn = DateTime.Now;
+
+            Comments= new HashSet<Comment>();   
         }
 
         [Key]
@@ -78,5 +80,8 @@
 
         [Required]
         public DateTime CreatedOn { get; set; }
+
+        [Required]  
+        public virtual ICollection<Comment> Comments { get; set; } = null!;
     }
 }

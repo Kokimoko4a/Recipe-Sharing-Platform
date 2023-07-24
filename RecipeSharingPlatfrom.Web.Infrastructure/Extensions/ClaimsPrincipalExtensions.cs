@@ -1,4 +1,4 @@
-﻿namespace HouseRentingSystem.Web.Infrastructure.Extensions
+﻿namespace RecipeSharingPlatform.Web.Infrastructure.Extensions
 {
     using System.Security.Claims;
 

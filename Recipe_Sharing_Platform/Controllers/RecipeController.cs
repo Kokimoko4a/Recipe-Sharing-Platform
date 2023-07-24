@@ -1,7 +1,7 @@
 ﻿
 namespace Recipe_Sharing_Platform_2.Controllers
 {
-    using HouseRentingSystem.Web.Infrastructure.Extensions;
+    using RecipeSharingPlatform.Web.Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -18,13 +18,15 @@ namespace Recipe_Sharing_Platform_2.Controllers
         private readonly ICategoryService categoryService;
         private readonly IDifficultyTypesService difficultyTypeService;
         private readonly ICookingTypeService cookingTypeService;
+        private readonly ICommentService commentService;
 
-        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IDifficultyTypesService difficultyTypeService, ICookingTypeService cookingTypeService)
+        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IDifficultyTypesService difficultyTypeService, ICookingTypeService cookingTypeService, ICommentService commentService)
         {
             this.recipeService = recipeService;
             this.difficultyTypeService = difficultyTypeService;
             this.cookingTypeService = cookingTypeService;
             this.categoryService = categoryService;
+            this.commentService = commentService;
         }
 
         [AllowAnonymous]
@@ -50,13 +52,21 @@ namespace Recipe_Sharing_Platform_2.Controllers
             if (await recipeService.GetRecipeByIdAsync(id) == null)
             {
 
-                return RedirectToAction("All");
+                TempData[WarningMessage] = "No such a recipe!";
             }
 
             try
             {
+               
 
-                return View(await recipeService.GetRecipeByIdAsync(id));
+                var comments = await commentService.GetComments(id);
+
+                var recipe = await recipeService.GetRecipeByIdAsync(id);
+
+                recipe.Comments = comments;
+
+
+                return View(recipe);
 
             }
             catch (Exception)

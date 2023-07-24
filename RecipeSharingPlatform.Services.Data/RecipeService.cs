@@ -14,6 +14,7 @@ namespace RecipeSharingPlatform.Services.Data
     using System.Text;
     using System.Threading.Tasks;
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
+    using System.Security.Cryptography.X509Certificates;
 
     public class RecipeService : IRecipeService
     {
@@ -53,15 +54,17 @@ namespace RecipeSharingPlatform.Services.Data
 
         public async Task<Recipe> GetRecipeByIdAsync(string recipeId)
         {
+           
             Recipe recipe = await data.Recipes.
                 Include(r => r.Category)
                 .Include(r => r.Author)
                 .Include(r => r.CookingType)
                 .Include(r => r.Difficulty)
                 .Include(r => r.Ingredients)
+                .Include(r => r.Comments)
                 .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
 
-
+       
             return recipe;
         }
 

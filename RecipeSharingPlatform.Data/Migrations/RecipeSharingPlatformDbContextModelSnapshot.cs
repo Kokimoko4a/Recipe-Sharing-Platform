@@ -323,6 +323,31 @@ namespace RecipeSharingPlatform.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Comment", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RecipeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.CookingType", b =>
                 {
                     b.Property<int>("Id")
@@ -466,8 +491,8 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<double>("Quantity")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid>("RecipeId")
                         .HasColumnType("uniqueidentifier");
@@ -595,6 +620,25 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Comment", b =>
+                {
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", "Author")
+                        .WithMany("Comments")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecipesSharingPlatform.Data.Models.Recipe", "Recipe")
+                        .WithMany("Comments")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Recipe");
+                });
+
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Ingredient", b =>
                 {
                     b.HasOne("RecipesSharingPlatform.Data.Models.Recipe", "Recipe")
@@ -643,6 +687,8 @@ namespace RecipeSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("Recipes");
                 });
 
@@ -663,6 +709,8 @@ namespace RecipeSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Recipe", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
