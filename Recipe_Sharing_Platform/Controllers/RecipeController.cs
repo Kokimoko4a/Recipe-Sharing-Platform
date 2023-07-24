@@ -9,6 +9,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
     // using RecipesSharingPlatform.Data.Models;
+    using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
 
     [Authorize]
     public class RecipeController : Controller
@@ -87,21 +88,25 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (!cookingTypeExists)
             {
+                TempData[WarningMessage] = "Selected cooking type does not exist";
                 ModelState.AddModelError(nameof(recipeFormModel.CookingTypeId), "Selected cooking type does not exist");
             }
 
             if (!difficultyTypeExists)
             {
+                TempData[WarningMessage] = "Selected difficulty does not exist";
                 ModelState.AddModelError(nameof(recipeFormModel.DifficultyTypeId), "Selected difficulty does not exist");
             }
 
             if (!categoryTypeExists)
             {
+                TempData[WarningMessage] = "Selected categoty does not exist";
                 ModelState.AddModelError(nameof(recipeFormModel.CategoryId), "Selected categoty does not exist");
             }
 
             if (!ModelState.IsValid)
             {
+                TempData[ErrorMessage] = "Inserted data is invalid";
                 recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
                 recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
                 recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
@@ -109,24 +114,24 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return View(recipeFormModel);
             }
 
+            try
+            {
+                await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
 
+                TempData[SuccessMessage] = "Succesfuly created recipe.";
 
-            // try
-            // {
-            await recipeService.CreateRecipeAsync(recipeFormModel, User.GetId()!);
+                return RedirectToAction("All");
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
 
-            return RedirectToAction("All");
-            // }
-            /* catch (Exception)
-             {
-                 ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
 
-                 recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
-                 recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
-                 recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
+                recipeFormModel = await LoadData(recipeFormModel);
 
-                 return View(recipeFormModel);
-             }*/
+                return View(recipeFormModel);
+            }
         }
 
         [HttpGet]
@@ -144,7 +149,8 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (!recipeExists)
             {
-                return BadRequest(); //TODO: Make it with custom error pages
+                TempData[ErrorMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
             }
 
             bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, id);
@@ -152,24 +158,77 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (!isRecipeYours)
             {
-                return BadRequest(); //TODO: Make it with custom error pages
-            }       
+                TempData[ErrorMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
+            }
 
             RecipeFormModel recipeFormModel = await recipeService.GetRecipeAsFormModel(id);
 
-            recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
-            recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
-            recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
+            recipeFormModel = await LoadData(recipeFormModel);
 
             return View(recipeFormModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> Edit(RecipeFormModel recipeFormModel)
-        { 
-            
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData[ErrorMessage] = "Inserted data is invalid";
+
+                recipeFormModel = await LoadData(recipeFormModel);
+                return View(recipeFormModel);
+            }
+
+            bool recipeExists = await recipeService.ExistsByIdAsync(recipeFormModel.Id);
+
+            if (!recipeExists)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or it does not exist";
+
+                recipeFormModel = await LoadData(recipeFormModel);
+                return View(recipeFormModel);
+            }
+
+            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeFormModel.Id);
+
+            if (!isRecipeYours)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or it does not exist";
+
+                recipeFormModel = await LoadData(recipeFormModel);
+                return View(recipeFormModel);
+            }
+
+
+            try
+            {
+                await recipeService.EditRecipeAsync(recipeFormModel);
+
+                TempData[SuccessMessage] = "Successfuly edited recipe";
+
+                return RedirectToAction("All");
+
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                recipeFormModel = await LoadData(recipeFormModel);
+
+                return View(recipeFormModel);
+            }
         }
 
-           
+        private async Task<RecipeFormModel> LoadData(RecipeFormModel recipeFormModel)
+        {
+            recipeFormModel.Categories = await categoryService.GetAllCategoriesAsync();
+            recipeFormModel.DifficultyTypes = await difficultyTypeService.GetAllDifficultyTypesAsync();
+            recipeFormModel.CookingTypes = await cookingTypeService.GetAllCookingTypesAsync();
+
+            return recipeFormModel;
+        }
     }
 }

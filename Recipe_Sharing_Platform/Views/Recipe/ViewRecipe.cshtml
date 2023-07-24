@@ -28,14 +28,14 @@
 
             </div>
             <div class="my-3">
-                <h4>How to Prepare</h4>
+                <h4>Cooking Details</h4>
                 <p>Cooking Type: @Model.CookingType.Name</p>
-                <p>Cooking Time: @Model.CookingTime</p>
-                <p>Preparing Time: @Model.PreparingTime</p>
-                <p>Total Time: @Model.TotalTime</p>
+                <p>Cooking Time: @Model.CookingTime min.</p>
+                <p>Preparing Time: @Model.PreparingTime min.</p>
+                <p>Total Time: @Model.TotalTime min.</p>
                 <p>Difficulty: @Model.Difficulty.Name</p>
                 <p>Count of Portions: @Model.CountOfPortions</p>
-                <p>Created On: @Model.CreatedOn</p>
+                <p>Created On: @Model.CreatedOn.Date</p>
                 <p>Author: @Model.Author!.Email</p>
             </div>
         </div>

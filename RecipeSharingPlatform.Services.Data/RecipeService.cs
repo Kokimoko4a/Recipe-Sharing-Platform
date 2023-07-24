@@ -318,5 +318,58 @@ namespace RecipeSharingPlatform.Services.Data
         {
             return await data.Recipes.AnyAsync(r => r.Id.ToString() == recipeId);
         }
+
+        public async Task EditRecipeAsync(RecipeFormModel recipeFormModel)
+        {
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeFormModel.Id);
+
+            recipe.Title = recipeFormModel.Title;
+            recipe.DifficultyId = recipeFormModel.DifficultyTypeId;
+            recipe.CategoryId = recipeFormModel.CategoryId;
+            recipe.Description = recipeFormModel.Description;
+            recipe.CookingTime = recipeFormModel.CookingTime;
+            recipe.CookingTypeId = recipeFormModel.CookingTypeId;
+            recipe.PreparingTime = recipeFormModel.PreparingTime;
+            recipe.ImageUrl = recipeFormModel.ImageUrl!;
+
+            ICollection<Ingredient> ingredients = await data.Ingredients.Where(i => i.RecipeId.ToString() == recipeFormModel.Id).ToListAsync();
+
+            data.Ingredients.RemoveRange(ingredients);
+
+            recipe.Ingredients = CreateIngredients(recipeFormModel);
+
+            await data.SaveChangesAsync();
+
+        }
+
+        public ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel)
+        {
+            ICollection<string> ingredients = recipeFormModel.Ingredients.Split(Environment.NewLine).ToList();
+
+            ICollection<Ingredient> ingredientsForDb = new List<Ingredient>();
+
+            foreach (var ingredientRow in ingredients)
+            {
+
+                string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
+
+                // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
+
+                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                Ingredient ingredientForDb = new Ingredient()
+                {
+                    Name = ingredientInfo[0],
+
+                    TypeMeasurement = ingredientQuanAndMT[1]
+                };
+
+                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0]);
+
+                ingredientsForDb.Add(ingredientForDb);
+            }
+
+            return ingredientsForDb;
+        }
     }
 }

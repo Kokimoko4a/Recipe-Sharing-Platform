@@ -27,5 +27,9 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         Task<bool> ExistsByIdAsync(string recipeId);
 
+        Task EditRecipeAsync(RecipeFormModel recipeFormModel);
+
+        ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel);
+
     }
 }
