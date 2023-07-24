@@ -174,7 +174,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData[ErrorMessage] = "Inserted data is invalid";
+                TempData[WarningMessage] = "Inserted data is invalid";
 
                 recipeFormModel = await LoadData(recipeFormModel);
                 return View(recipeFormModel);
@@ -184,7 +184,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (!recipeExists)
             {
-                TempData[WarningMessage] = "You are not the publisher of that recipe or it does not exist";
+                TempData[ErrorMessage] = "You are not the publisher of that recipe or it does not exist";
 
                 recipeFormModel = await LoadData(recipeFormModel);
                 return View(recipeFormModel);
@@ -194,7 +194,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             if (!isRecipeYours)
             {
-                TempData[WarningMessage] = "You are not the publisher of that recipe or it does not exist";
+                TempData[ErrorMessage] = "You are not the publisher of that recipe or it does not exist";
 
                 recipeFormModel = await LoadData(recipeFormModel);
                 return View(recipeFormModel);
@@ -221,6 +221,74 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return View(recipeFormModel);
             }
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool recipeExists = await recipeService.ExistsByIdAsync(id);
+
+            if (!recipeExists)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
+            }
+
+            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, id);
+
+
+            if (!isRecipeYours)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
+            }
+
+            return View(new RecipeDeleteViewModel() {RecipeId = id });
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(RecipeDeleteViewModel recipeDeleteViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData[WarningMessage] = "Inserted password is invalid";
+
+                return View(recipeDeleteViewModel);
+            }
+
+            bool recipeExists = await recipeService.ExistsByIdAsync(recipeDeleteViewModel.RecipeId);
+
+            if (!recipeExists)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
+            }
+
+            bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeDeleteViewModel.RecipeId);
+
+
+            if (!isRecipeYours)
+            {
+                TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
+                return RedirectToAction("All");
+            }
+
+
+            if (User.Identity!.Name != recipeDeleteViewModel.Email)
+            {
+                TempData[WarningMessage] = "Entered email is invalid!";
+                return View(recipeDeleteViewModel);
+            }
+
+                 
+           await recipeService.DeleteByIdAsync(recipeDeleteViewModel);
+
+            TempData[SuccessMessage] = "Successfuly deleted recipe";
+
+            return RedirectToAction("All");
+        }
+
 
         private async Task<RecipeFormModel> LoadData(RecipeFormModel recipeFormModel)
         {

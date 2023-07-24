@@ -371,5 +371,18 @@ namespace RecipeSharingPlatform.Services.Data
 
             return ingredientsForDb;
         }
+
+        public async Task DeleteByIdAsync(RecipeDeleteViewModel recipeDeleteViewModel)
+        {
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeDeleteViewModel.RecipeId);
+
+            data.Recipes.Remove(recipe!);
+
+            ICollection<Ingredient> ingredients = await data.Ingredients.Where(i => i.RecipeId.ToString() == recipeDeleteViewModel.RecipeId).ToListAsync();
+
+            data.Ingredients.RemoveRange(ingredients);
+
+            await data.SaveChangesAsync();
+        }
     }
 }
