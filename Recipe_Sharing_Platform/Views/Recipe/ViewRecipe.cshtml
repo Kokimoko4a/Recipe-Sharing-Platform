@@ -42,7 +42,6 @@
     </div>
 </div>
 
-
 <!-- Display comments -->
 <div class="container my-4">
     <h3>Comments</h3>
@@ -51,55 +50,18 @@
     {
             <div class="card mb-2">
                 <div class="card-body">
-                    <h5 class="card-title">Author: @comment.Author.Email</h5>
+                    <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
                     <p class="card-text">@comment.Content</p>
-                    <div>
-                        <span id="like-count-@comment.Id" class="like-count">@comment.Likes</span> Likes
-                        <span id="dislike-count-@comment.Id" class="dislike-count">@comment.DisLikes</span> Dislikes
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger" onclick="handleDislike('@comment.Id')">Dislike</button>
-                            <button type="button" class="btn btn-success" onclick="handleLike('@comment.Id')">Like</button>
-                        </div>
-                    </div>
                 </div>
             </div>
     }
 </div>
 
-@section scripts {
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        function handleLike(commentId) {
-            $.ajax({
-                type: 'POST',
-                url: '/Comment/Like', // Ensure this URL is correct and matches the route in CommentController
-                data: { commentId: commentId },
-                success: function (result) {
-                    // Update the like count on the page
-                    var likeCountElement = $('#like-count-' + commentId);
-                    likeCountElement.text(result.LikeCount);
-                },
-                error: function () {
-                    console.log('Error: Unable to handle the like action.');
-                }
-            });
-        }
+<div class="container my-4">
+    <a asp-controller="Comment" asp-action="AddComment" asp-route-id="@Model.Id" class="btn btn-primary">Add Comment</a>
+</div>
 
-        function handleDislike(commentId) {
-            $.ajax({
-                type: 'POST',
-                url: '/Comment/Dislike', // Ensure this URL is correct and matches the route in CommentController
-                data: { commentId: commentId },
-                success: function (result) {
-                    // Update the dislike count on the page
-                    var dislikeCountElement = $('#dislike-count-' + commentId);
-                    dislikeCountElement.text(result.DislikeCount);
-                },
-                error: function () {
-                    console.log('Error: Unable to handle the dislike action.');
-                }
-            });
-        }
-    </script>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
 }
-

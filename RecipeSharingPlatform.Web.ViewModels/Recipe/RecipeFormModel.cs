@@ -10,8 +10,6 @@ namespace RecipeSharingPlatform.Web.ViewModels.Recipe
     {
         public RecipeFormModel()
         {
-
-
             Categories = new HashSet<RecipeCategorySelectFormModel>();
 
             CookingTypes = new HashSet<RecipeCookingTypeSelectFormModel>();
@@ -19,7 +17,7 @@ namespace RecipeSharingPlatform.Web.ViewModels.Recipe
             DifficultyTypes = new HashSet<RecipeDifficultyTypeSelectFormModel>();
         }
 
-        public string Id { get; set; } = null!;
+        public string? Id { get; set; }
 
         [Required]
         [StringLength(RecipeNameMaxLength, MinimumLength = RecipeNameMinLength)]

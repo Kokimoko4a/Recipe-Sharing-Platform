@@ -24,11 +24,11 @@
 
             public const int MinTimeForCooking = 1;
 
-            public const int MaxTimeForPreparing = 60;
+            public const int MaxTimeForPreparing = 999;
 
             public const int MinTimeForPreparing = 1;
 
-            public const int MaxCountOfPortions = 10;
+            public const int MaxCountOfPortions = 999;
 
             public const int MinCountOfPortions = 1;
 

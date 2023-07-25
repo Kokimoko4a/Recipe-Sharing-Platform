@@ -24,9 +24,11 @@ namespace Recipe_Sharing_Platform_2
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<RecipeSharingPlatformDbContext>();
+
+            builder.Services.AddRecaptchaService();
 
 
             builder.Services.ConfigureApplicationCookie(cfg => cfg.LoginPath = "/User/Login");

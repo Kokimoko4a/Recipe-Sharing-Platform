@@ -166,7 +166,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
             bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, id);
 
 
-            if (!isRecipeYours)
+            if (!isRecipeYours && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
                 return RedirectToAction("All");
@@ -202,7 +202,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeFormModel.Id);
 
-            if (!isRecipeYours)
+            if (!isRecipeYours && !User.IsAdmin())
             {
                 TempData[ErrorMessage] = "You are not the publisher of that recipe or it does not exist";
 
@@ -247,7 +247,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
             bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, id);
 
 
-            if (!isRecipeYours)
+            if (!isRecipeYours && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
                 return RedirectToAction("All");
@@ -269,6 +269,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             bool recipeExists = await recipeService.ExistsByIdAsync(recipeDeleteViewModel.RecipeId);
 
+           
             if (!recipeExists)
             {
                 TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
@@ -278,7 +279,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
             bool isRecipeYours = await recipeService.IsRecipeYours(User.GetId()!, recipeDeleteViewModel.RecipeId);
 
 
-            if (!isRecipeYours)
+            if (!isRecipeYours && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
                 return RedirectToAction("All");
@@ -292,7 +293,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
             }
 
                  
-           await recipeService.DeleteByIdAsync(recipeDeleteViewModel);
+           await recipeService.DeleteAsync(recipeDeleteViewModel);
 
             TempData[SuccessMessage] = "Successfuly deleted recipe";
 

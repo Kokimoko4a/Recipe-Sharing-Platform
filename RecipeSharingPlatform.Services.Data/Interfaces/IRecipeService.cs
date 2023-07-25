@@ -31,7 +31,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel);
 
-        Task DeleteByIdAsync(RecipeDeleteViewModel recipeDeleteViewModel);
+        Task DeleteAsync(RecipeDeleteViewModel recipeDeleteViewModel);
 
     }
 }

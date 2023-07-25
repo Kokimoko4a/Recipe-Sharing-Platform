@@ -375,7 +375,7 @@ namespace RecipeSharingPlatform.Services.Data
             return ingredientsForDb;
         }
 
-        public async Task DeleteByIdAsync(RecipeDeleteViewModel recipeDeleteViewModel)
+        public async Task DeleteAsync(RecipeDeleteViewModel recipeDeleteViewModel)
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeDeleteViewModel.RecipeId);
 
