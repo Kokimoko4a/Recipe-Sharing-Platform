@@ -32,5 +32,10 @@ namespace RecipesSharingPlatform.Data.Models
 
         [Required]
         public Recipe Recipe { get; set; } = null!;
+
+        public int Likes { get; set; }
+        public int DisLikes { get; set; }
+
+
     }
 }

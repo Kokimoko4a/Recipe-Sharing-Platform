@@ -10,6 +10,7 @@ namespace Recipe_Sharing_Platform_2
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatfrom.Web.Infrastructure.Extensions;
     using RecipeSharingPlatform.Web.Infrastructure.ModelBinders;
+    using static RecipeSharingPlatform.Common.GeneralApplicationConstants;
 
     public class Program
     {
@@ -24,9 +25,11 @@ namespace Recipe_Sharing_Platform_2
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<RecipeSharingPlatformDbContext>();
 
-     
+
+            builder.Services.ConfigureApplicationCookie(cfg => cfg.LoginPath = "/User/Login");
 
             builder.Services.AddApplicationServices(typeof(IRecipeService));
 
@@ -58,6 +61,8 @@ namespace Recipe_Sharing_Platform_2
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.SeedAdministrator(AdminEmail);
 
             app.MapControllerRoute(
                 name: "default",

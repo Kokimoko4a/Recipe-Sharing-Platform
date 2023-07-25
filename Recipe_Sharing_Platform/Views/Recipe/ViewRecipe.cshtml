@@ -36,7 +36,7 @@
                 <p>Difficulty: @Model.Difficulty.Name</p>
                 <p>Count of Portions: @Model.CountOfPortions</p>
                 <p>Created On: @Model.CreatedOn.Date</p>
-                <p>Author: @Model.Author!.Email</p>
+                <p>Author: @Model.Author!.FirstName  @Model.Author!.LastName</p>
             </div>
         </div>
     </div>
@@ -53,16 +53,53 @@
                 <div class="card-body">
                     <h5 class="card-title">Author: @comment.Author.Email</h5>
                     <p class="card-text">@comment.Content</p>
+                    <div>
+                        <span id="like-count-@comment.Id" class="like-count">@comment.Likes</span> Likes
+                        <span id="dislike-count-@comment.Id" class="dislike-count">@comment.DisLikes</span> Dislikes
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-danger" onclick="handleDislike('@comment.Id')">Dislike</button>
+                            <button type="button" class="btn btn-success" onclick="handleLike('@comment.Id')">Like</button>
+                        </div>
+                    </div>
                 </div>
             </div>
     }
 </div>
 
-        <!-- Button for redirecting to another view -->
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <a asp-controller="Comment" asp-action="AddComment" asp-route-id="@Model.Id" class="btn btn-primary">Add comment</a>
-            </div>
-        </div>
-    </div>
-</div>
+@section scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function handleLike(commentId) {
+            $.ajax({
+                type: 'POST',
+                url: '/Comment/Like', // Ensure this URL is correct and matches the route in CommentController
+                data: { commentId: commentId },
+                success: function (result) {
+                    // Update the like count on the page
+                    var likeCountElement = $('#like-count-' + commentId);
+                    likeCountElement.text(result.LikeCount);
+                },
+                error: function () {
+                    console.log('Error: Unable to handle the like action.');
+                }
+            });
+        }
+
+        function handleDislike(commentId) {
+            $.ajax({
+                type: 'POST',
+                url: '/Comment/Dislike', // Ensure this URL is correct and matches the route in CommentController
+                data: { commentId: commentId },
+                success: function (result) {
+                    // Update the dislike count on the page
+                    var dislikeCountElement = $('#dislike-count-' + commentId);
+                    dislikeCountElement.text(result.DislikeCount);
+                },
+                error: function () {
+                    console.log('Error: Unable to handle the dislike action.');
+                }
+            });
+        }
+    </script>
+}
+

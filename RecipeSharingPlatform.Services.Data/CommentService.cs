@@ -9,6 +9,8 @@ namespace RecipeSharingPlatform.Services.Data
     using RecipesSharingPlatform.Data.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    //using static RecipeSharingPlatform.Common.EntityValidationConstants;
+   
 
     public class CommentService : ICommentService
     {
@@ -34,11 +36,55 @@ namespace RecipeSharingPlatform.Services.Data
             await data.SaveChangesAsync();
         }
 
+      
+
+        public async Task<Comment> GetCommentByIdAsync(string commentId)
+        {
+            return await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId)!;
+        }
+
         public async Task<ICollection<Comment>> GetComments(string recipeId)
         {
             ICollection<Comment> comments = await data.Comments.Include(c => c.Author).Where(c => c.RecipeId.ToString() == recipeId).ToListAsync();
 
             return comments;
         }
+
+        public async Task<Comment> Like(string commentId)
+        {
+            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
+
+            comment.Likes++;
+
+            return comment;
+        }
+
+        public async Task<Comment> Dislike(string commentId)
+        {
+            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
+
+            comment.DisLikes++;
+
+            return comment;
+        }
+
+      /*  public async Task LikeDislike(string commentId, bool like, Comment comment)
+        {   
+            if (comment == null)
+            {
+                return ;
+            }
+
+            if (like)
+            {
+                comment.Likes++;
+            }
+            else if (!like)
+            {
+                comment.DisLikes++;
+            }
+
+            await data.SaveChangesAsync();
+        }*/
     }
 }

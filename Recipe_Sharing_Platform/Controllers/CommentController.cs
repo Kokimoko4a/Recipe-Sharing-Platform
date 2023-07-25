@@ -6,8 +6,10 @@
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Web.ViewModels.Comment;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
+    using Microsoft.EntityFrameworkCore;
 
     [Authorize]
+    [Route("Comment")]
     public class CommentController : Controller
     {
         private readonly ICommentService commentService;
@@ -62,6 +64,41 @@
 
             return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
         }
+
+        [HttpPost]
+        [Route("LikeComment")]
+        public async Task<IActionResult> Like(string id)
+        {
+           // var comment = await commentService.GetCommentByIdAsync(commentId);
+
+           var comment =  await commentService.Like(id);
+
+            // Return the updated counts as JSON
+            return Json(new { LikeCount = comment.Likes });
+        }
+
+        [HttpPost]
+        [Route("DislikeComment")]
+        public async Task<IActionResult> Dislike(string id)
+        {
+            // var comment = await commentService.GetCommentByIdAsync(commentId);
+
+            var comment = await commentService.Dislike(id);
+
+            // Return the updated counts as JSON
+            return Json(new { DislikeCount = comment.DisLikes });
+        }
+
+      /*  [HttpPost]
+        public async Task<IActionResult> LikeDislike(string commentId, bool like)
+        {
+            var comment = await commentService.GetCommentByIdAsync(commentId);
+
+            await commentService.Dislike(commentId);
+
+            // Return the updated counts as JSON
+            return Json(new { likes = comment.Likes, dislikes = comment.DisLikes });
+        }*/
 
     }
 }

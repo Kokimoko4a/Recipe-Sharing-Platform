@@ -8,6 +8,8 @@
 
         public const int DefaultCountOfRecipesByPage = 6;
 
+        public const string AdminRoleName = "Administrator";
 
+        public const string AdminEmail = "bobi.rusev@abv.bg";
     }
 }

@@ -3,6 +3,8 @@
 namespace RecipesSharingPlatform.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
+    using System.ComponentModel.DataAnnotations;
+    using static RecipeSharingPlatform.Common.EntityValidationConstants.User;
 
     public class ApplicationUser : IdentityUser<Guid>
     {
@@ -16,5 +18,13 @@ namespace RecipesSharingPlatform.Data.Models
         public virtual ICollection<Recipe> Recipes { get; set; } = null!;
 
         public virtual ICollection<Comment> Comments { get; set; } = null!;
+
+        [Required]
+        [StringLength(MaxFirstNameLength, MinimumLength = MinFirstNameLength)]
+        public string FirstName { get; set; } = null!;
+
+        [Required]
+        [StringLength(MaxLastNameLength, MinimumLength = MinLastNameLength)]
+        public string LastName { get; set; } = null!;
     }
 }
