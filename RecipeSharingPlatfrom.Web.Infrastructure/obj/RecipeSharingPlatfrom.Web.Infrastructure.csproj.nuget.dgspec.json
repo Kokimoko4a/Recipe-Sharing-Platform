@@ -379,6 +379,9 @@
             "projectReferences": {
               "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Common\\RecipeSharingPlatform.Common.csproj": {
                 "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Common\\RecipeSharingPlatform.Common.csproj"
+              },
+              "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Data.Models\\RecipesSharingPlatform.Data.Models.csproj": {
+                "projectPath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Data.Models\\RecipesSharingPlatform.Data.Models.csproj"
               }
             }
           }

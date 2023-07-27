@@ -13,6 +13,7 @@ namespace RecipesSharingPlatform.Data.Models
             Id = Guid.NewGuid();
             Recipes = new HashSet<Recipe>();
             Comments = new HashSet<Comment>();
+            CookedRecipes = new HashSet<Recipe>();
         }
 
         public virtual ICollection<Recipe> Recipes { get; set; } = null!;
@@ -26,5 +27,7 @@ namespace RecipesSharingPlatform.Data.Models
         [Required]
         [StringLength(MaxLastNameLength, MinimumLength = MinLastNameLength)]
         public string LastName { get; set; } = null!;
+
+        public virtual ICollection<Recipe> CookedRecipes { get; set; } = null!;
     }
 }

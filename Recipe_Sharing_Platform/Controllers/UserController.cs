@@ -9,6 +9,7 @@ namespace Recipe_Sharing_Platform.Web.Controllers
     using RecipeSharingPlatform.Web.ViewModels.User;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
     using Griesoft.AspNetCore.ReCaptcha;
+    using RecipeSharingPlatform.Services.Data.Interfaces;
 
     public class UserController : Controller
     {
@@ -29,7 +30,7 @@ namespace Recipe_Sharing_Platform.Web.Controllers
         }
 
         [HttpPost]
-         [ValidateRecaptcha(Action = nameof(Register),
+        [ValidateRecaptcha(Action = nameof(Register),
              ValidationFailedAction = ValidationFailedAction.ContinueRequest)]
         public async Task<IActionResult> Register(RecipeSharingPlatform.Web.ViewModels.User.RegisterFormModel model)
         {

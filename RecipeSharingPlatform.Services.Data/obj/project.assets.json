@@ -863,7 +863,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "RecipeSharingPlatform.Common": "1.0.0"
+          "RecipeSharingPlatform.Common": "1.0.0",
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/RecipeSharingPlatform.Web.ViewModels.dll": {}

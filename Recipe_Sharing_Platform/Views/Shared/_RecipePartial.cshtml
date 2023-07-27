@@ -4,13 +4,17 @@
 <div class="col-md-4">
     <div class="card mb-3">
         <img class="card-img-top" src="@Model.ImageURL" alt="Recipe Image">
+        @if (Model.CountBeenCooked >= 4)
+        {
+                    <span class="badge badge-warning">Cooked</span>
+        }
         <div class="card-body text-center">
             <h4>@Model.Title</h4>
             <h6>
             </h6>
             <br />
             <a asp-controller="Recipe" asp-action="ViewRecipe" asp-route-id="@Model.Id" class="btn btn-success">View</a>
-            @if ((User.Identity!.IsAuthenticated && User.Identity.Name == Model.AuthorName) || User.IsAdmin())
+            @if (User.Identity!.IsAuthenticated && User.Identity.Name == Model.AuthorName || User.IsAdmin())
             {
                     <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
                     <a asp-controller="Recipe" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>

@@ -1,0 +1,7 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model IEnumerable<RecipeViewModel>
+
+@foreach (var recipe in Model)
+{
+            <partial name="_RecipePartial" model="@recipe" />
+}

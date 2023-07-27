@@ -2068,7 +2068,8 @@
       },
       "RecipeSharingPlatform.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "RecipeSharingPlatform.Common": "1.0.0"
+          "RecipeSharingPlatform.Common": "1.0.0",
+          "RecipesSharingPlatform.Data.Models": "1.0.0"
         },
         "runtime": {
           "RecipeSharingPlatform.Web.ViewModels.dll": {}

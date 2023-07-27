@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatfrom.Web.Infrastructure", "..\RecipeSharingPlatfrom.Web.Infrastructure\RecipeSharingPlatfrom.Web.Infrastructure.csproj", "{C89B02E4-3307-4202-AF1B-252F34ACF3E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeSharingPlatform.Services.Data.Models", "..\RecipeSharingPlatform.Services.Data.Models\RecipeSharingPlatform.Services.Data.Models.csproj", "{D7903C55-3DB6-4F83-9E87-FB0F663C3798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSharingPlatform.Services.Data.Models", "..\RecipeSharingPlatform.Services.Data.Models\RecipeSharingPlatform.Services.Data.Models.csproj", "{D7903C55-3DB6-4F83-9E87-FB0F663C3798}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,12 @@
-﻿﻿﻿@using RecipesSharingPlatform.Data.Models;
-@model Recipe
+﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model RecipeBigViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container my-4">
     <h2>@Model.Title</h2>
-    <p>Category: @Model.Category.Name</p>
+    <p>Category: @Model.Category</p>
     <hr>
     <div class="row">
         <div class="col-md-6">
@@ -29,14 +29,30 @@
             </div>
             <div class="my-3">
                 <h4>Cooking Details</h4>
-                <p>Cooking Type: @Model.CookingType.Name</p>
+                <p>Cooking Type: @Model.CookingType</p>
                 <p>Cooking Time: @Model.CookingTime min.</p>
                 <p>Preparing Time: @Model.PreparingTime min.</p>
                 <p>Total Time: @Model.TotalTime min.</p>
-                <p>Difficulty: @Model.Difficulty.Name</p>
+                <p>Difficulty: @Model.Difficulty</p>
                 <p>Count of Portions: @Model.CountOfPortions</p>
                 <p>Created On: @Model.CreatedOn.Date</p>
                 <p>Author: @Model.Author!.FirstName  @Model.Author!.LastName</p>
+                <p>This recipe was cooked @Model.CountBeenCooked times</p>
+
+               @if (Model.GuestUser.CookedRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
+                {
+                        <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
+                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-success">I Cooked</button>
+                        </form>
+                }
+                else
+                {
+                        <form asp-controller="Recipe" asp-action="Uncook" method="post">
+                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-danger">Uncook</button>
+                        </form>
+                }
             </div>
         </div>
     </div>

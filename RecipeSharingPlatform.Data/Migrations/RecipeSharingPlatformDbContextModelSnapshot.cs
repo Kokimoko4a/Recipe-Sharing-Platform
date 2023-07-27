@@ -530,6 +530,9 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
@@ -540,6 +543,9 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("CookingTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountBeenCooked")
                         .HasColumnType("int");
 
                     b.Property<int>("CountOfPortions")
@@ -573,6 +579,8 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("AuthorId");
 
@@ -668,6 +676,10 @@ namespace RecipeSharingPlatform.Data.Migrations
 
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.Recipe", b =>
                 {
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
+                        .WithMany("CookedRecipes")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", "Author")
                         .WithMany("Recipes")
                         .HasForeignKey("AuthorId")
@@ -704,6 +716,8 @@ namespace RecipeSharingPlatform.Data.Migrations
             modelBuilder.Entity("RecipesSharingPlatform.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("CookedRecipes");
 
                     b.Navigation("Recipes");
                 });

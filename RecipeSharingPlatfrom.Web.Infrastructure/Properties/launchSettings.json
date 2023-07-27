@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "RecipeSharingPlatfrom.Web.Infrastructure": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62540;http://localhost:62548"
+    }
+  }
+}

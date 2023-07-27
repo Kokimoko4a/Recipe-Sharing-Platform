@@ -83,5 +83,7 @@
 
         [Required]  
         public virtual ICollection<Comment> Comments { get; set; } = null!;
+
+        public int CountBeenCooked { get; set; }
     }
 }

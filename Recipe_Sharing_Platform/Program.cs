@@ -11,11 +11,17 @@ namespace Recipe_Sharing_Platform_2
     using RecipeSharingPlatfrom.Web.Infrastructure.Extensions;
     using RecipeSharingPlatform.Web.Infrastructure.ModelBinders;
     using static RecipeSharingPlatform.Common.GeneralApplicationConstants;
+    using Microsoft.Extensions.Configuration;
 
     public class Program
     {
+
+
+
         public static void Main(string[] args)
         {
+
+
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -33,6 +39,8 @@ namespace Recipe_Sharing_Platform_2
 
             builder.Services.ConfigureApplicationCookie(cfg => cfg.LoginPath = "/User/Login");
 
+            // builder.Services.Configure<EmailSenderOptions>(Configuration.GetSection("EmailSenderOptions"));
+
             builder.Services.AddApplicationServices(typeof(IRecipeService));
 
             builder.Services.AddControllersWithViews().AddMvcOptions(options =>
@@ -49,9 +57,11 @@ namespace Recipe_Sharing_Platform_2
             {
                 app.UseMigrationsEndPoint();
             }
+
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
+                app.UseExceptionHandler("/Home/Error/500");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
