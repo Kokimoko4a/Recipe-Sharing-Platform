@@ -39,7 +39,13 @@
                 <p>Author: @Model.Author!.FirstName  @Model.Author!.LastName</p>
                 <p>This recipe was cooked @Model.CountBeenCooked times</p>
 
-               @if (Model.GuestUser.CookedRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
+               
+                @if (Model.GuestUser == null)
+                {
+                    
+                }
+
+               else if (Model.GuestUser.CookedRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
                 {
                         <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
                             <input type="hidden" name="recipeId" value="@Model.Id" />

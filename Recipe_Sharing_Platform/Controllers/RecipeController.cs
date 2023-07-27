@@ -51,20 +51,53 @@ namespace Recipe_Sharing_Platform_2.Controllers
         [HttpGet]
         public async Task<IActionResult> ViewRecipe(string id)
         {
+          
 
-            if (await recipeService.GetRecipeByIdAsync(id) == null)
+            if (!User.Identity.IsAuthenticated)
             {
 
-                TempData[WarningMessage] = "No such a recipe!";
+                if (await recipeService.GetRecipeByIdAsync(id,string.Empty) == null)
+                {
+
+                    TempData[WarningMessage] = "No such a recipe!";
+                }
+
+                try
+                {
+
+
+                    var comments = await commentService.GetComments(id);
+
+                    var recipe = await recipeService.GetRecipeByIdAsync(id, string.Empty);
+
+
+
+                    recipe.Comments = comments;
+
+                    // recipe.Author = await userService.GetUserWithCookedRecipes(recipe.AuthorId.ToString());
+
+                   // recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
+
+                    return View(recipe);
+
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("All");
+                }
             }
 
             try
             {
-               
+                if (await recipeService.GetRecipeByIdAsync(id, User.GetId().ToString()) == null)
+                {
+
+                    TempData[WarningMessage] = "No such a recipe!";
+                }
 
                 var comments = await commentService.GetComments(id);
 
-                var recipe = await recipeService.GetRecipeByIdAsync(id);
+                var recipe = await recipeService.GetRecipeByIdAsync(id,User.GetId().ToString());
 
               
 
@@ -324,7 +357,15 @@ namespace Recipe_Sharing_Platform_2.Controllers
             return View(await userService.GetCookedRecipesByUserId(User.GetId().ToString()));         
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Uncook(string recipeId)
+        {
+            await recipeService.MarkAsUnCookedRecipe(recipeId);
 
+            await userService.RemoveCookedRecipe(recipeId, User!.GetId().ToString());
+
+            return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+        }
 
         private async Task<RecipeFormModel> LoadData(RecipeFormModel recipeFormModel)
         {

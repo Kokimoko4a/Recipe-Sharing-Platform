@@ -6,14 +6,14 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
     using RecipeSharingPlatform.Web.ViewModels.Home;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
+   
 
     public interface IRecipeService
     {
         Task<IEnumerable<IndexViewModel>> LastThreeRecipesAsync();
-
         Task<IEnumerable<RecipeViewModel>> AllRecipesAsync();
 
-        Task<RecipeBigViewModel> GetRecipeByIdAsync(string id);
+        Task<RecipeBigViewModel> GetRecipeByIdAsync(string id,string userId);
 
         Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId);
 
@@ -34,6 +34,8 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task DeleteAsync(RecipeDeleteViewModel recipeDeleteViewModel);
 
         Task MarkAsCookedRecipe(string id);
+
+        Task MarkAsUnCookedRecipe(string recipeId);
 
     }
 }

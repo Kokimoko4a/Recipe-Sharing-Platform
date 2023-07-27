@@ -13,5 +13,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task AddCookedRecipe(string recipeId, string userId);
 
         Task<IEnumerable<RecipeViewModel>> GetCookedRecipesByUserId(string userId);
+
+        Task RemoveCookedRecipe(string recipeId, string userId);
     }
 }

@@ -53,9 +53,15 @@ namespace RecipeSharingPlatform.Services.Data
             return recipes;
         }
 
-        public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId)
+        public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId,string userId)
         {
-           
+            ApplicationUser user = null;
+
+            if (userId != string.Empty)
+            {
+                user = await data.Users.FirstOrDefaultAsync(u => u.Id.ToString() == userId);
+            }
+
             
 
             RecipeBigViewModel recipeBigView = await data.Recipes.
@@ -81,7 +87,8 @@ namespace RecipeSharingPlatform.Services.Data
                     ImageUrl = r.ImageUrl,
                     Ingredients = r.Ingredients,
                     PreparingTime = r.PreparingTime,
-                    Title = r.Title
+                    Title = r.Title,
+                    GuestUser = user
                 })
                 .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
 
@@ -444,6 +451,15 @@ namespace RecipeSharingPlatform.Services.Data
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == id);
 
             recipe.CountBeenCooked++;
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task MarkAsUnCookedRecipe(string recipeId)
+        {
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
+
+            recipe.CountBeenCooked--;
 
             await data.SaveChangesAsync();
         }

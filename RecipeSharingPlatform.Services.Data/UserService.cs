@@ -63,5 +63,16 @@
                 CountBeenCooked = r.CountBeenCooked,
             });
         }
+
+        public async Task RemoveCookedRecipe(string recipeId, string userId)
+        {
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
+
+            ApplicationUser user = await data.Users.FirstOrDefaultAsync(u => u.Id.ToString() == userId);
+
+            user.CookedRecipes.Remove(recipe);
+
+            await data.SaveChangesAsync();
+        }
     }
 }
