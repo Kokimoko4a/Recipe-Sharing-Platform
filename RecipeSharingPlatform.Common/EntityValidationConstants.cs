@@ -70,6 +70,10 @@
             public const int MaxTextLength = 50;
 
             public const int MinTextLength = 5;
+
+            public const int MaxDescriptionLength = 2500;
+
+            public const int MinDescriptionLength = 40;
         }
 
         public static class DifficultyType

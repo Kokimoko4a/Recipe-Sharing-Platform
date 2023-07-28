@@ -1,8 +1,6 @@
 ﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
 @model RecipeBigViewModel
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 
 <div class="container my-4">
     <h2>@Model.Title</h2>
@@ -54,7 +52,7 @@
                 }
                 else
                 {
-                        <form asp-controller="Recipe" asp-action="Uncook" method="post">
+                            <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
                             <input type="hidden" name="recipeId" value="@Model.Id" />
                             <button type="submit" class="btn btn-danger">Uncook</button>
                         </form>

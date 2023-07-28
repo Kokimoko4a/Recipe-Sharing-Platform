@@ -18,5 +18,11 @@
         public string Name { get; set; } = null!;
 
         public virtual ICollection<Recipe> Recipes { get; set; }
+
+        [StringLength(MaxDescriptionLength, MinimumLength = MinDescriptionLength)]
+        public string? Description { get; set; }
+
+       
+        public string? ImageUrl { get; set; } 
     }
 }

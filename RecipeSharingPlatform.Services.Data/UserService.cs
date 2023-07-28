@@ -7,6 +7,7 @@
     using RecipesSharingPlatform.Data.Models;
     using System.Collections.Generic;
     using System.Security.Cryptography.X509Certificates;
+    using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
     public class UserService : IUserService
     {
@@ -41,11 +42,13 @@
 
         public async Task AddCookedRecipe(string recipeId, string userId)
         {
+           
+
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
 
             ApplicationUser user = await data.Users.FirstOrDefaultAsync(u => u.Id.ToString() == userId);
-
             user.CookedRecipes.Add(recipe);
+
 
             await data.SaveChangesAsync();
         }

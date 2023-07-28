@@ -348,7 +348,9 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             await userService.AddCookedRecipe(recipeId, User!.GetId().ToString());
 
-             return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            TempData[SuccessMessage] = "Successfully marked recipe as cooked";
+
+            return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
         }
 
         [HttpGet]
@@ -358,11 +360,13 @@ namespace Recipe_Sharing_Platform_2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Uncook(string recipeId)
+        public async Task<IActionResult> MarkUncooked(string recipeId)
         {
             await recipeService.MarkAsUnCookedRecipe(recipeId);
 
             await userService.RemoveCookedRecipe(recipeId, User!.GetId().ToString());
+
+            TempData[SuccessMessage] = "Successfully marked recipe as uncooked";
 
             return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
         }

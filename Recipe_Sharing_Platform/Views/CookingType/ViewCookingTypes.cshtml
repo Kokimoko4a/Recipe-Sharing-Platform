@@ -1,0 +1,32 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.CookingType;
+@model IEnumerable<CookingTypeSmallViewModel>
+
+<h2 class="text-center">All Cooking Types</h2>
+<hr />
+
+@if (Model.Any())
+{
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var cookingType in Model)
+            {
+                        <tr>
+                            <td>@cookingType.Name</td>
+                            <td>
+                                <a asp-controller="CookingType" asp-action="Detail" asp-route-id="@cookingType.Id" class="btn btn-primary">View Details</a>
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <h3 class="text-center">No cooking types found!</h3>
+}

@@ -1,0 +1,32 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.CookingType;
+@model CookingTypeBigViewModel
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Check if ImageUrl is not null or empty before displaying the image -->
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                    <!-- Display the image using an anchor link -->
+                    <a href="@Model.ImageUrl" target="_blank">
+                        <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name" />
+                    </a>
+            }
+            else
+            {
+                    <!-- Display a placeholder image or a default message if the ImageUrl is not available -->
+                    <img src=@Model.ImageUrl class="img-fluid rounded" alt="Placeholder Image" />
+                    <p>Image Not Available</p>
+            }
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.Name</h2>
+            <hr />
+            <div>
+                <h4>Description</h4>
+                <p>@Model.Description</p>
+                <!-- Add any other properties you want to display here -->
+            </div>
+        </div>
+    </div>
+</div>
