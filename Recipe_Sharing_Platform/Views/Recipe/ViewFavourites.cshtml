@@ -1,0 +1,13 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+@model IEnumerable<RecipeViewModel>
+
+@if (!Model.Any())
+{
+            <h3 class="text-center">No favourite recipes found!</h3>
+}
+
+
+@foreach (var recipe in Model)
+{
+       <partial name="_RecipePartial" model="@recipe" />
+}

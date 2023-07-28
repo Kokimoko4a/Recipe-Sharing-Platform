@@ -4,6 +4,7 @@ namespace RecipesSharingPlatform.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using static RecipeSharingPlatform.Common.EntityValidationConstants.User;
 
     public class ApplicationUser : IdentityUser<Guid>
@@ -14,6 +15,7 @@ namespace RecipesSharingPlatform.Data.Models
             Recipes = new HashSet<Recipe>();
             Comments = new HashSet<Comment>();
             CookedRecipes = new HashSet<Recipe>();
+            FavouriteRecipes= new HashSet<Recipe>();
         }
 
         public virtual ICollection<Recipe> Recipes { get; set; } = null!;
@@ -28,6 +30,9 @@ namespace RecipesSharingPlatform.Data.Models
         [StringLength(MaxLastNameLength, MinimumLength = MinLastNameLength)]
         public string LastName { get; set; } = null!;
 
+        
         public virtual ICollection<Recipe> CookedRecipes { get; set; } = null!;
+
+        public virtual ICollection<Recipe> FavouriteRecipes { get; set; } = null!;
     }
 }

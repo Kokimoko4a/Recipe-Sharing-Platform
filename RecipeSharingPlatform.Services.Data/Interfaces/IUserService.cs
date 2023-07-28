@@ -15,5 +15,15 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task<IEnumerable<RecipeViewModel>> GetCookedRecipesByUserId(string userId);
 
         Task RemoveCookedRecipe(string recipeId, string userId);
+
+        Task MarkRecipeAsFavouriteAsync(string recipeId,string userId);
+
+        Task<IEnumerable<RecipeViewModel>> GetFavouriteRecipesByUserId(string userId);
+
+        Task<ICollection<Recipe>> GetFavouriteRecipesByUserIdAsRecipeFullModel(string userId);
+
+        Task MarkRecipeAsUnfavouriteAsync(string recipeId, string userId);
+
+
     }
 }

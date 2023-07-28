@@ -346,12 +346,6 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DisLikes")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Likes")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("RecipeId")
                         .HasColumnType("uniqueidentifier");
 
@@ -566,6 +560,9 @@ namespace RecipeSharingPlatform.Data.Migrations
                     b.Property<Guid?>("ApplicationUserId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ApplicationUserId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
@@ -614,6 +611,8 @@ namespace RecipeSharingPlatform.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ApplicationUserId1");
 
                     b.HasIndex("AuthorId");
 
@@ -713,6 +712,10 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .WithMany("CookedRecipes")
                         .HasForeignKey("ApplicationUserId");
 
+                    b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", null)
+                        .WithMany("FavouriteRecipes")
+                        .HasForeignKey("ApplicationUserId1");
+
                     b.HasOne("RecipesSharingPlatform.Data.Models.ApplicationUser", "Author")
                         .WithMany("Recipes")
                         .HasForeignKey("AuthorId")
@@ -751,6 +754,8 @@ namespace RecipeSharingPlatform.Data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("CookedRecipes");
+
+                    b.Navigation("FavouriteRecipes");
 
                     b.Navigation("Recipes");
                 });

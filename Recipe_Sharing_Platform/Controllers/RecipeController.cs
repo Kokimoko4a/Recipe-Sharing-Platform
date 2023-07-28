@@ -22,7 +22,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
         private readonly ICommentService commentService;
         private readonly IUserService userService;
 
-        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IDifficultyTypesService difficultyTypeService, ICookingTypeService cookingTypeService, ICommentService commentService,IUserService userService)
+        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IDifficultyTypesService difficultyTypeService, ICookingTypeService cookingTypeService, ICommentService commentService, IUserService userService)
         {
             this.recipeService = recipeService;
             this.difficultyTypeService = difficultyTypeService;
@@ -51,12 +51,12 @@ namespace Recipe_Sharing_Platform_2.Controllers
         [HttpGet]
         public async Task<IActionResult> ViewRecipe(string id)
         {
-          
+
 
             if (!User.Identity.IsAuthenticated)
             {
 
-                if (await recipeService.GetRecipeByIdAsync(id,string.Empty) == null)
+                if (await recipeService.GetRecipeByIdAsync(id, string.Empty) == null)
                 {
 
                     TempData[WarningMessage] = "No such a recipe!";
@@ -76,7 +76,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                     // recipe.Author = await userService.GetUserWithCookedRecipes(recipe.AuthorId.ToString());
 
-                   // recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
+                    // recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
 
                     return View(recipe);
 
@@ -89,7 +89,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             try
             {
-                if (await recipeService.GetRecipeByIdAsync(id, User.GetId().ToString()) == null)
+                if (await recipeService.GetRecipeByIdAsync(id, User.GetId()!.ToString()) == null)
                 {
 
                     TempData[WarningMessage] = "No such a recipe!";
@@ -97,15 +97,17 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                 var comments = await commentService.GetComments(id);
 
-                var recipe = await recipeService.GetRecipeByIdAsync(id,User.GetId().ToString());
+                var recipe = await recipeService.GetRecipeByIdAsync(id, User.GetId()!.ToString());
 
-              
+
 
                 recipe.Comments = comments;
 
                 // recipe.Author = await userService.GetUserWithCookedRecipes(recipe.AuthorId.ToString());
 
                 recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
+
+                recipe.GuestUser.FavouriteRecipes = await userService.GetFavouriteRecipesByUserIdAsRecipeFullModel(User.GetId().ToString());
 
                 return View(recipe);
 
@@ -294,7 +296,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return RedirectToAction("All");
             }
 
-            return View(new RecipeDeleteViewModel() {RecipeId = id });
+            return View(new RecipeDeleteViewModel() { RecipeId = id });
         }
 
 
@@ -310,7 +312,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
             bool recipeExists = await recipeService.ExistsByIdAsync(recipeDeleteViewModel.RecipeId);
 
-           
+
             if (!recipeExists)
             {
                 TempData[WarningMessage] = "You are not the publisher of that recipe or there is no such a recipe.";
@@ -333,8 +335,8 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return View(recipeDeleteViewModel);
             }
 
-                 
-           await recipeService.DeleteAsync(recipeDeleteViewModel);
+
+            await recipeService.DeleteAsync(recipeDeleteViewModel);
 
             TempData[SuccessMessage] = "Successfuly deleted recipe";
 
@@ -356,7 +358,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
         [HttpGet]
         public async Task<IActionResult> ViewCookedRecipes()
         {
-            return View(await userService.GetCookedRecipesByUserId(User.GetId().ToString()));         
+            return View(await userService.GetCookedRecipesByUserId(User.GetId().ToString()));
         }
 
         [HttpPost]
@@ -369,6 +371,60 @@ namespace Recipe_Sharing_Platform_2.Controllers
             TempData[SuccessMessage] = "Successfully marked recipe as uncooked";
 
             return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkFavourite(string recipeId)
+        {
+            try
+            {
+
+                await userService.MarkRecipeAsFavouriteAsync(recipeId, User.GetId().ToString());
+
+                TempData[SuccessMessage] = "Successfully marked as favourite";
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+            catch (Exception)
+            {
+
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkUnfavourite(string recipeId)
+        {
+
+            try
+            {
+                await userService.MarkRecipeAsUnfavouriteAsync(recipeId, User.GetId()!.ToString());
+
+                TempData[SuccessMessage] = "Succesfully removed from favourite recipes";
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+            catch (Exception)
+            {
+
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewFavourites()
+        {
+            return View(await userService.GetFavouriteRecipesByUserId(User.GetId()!.ToString()));
         }
 
         private async Task<RecipeFormModel> LoadData(RecipeFormModel recipeFormModel)

@@ -50,41 +50,5 @@ namespace RecipeSharingPlatform.Services.Data
             return comments;
         }
 
-        public async Task<Comment> Like(string commentId)
-        {
-            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
-
-            comment.Likes++;
-
-            return comment;
-        }
-
-        public async Task<Comment> Dislike(string commentId)
-        {
-            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
-
-            comment.DisLikes++;
-
-            return comment;
-        }
-
-      /*  public async Task LikeDislike(string commentId, bool like, Comment comment)
-        {   
-            if (comment == null)
-            {
-                return ;
-            }
-
-            if (like)
-            {
-                comment.Likes++;
-            }
-            else if (!like)
-            {
-                comment.DisLikes++;
-            }
-
-            await data.SaveChangesAsync();
-        }*/
     }
 }
