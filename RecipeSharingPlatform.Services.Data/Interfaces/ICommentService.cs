@@ -9,7 +9,12 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         Task<ICollection<Comment>> GetComments(string recipeId);
 
+        Task<bool> ExistsById(string commentId);
 
         Task<Comment> GetCommentByIdAsync(string commentId);
+
+        Task<bool> IsCommentYours(string commentId, string userId);
+
+        Task DeleteCommentByIdAsync(string commentId);
     }
 }

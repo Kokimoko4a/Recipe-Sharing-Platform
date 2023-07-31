@@ -303,7 +303,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData[WarningMessage] = "Inserted password is invalid";
+                TempData[WarningMessage] = "Inserted email is invalid";
 
                 return View(recipeDeleteViewModel);
             }

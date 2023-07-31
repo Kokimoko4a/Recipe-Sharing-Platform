@@ -95,6 +95,11 @@
             <div class="card-body">
                 <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
                 <p class="card-text">@comment.Content</p>
+                @if (comment.Author.Email == User?.Identity?.Name)
+                {
+                             <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
+                }
+                    
             </div>
         </div>
     }

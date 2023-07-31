@@ -32,7 +32,7 @@
                 return RedirectToAction("All", "Recipe");
             }
 
-            return View(new CommentFormModel() { RecipeId = id});
+            return View("AddComment",new CommentFormModel() { RecipeId = id});
         }
 
         [HttpPost]
@@ -63,6 +63,60 @@
             }
 
             return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
+        }
+
+        [Route("Comment/Delete/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (!await commentService.ExistsById(id))
+            {
+                TempData[ErrorMessage] = "Comment does not exist";
+                return Redirect($"https://localhost:7024/Recipe/All/");
+            }
+
+            if (!await commentService.IsCommentYours(id, User?.GetId()!.ToString()))
+            {
+                TempData[WarningMessage] = "Comment is not yours! You are miserable!";
+                return Redirect($"https://localhost:7024/Recipe/All/");
+            }
+
+
+
+            return View("Delete",new CommentDeleteViewModel() {CommentId = id});
+        }
+
+        [Route("Comment/Delete/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> Delete(CommentDeleteViewModel commentDeleteViewModel)
+        {
+            if (!await commentService.ExistsById(commentDeleteViewModel.CommentId))
+            {
+                TempData[ErrorMessage] = "Comment does not exist";
+            }
+
+            if (! await commentService.IsCommentYours(commentDeleteViewModel.CommentId, User?.GetId()!.ToString()))
+            {
+                TempData[WarningMessage] = "Comment is not yours! You are miserable!";
+                return Redirect($"https://localhost:7024/Recipe/All/");
+            }
+
+            if (commentDeleteViewModel.Email != User.Identity.Name)
+            {
+                TempData[ErrorMessage] = "Entered email is not valid";
+                return View(commentDeleteViewModel);
+                return Redirect($"https://localhost:7024/Recipe/All");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(commentDeleteViewModel);
+            }
+
+            await commentService.DeleteCommentByIdAsync(commentDeleteViewModel.CommentId);
+            TempData[SuccessMessage] = "Successfully deleted your comment";
+            return Redirect($"https://localhost:7024/Recipe/All");
+
         }
 
 

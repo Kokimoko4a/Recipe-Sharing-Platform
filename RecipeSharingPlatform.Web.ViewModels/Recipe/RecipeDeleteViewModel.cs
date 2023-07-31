@@ -1,14 +1,12 @@
-﻿
-
-
-namespace RecipeSharingPlatform.Web.ViewModels.Recipe
+﻿namespace RecipeSharingPlatform.Web.ViewModels.Recipe
 {
     using System.ComponentModel.DataAnnotations;
+    using static RecipeSharingPlatform.Common.EntityValidationConstants.User;
 
     public class RecipeDeleteViewModel
     {
         [Required]
-        [StringLength(100,MinimumLength = 6)]
+        [StringLength(MaxEmailLength,MinimumLength = MinEmailLength)]
         public string Email { get; set; } = null!;
 
         [Required]

@@ -1,0 +1,28 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.Comment;
+@model CommentDeleteViewModel
+
+
+
+<h2>Confirm Deletion</h2>
+
+<div class="card bg-light p-4">
+    <div class="card-body">
+        <h4 class="text-center">To confirm the deletion of the comment, please enter your email:</h4>
+        <hr class="my-4">
+
+        <form asp-action="Delete" method="post" asp-controller="Comment">
+            <div class="form-group">
+                <label asp-for="Email" class="form-label text-dark">Email</label>
+                <input asp-for="Email" type="text" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="CommentId" />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger">Delete Comment</button>
+                <a asp-action="All" asp-controller="Recipe" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
