@@ -4,7 +4,6 @@ namespace Recipe_Sharing_Platform.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using RecipeSharingPlatform.Services.Data.Interfaces;
-    using RecipeSharingPlatform.Web.ViewModels.Recipe;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
 
     public class CookingTypeController : Controller

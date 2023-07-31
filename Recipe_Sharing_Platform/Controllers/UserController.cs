@@ -95,7 +95,7 @@ namespace Recipe_Sharing_Platform.Web.Controllers
             if (!result.Succeeded)
             {
                 TempData[ErrorMessage] =
-                    "There was an error while logging you in! Please try again later or contact an administrator.";
+                    "There was an error while logging you in! Your password can be incorrect! Please try again or contact an administrator.";
 
                 return View(model);
             }

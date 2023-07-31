@@ -31,7 +31,7 @@
                 <p>Total Time: @Model.TotalTime min.</p>
                 <p>Difficulty: @Model.Difficulty</p>
                 <p>Count of Portions: @Model.CountOfPortions</p>
-                <p>Created On: @Model.CreatedOn.Date</p>
+                <p>Created On: @Model.CreatedOn.ToString("dd/MM/yyyy")</p>
                 <p>Author: @Model.Author!.FirstName @Model.Author!.LastName</p>
                 <p>This recipe was cooked @Model.CountBeenCooked times</p>
 
@@ -72,7 +72,10 @@
                 
                 else
                 {
-                           <a asp-controller="User" asp-action="Login" class="btn btn-primary">Log in to mark as Favourite</a>   
+                              <form asp-controller="User" asp-action="Login" method="get">
+                                                
+                                                <button type="submit" class="btn btn-warning">Log in to have more features</button>
+                                            </form>
                 }
                
 

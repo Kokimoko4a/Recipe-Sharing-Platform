@@ -14,7 +14,7 @@
 
             CreatedOn = DateTime.Now;
 
-            Comments= new HashSet<Comment>();   
+            Comments= new HashSet<Comment>();
         }
 
         [Key]

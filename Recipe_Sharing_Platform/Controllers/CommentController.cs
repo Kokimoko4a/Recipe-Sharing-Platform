@@ -6,7 +6,6 @@
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Web.ViewModels.Comment;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
-    using Microsoft.EntityFrameworkCore;
 
     [Authorize]
     [Route("Comment")]
@@ -15,7 +14,8 @@
         private readonly ICommentService commentService;
         private readonly IRecipeService recipeService;
 
-        public CommentController(ICommentService commentService, IRecipeService recipeService)
+        public CommentController(ICommentService commentService,
+            IRecipeService recipeService)
         {
             this.commentService = commentService;
             this.recipeService = recipeService;

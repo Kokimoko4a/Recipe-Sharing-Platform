@@ -4,13 +4,10 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using RecipeSharingPlatform.Web.Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
-    // using RecipesSharingPlatform.Data.Models;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
-    using RecipeSharingPlatform.Web.ViewModels.Comment;
 
     [Authorize]
     public class RecipeController : Controller
@@ -22,7 +19,12 @@ namespace Recipe_Sharing_Platform_2.Controllers
         private readonly ICommentService commentService;
         private readonly IUserService userService;
 
-        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IDifficultyTypesService difficultyTypeService, ICookingTypeService cookingTypeService, ICommentService commentService, IUserService userService)
+        public RecipeController(IRecipeService recipeService,
+            ICategoryService categoryService,
+            IDifficultyTypesService difficultyTypeService,
+            ICookingTypeService cookingTypeService,
+            ICommentService commentService,
+            IUserService userService)
         {
             this.recipeService = recipeService;
             this.difficultyTypeService = difficultyTypeService;
@@ -74,10 +76,6 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                     recipe.Comments = comments;
 
-                    // recipe.Author = await userService.GetUserWithCookedRecipes(recipe.AuthorId.ToString());
-
-                    // recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
-
                     return View(recipe);
 
                 }
@@ -103,11 +101,11 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                 recipe.Comments = comments;
 
-                // recipe.Author = await userService.GetUserWithCookedRecipes(recipe.AuthorId.ToString());
+            
 
                 recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
 
-                recipe.GuestUser.FavouriteRecipes = await userService.GetFavouriteRecipesByUserIdAsRecipeFullModel(User.GetId().ToString());
+                recipe.GuestUser.FavouriteRecipes = await userService.GetFavouriteRecipesByUserIdAsRecipeFullModel(User?.GetId().ToString());
 
                 return View(recipe);
 

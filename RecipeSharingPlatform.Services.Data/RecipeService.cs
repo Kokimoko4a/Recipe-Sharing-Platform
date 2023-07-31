@@ -39,20 +39,6 @@ namespace RecipeSharingPlatform.Services.Data
             return recipes;
         }
 
-        public async Task<IEnumerable<RecipeViewModel>> AllRecipesAsync()
-        {
-            List<RecipeViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new RecipeViewModel()
-            {
-                Id = x.Id,
-               AuthorName= x.Author!.Email,
-                ImageURL = x.ImageUrl,
-                Title = x.Title,
-                CountBeenCooked = x.CountBeenCooked
-            }).ToListAsync();
-
-            return recipes;
-        }
-
         public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId,string userId)
         {
             ApplicationUser user = null;
@@ -425,7 +411,7 @@ namespace RecipeSharingPlatform.Services.Data
                     TypeMeasurement = ingredientQuanAndMT[1]
                 };
 
-                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0]);
+                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',','.'));
 
                 ingredientsForDb.Add(ingredientForDb);
             }

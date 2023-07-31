@@ -2,8 +2,6 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using RecipeSharingPlatform.Services.Data.Interfaces;
-    using RecipeSharingPlatform.Web.ViewModels.Home;
-    using System.Diagnostics;
 
     public class HomeController : Controller
     {

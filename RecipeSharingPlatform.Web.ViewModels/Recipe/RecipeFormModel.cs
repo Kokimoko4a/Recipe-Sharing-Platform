@@ -45,7 +45,8 @@ namespace RecipeSharingPlatform.Web.ViewModels.Recipe
 
         public virtual IEnumerable<RecipeCategorySelectFormModel> Categories { get; set; }
 
-        public virtual string Ingredients { get; set; } = null!;
+        //[RegularExpression("^(\\s*[\\w\\s]+?)\\s*-\\s*(\\d+)\\s*([\\w\\s]+)\\s*$", ErrorMessage = "Ingredients are not enterred correctly! Folow the exact pattern given!")]
+        public  string Ingredients { get; set; } = null!;
 
         public int CookingTypeId { get; set; }
 
