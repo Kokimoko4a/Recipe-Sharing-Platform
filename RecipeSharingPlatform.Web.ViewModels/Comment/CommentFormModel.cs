@@ -9,5 +9,7 @@
         public string Content { get; set; } = null!;
 
         public string RecipeId { get; set; } = null!;
+
+        public string? CommentId { get; set; } 
     }
 }

@@ -11,6 +11,8 @@ namespace RecipesSharingPlatform.Data.Models
         public Comment()
         {
             Id = Guid.NewGuid().ToString();
+            CreatedOn = DateTime.Now;
+            HaveBeenEdited = false;
         }
 
         public string Id { get; set; } = null!;
@@ -32,6 +34,11 @@ namespace RecipesSharingPlatform.Data.Models
 
         [Required]
         public Recipe Recipe { get; set; } = null!;
+
+        [Required]
+        public DateTime CreatedOn { get; set; }
+
+        public bool HaveBeenEdited { get; set; }
 
     }
 }

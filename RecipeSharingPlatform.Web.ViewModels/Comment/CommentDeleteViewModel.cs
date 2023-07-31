@@ -10,6 +10,7 @@ namespace RecipeSharingPlatform.Web.ViewModels.Comment
         [StringLength(MaxEmailLength, MinimumLength = MinEmailLength)]
         public string Email { get; set; } = null!;
 
-        public string CommentId { get; set; }
+        public string? CommentId { get; set; } 
+        public string? RecipeId { get; set; } 
     }
 }

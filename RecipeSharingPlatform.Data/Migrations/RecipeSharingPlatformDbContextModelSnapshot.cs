@@ -346,6 +346,12 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("HaveBeenEdited")
+                        .HasColumnType("bit");
+
                     b.Property<Guid>("RecipeId")
                         .HasColumnType("uniqueidentifier");
 

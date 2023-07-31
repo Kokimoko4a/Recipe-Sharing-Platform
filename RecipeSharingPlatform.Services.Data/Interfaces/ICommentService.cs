@@ -16,5 +16,9 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task<bool> IsCommentYours(string commentId, string userId);
 
         Task DeleteCommentByIdAsync(string commentId);
+
+        Task<CommentFormModel> GetCommentAsFormModelAsync(string commentId);
+
+        Task UpdateData(CommentFormModel commentFormModel);
     }
 }

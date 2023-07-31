@@ -70,5 +70,30 @@ namespace RecipeSharingPlatform.Services.Data
 
             await data.SaveChangesAsync();
         }
+
+        public async Task<CommentFormModel> GetCommentAsFormModelAsync(string commentId)
+        {
+            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
+
+            CommentFormModel commentFormModel = new CommentFormModel()
+            {
+                Content = comment.Content,
+                RecipeId = comment.RecipeId.ToString(),
+                CommentId = comment.Id,
+            };
+
+            return commentFormModel;
+        }
+
+        public async Task UpdateData(CommentFormModel commentFormModel)
+        {
+            Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentFormModel.CommentId);
+            
+            comment.Content = commentFormModel.Content;
+            comment.CreatedOn = DateTime.Now;
+            comment.HaveBeenEdited = true;
+
+            await data.SaveChangesAsync();
+        }
     }
 }
