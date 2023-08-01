@@ -3,8 +3,8 @@
     using System.Reflection;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using RecipeSharingPlatfrom.Web.Infrastructure.Middlewares;
     using RecipesSharingPlatform.Data.Models;
     using static RecipeSharingPlatform.Common.GeneralApplicationConstants;
 
@@ -73,6 +73,11 @@
 
 
             return app;
+        }
+
+        public static IApplicationBuilder EnableOnlineUsersCheck(this IApplicationBuilder app)
+        {
+            return app.UseMiddleware<OnlineUsersMiddleware>();
         }
 
     }

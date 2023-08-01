@@ -11,5 +11,9 @@
         public const string AdminRoleName = "Administrator";
 
         public const string AdminEmail = "bobi.rusev@abv.bg";
+
+        public const string OnlineUsersCookieName = "IsOnline";
+
+        public const int LastActivityBeforeOfflineMinutes = 5;
     }
 }

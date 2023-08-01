@@ -1,4 +1,5 @@
-﻿@using RecipeSharingPlatform.Web.ViewModels.Recipe;
+﻿@using RecipeSharingPlatfrom.Web.Infrastructure.Middlewares;
+@using RecipeSharingPlatform.Web.ViewModels.Recipe;
 @model RecipeBigViewModel
 
 <div class="container my-4">
@@ -14,7 +15,7 @@
             <ul>
                 @foreach (var ingredient in Model.Ingredients)
                 {
-                        <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
+                            <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
                 }
             </ul>
             <div class="my-3">
@@ -37,53 +38,69 @@
 
                 @if (Model.GuestUser != null)
                 {
-                   
+
 
                     if (Model.GuestUser.CookedRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
                     {
-                        <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
-                            <input type="hidden" name="recipeId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-success">I Cooked</button>
-                        </form>
+                                <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
+                                    <input type="hidden" name="recipeId" value="@Model.Id" />
+                                    <button type="submit" class="btn btn-success">I Cooked</button>
+                                </form>
                     }
                     else
                     {
-                        <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
-                            <input type="hidden" name="recipeId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-danger">Uncook</button>
-                        </form>
+                                <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
+                                    <input type="hidden" name="recipeId" value="@Model.Id" />
+                                    <button type="submit" class="btn btn-danger">Uncook</button>
+                                </form>
                     }
 
                     if (Model.GuestUser.FavouriteRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
                     {
-                                                <form asp-controller="Recipe" asp-action="MarkFavourite" method="post">
-                                            <input type="hidden" name="recipeId" value="@Model.Id" />
-                                            <button type="submit" class="btn btn-warning">Add to favourite</button>
-                                        </form>
+                                                        <form asp-controller="Recipe" asp-action="MarkFavourite" method="post">
+                                                    <input type="hidden" name="recipeId" value="@Model.Id" />
+                                                    <button type="submit" class="btn btn-warning">Add to favourite</button>
+                                                </form>
                     }
                     else
                     {
-                                        <form asp-controller="Recipe" asp-action="MarkUnfavourite" method="post">
-                                            <input type="hidden" name="recipeId" value="@Model.Id" />
-                                            <button type="submit" class="btn btn-warning">Remove from favourite</button>
-                                        </form>
+                                                <form asp-controller="Recipe" asp-action="MarkUnfavourite" method="post">
+                                                    <input type="hidden" name="recipeId" value="@Model.Id" />
+                                                    <button type="submit" class="btn btn-warning">Remove from favourite</button>
+                                                </form>
                     }
                 }
-                
+
                 else
                 {
-                              <form asp-controller="User" asp-action="Login" method="get">
-                                                
-                                                <button type="submit" class="btn btn-warning">Log in to have more features</button>
-                                            </form>
-                }
-               
+                                  <form asp-controller="User" asp-action="Login" method="get">
 
-             
+                                                    <button type="submit" class="btn btn-warning">Log in to have more features</button>
+                                                </form>
+                }
+
+
+
             </div>
         </div>
     </div>
 </div>
+
+
+<style>
+   
+    .author-info {
+        display: flex;
+        align-items: center;
+    }
+
+ 
+    .online-gif {
+        width: 30px; 
+        height: 30px;
+        margin-left: 10px; 
+    }
+</style>
 
 <!-- Display comments -->
 <div class="container my-4">
@@ -93,27 +110,29 @@
     {
         <div class="card mb-2">
             <div class="card-body">
-                <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
+                <div class="author-info">
+                    <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
+                    @if (OnlineUsersMiddleware.CheckIfUserIsOnline(comment.AuthorId.ToString()))
+                    {
+                            <img src="https://media.tenor.com/QgIVNgtez6sAAAAM/cooking.gif" alt="Online" class="online-gif" />
+                    }
+                </div>
                 <p class="card-text">@comment.Content</p>
-               
+
                 @if (comment.HaveBeenEdited)
                 {
-                    <p>Edited on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
-                } 
-                
+                        <p>Edited on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
+                }
                 else
                 {
-                            <p>Writen on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
+                        <p>Written on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
                 }
-
 
                 @if (comment.Author.Email == User?.Identity?.Name)
                 {
-                             <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
-
-                                       <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-primary">Edit Comment</a>
+                        <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
+                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-primary">Edit Comment</a>
                 }
-                    
             </div>
         </div>
     }
@@ -124,7 +143,7 @@
 </div>
 
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+            <partial name="_ValidationScriptsPartial" />
 }
 
 

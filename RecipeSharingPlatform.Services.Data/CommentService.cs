@@ -39,7 +39,7 @@ namespace RecipeSharingPlatform.Services.Data
 
         public async Task<ICollection<Comment>> GetComments(string recipeId)
         {
-            ICollection<Comment> comments = await data.Comments.Include(c => c.Author).Where(c => c.RecipeId.ToString() == recipeId).ToListAsync();
+            ICollection<Comment> comments = await data.Comments.Include(c => c.Author).Where(c => c.RecipeId == Guid.Parse(recipeId)).ToListAsync(); // If you want to make all tests pass just remove the include method. I found in the web that this case is just a bug of EF  when using in-memory DB. Without the include the app won't work properly!!!
 
             return comments;
         }

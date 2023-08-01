@@ -74,6 +74,8 @@ namespace Recipe_Sharing_Platform_2
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.EnableOnlineUsersCheck();
+
             app.SeedAdministrator(AdminEmail);
 
             app.MapControllerRoute(

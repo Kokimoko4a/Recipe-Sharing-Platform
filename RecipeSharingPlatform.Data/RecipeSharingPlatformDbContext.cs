@@ -11,6 +11,11 @@
         public RecipeSharingPlatformDbContext(DbContextOptions<RecipeSharingPlatformDbContext> options)
            : base(options)
         {
+
+            if (Database.IsRelational())
+            {
+                Database.EnsureCreated();
+            }
         }
 
         public DbSet<Category> Categories { get; set; } = null!;

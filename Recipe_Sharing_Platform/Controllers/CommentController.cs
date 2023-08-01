@@ -95,8 +95,9 @@
         {
             if (!await commentService.ExistsById(commentDeleteViewModel.CommentId))
             {
-                return Redirect($"https://localhost:7024/Recipe/All/");
                 TempData[ErrorMessage] = "Comment does not exist";
+                return Redirect($"https://localhost:7024/Recipe/All/");
+                
             }
 
             if (! await commentService.IsCommentYours(commentDeleteViewModel.CommentId, User?.GetId()!.ToString()))
