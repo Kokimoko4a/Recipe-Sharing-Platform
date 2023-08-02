@@ -8,6 +8,7 @@ namespace RecipeSharingPlatform.Services.Tests
         private static Comment comment1;
         private static Recipe recipe;
         private static ApplicationUser cooker;
+        private static Category category;
 
        
 
@@ -23,7 +24,23 @@ namespace RecipeSharingPlatform.Services.Tests
         };
 
         public static void SeedDatabase(RecipeSharingPlatformDbContext data)
-        {          
+        {
+
+            category = new Category()
+            {
+                Id = 9999,
+                Name = "dddddddd",
+            };
+
+            data.Categories.Add(category);
+
+            category = new Category()
+            {
+                Id = 9999956,
+                Name = "fffffffff"
+            };
+
+            data.Categories.Add(category);
 
             cooker = new ApplicationUser()
             {

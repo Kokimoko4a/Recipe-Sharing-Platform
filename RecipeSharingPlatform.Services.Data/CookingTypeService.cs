@@ -61,6 +61,11 @@ namespace RecipeSharingPlatform.Services.Data
         {
             CookingType cookingType = await data.CookingTypes.FirstOrDefaultAsync(c => c.Id == id);
 
+            if (cookingType == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             CookingTypeBigViewModel cookingTypeBigViewModel = new CookingTypeBigViewModel();
 
             cookingTypeBigViewModel.Description = cookingType!.Description!;

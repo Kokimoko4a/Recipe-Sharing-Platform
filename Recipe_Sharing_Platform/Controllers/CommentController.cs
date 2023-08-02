@@ -179,9 +179,21 @@
                 return View(commentFormModel);
             }
 
-            await commentService.UpdateData(commentFormModel);
-            TempData[SuccessMessage] = "Successfully edited your comment";
-            return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
+
+            try
+            {
+                await commentService.UpdateData(commentFormModel);
+                TempData[SuccessMessage] = "Successfully edited your comment";
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to post your comment! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to post your comment! Please try again later or contact administrator.");
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
+            }
+           
 
         }
 

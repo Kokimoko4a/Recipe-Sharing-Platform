@@ -66,6 +66,11 @@ namespace RecipeSharingPlatform.Services.Data
         {
             Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
 
+            if (comment == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             data.Comments.Remove(comment);
 
             await data.SaveChangesAsync();
@@ -74,6 +79,11 @@ namespace RecipeSharingPlatform.Services.Data
         public async Task<CommentFormModel> GetCommentAsFormModelAsync(string commentId)
         {
             Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
+
+            if (comment == null)
+            {
+                throw new ArgumentNullException();
+            }
 
             CommentFormModel commentFormModel = new CommentFormModel()
             {
@@ -88,6 +98,11 @@ namespace RecipeSharingPlatform.Services.Data
         public async Task UpdateData(CommentFormModel commentFormModel)
         {
             Comment comment = await data.Comments.FirstOrDefaultAsync(c => c.Id == commentFormModel.CommentId);
+
+            if (comment == null)
+            {
+                throw new ArgumentNullException();
+            }
             
             comment.Content = commentFormModel.Content;
             comment.CreatedOn = DateTime.Now;

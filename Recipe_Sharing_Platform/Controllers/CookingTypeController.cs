@@ -4,6 +4,7 @@ namespace Recipe_Sharing_Platform.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using RecipeSharingPlatform.Services.Data.Interfaces;
+    using RecipeSharingPlatform.Web.ViewModels.CookingType;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
 
     public class CookingTypeController : Controller
@@ -23,18 +24,21 @@ namespace Recipe_Sharing_Platform.Web.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
-        { 
-            bool exists = await cookingTypeService.ExistsById(id);
+        {
+            bool exists1 = await cookingTypeService.ExistsById(id);
 
-            if (!exists) 
+            IEnumerable<CookingTypeSmallViewModel> cookingTypeSmallViewModels = await cookingTypeService.GetAllCookingTypesAsViewModelsAsync();
+
+            if (!exists1)
             {
                 TempData[WarningMessage] = "No such a cooking type";
-                return View("ViewCookingTypes");
+                return View("ViewCookingTypes", cookingTypeSmallViewModels);
             }
+
 
             try
             {
-                return View(await cookingTypeService.GetCookingTypeByIdAsync(id));    
+                return View(await cookingTypeService.GetCookingTypeByIdAsync(id));
             }
             catch (Exception)
             {
@@ -42,7 +46,8 @@ namespace Recipe_Sharing_Platform.Web.Controllers
 
                 ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
 
-                return View("ViewCookingTypes");
+                return View("ViewCookingTypes", cookingTypeSmallViewModels);
+
 
             }
         }

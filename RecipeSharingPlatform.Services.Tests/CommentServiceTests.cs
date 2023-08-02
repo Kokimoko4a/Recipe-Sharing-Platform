@@ -127,6 +127,13 @@ namespace RecipeSharingPlatform.Services.Tests
         }
 
         [Test]
+        public async Task DeleteThrowsAnExceptionWhenNotFoundTheComment()
+        {
+            Assert.ThrowsAsync<ArgumentNullException>(async () => { await commentService.DeleteCommentByIdAsync("babati"); });
+
+        }
+
+        [Test]
         public async Task GetCommentAsFormModelAsyncReturnsCommentFormModelWithCorrectData()
         {
             CommentFormModel expected = new CommentFormModel()
@@ -144,6 +151,14 @@ namespace RecipeSharingPlatform.Services.Tests
 
         }
 
+
+        [Test]
+        public async Task GetCommentAsFormModelAsyncThrowsArgumetnNullExceptionWhenIdIsNotFound()
+        {
+            Assert.ThrowsAsync<ArgumentNullException>(async () => { CommentFormModel commentFormModel = await commentService.GetCommentAsFormModelAsync("babati"); });
+
+        }
+
         [Test]
         public async Task UpdateUpdatesTheInfoAboutComment()
         {
@@ -158,7 +173,20 @@ namespace RecipeSharingPlatform.Services.Tests
             Assert.AreEqual(commentForm.Content, actual.Content);
         }
 
+        [Test]
+        public async Task UpdateThrowsAnExceptionWhenCommentNotFound()
+        {
+            Assert.ThrowsAsync<ArgumentNullException>(async () =>
+            {
+                await commentService.UpdateData(new CommentFormModel()
+                {
+                    CommentId = "babati",
+                    Content = "mdaoksdp",
+                    RecipeId = "dddafp[kgosr"
 
+                });
+            });
+        }
 
 
     }
