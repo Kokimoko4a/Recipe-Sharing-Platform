@@ -37,7 +37,7 @@ namespace RecipeSharingPlatform.Services.Data
             }).Take(3).ToListAsync();
 
             return recipes;
-        }
+        } //tested
 
         public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId,string userId)
         {
@@ -59,63 +59,32 @@ namespace RecipeSharingPlatform.Services.Data
                 .Include(r => r.Comments)
                 .Select(r => new RecipeBigViewModel() 
                 {
-                    Author = r.Author,
-                    Description = r.Description,
-                    Category = r.Category.Name,
-                    Difficulty = r.Difficulty.Name,
-                    Comments = r.Comments,
-                    CookingTime = r.CookingTime,
-                    CookingType = r.CookingType.Name,
-                    CountBeenCooked = r.CountBeenCooked,
-                    CountOfPortions = r.CountOfPortions,
-                    CreatedOn = r.CreatedOn,
-                    Id = r.Id,
-                    ImageUrl = r.ImageUrl,
-                    Ingredients = r.Ingredients,
-                    PreparingTime = r.PreparingTime,
-                    Title = r.Title,
+                    Author = r!.Author!,
+                    Description = r!.Description!,
+                    Category = r!.Category!.Name!,
+                    Difficulty = r.Difficulty.Name!,
+                    Comments = r!.Comments!,
+                    CookingTime = r!.CookingTime!,
+                    CookingType = r!.CookingType!.Name!,
+                    CountBeenCooked = r!.CountBeenCooked!,
+                    CountOfPortions = r!.CountOfPortions!,
+                    CreatedOn = r!.CreatedOn!,
+                    Id = r!.Id!,
+                    ImageUrl = r!.ImageUrl!,
+                    Ingredients = r!.Ingredients!,
+                    PreparingTime = r!.PreparingTime!,
+                    Title = r!.Title!,
                     GuestUser = user
                 })
-                .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
+                .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!; //I do not why but with these includes the Nunit does not have any problems and passes the tests.
 
 
             return recipeBigView;
-        }
+        } //tested
 
-        public async Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId)
+        public async Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId) // tested
         {
-            List<string> ingredients = recipeFormModel.Ingredients.Split(Environment.NewLine).ToList();
-
-            List<Ingredient> ingredientsForDb = new List<Ingredient>();
-
-            foreach (var ingredientRow in ingredients)
-            {
-
-                string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
-
-                // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
-
-                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string[] typeMeasurementArray = ingredientQuanAndMT.Skip(1).ToArray();
-
-                string typeMeasurement = string.Empty;
-
-                foreach (var item in typeMeasurementArray)
-                {
-                    typeMeasurement += item;
-                }
-
-                Ingredient ingredientForDb = new Ingredient()
-                {
-                    Name = ingredientInfo[0],
-
-                    TypeMeasurement = typeMeasurement
-                };
-
-                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',','.'));
-
-                ingredientsForDb.Add(ingredientForDb);
-            }
+            ICollection<Ingredient> ingredients =  CreateIngredients(recipeFormModel);
 
             Recipe recipe = new Recipe()
             {
@@ -129,7 +98,7 @@ namespace RecipeSharingPlatform.Services.Data
                 ImageUrl = recipeFormModel.ImageUrl!,
                 PreparingTime = recipeFormModel.PreparingTime,
                 Title = recipeFormModel.Title,
-                Ingredients = ingredientsForDb
+                Ingredients = ingredients
             };
 
             await data.Recipes.AddAsync(recipe);
@@ -308,7 +277,7 @@ namespace RecipeSharingPlatform.Services.Data
             };
         }
 
-        public async Task<IEnumerable<RecipeViewModel>> GetAllRecipesByUserId(string userId)
+        public async Task<IEnumerable<RecipeViewModel>> GetAllRecipesByUserId(string userId) //Tested
         {
             ICollection<RecipeViewModel> recipes = await data.Recipes.Where(r => r.AuthorId.ToString() == userId)
                 .Select(x => new RecipeViewModel()
@@ -323,14 +292,14 @@ namespace RecipeSharingPlatform.Services.Data
             return recipes;
         }
 
-        public async Task<bool> IsRecipeYours(string userId, string recipeId)
+        public async Task<bool> IsRecipeYours(string userId, string recipeId) //Tested
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!;
 
             return recipe!.AuthorId.ToString() == userId;
         }
 
-        public async Task<RecipeFormModel> GetRecipeAsFormModel(string recipeId)
+        public async Task<RecipeFormModel> GetRecipeAsFormModel(string recipeId) // Tested
         {
             StringBuilder sb = new StringBuilder();
 
@@ -361,12 +330,12 @@ namespace RecipeSharingPlatform.Services.Data
             return recipeFormModel;
         }
 
-        public async Task<bool> ExistsByIdAsync(string recipeId)
+        public async Task<bool> ExistsByIdAsync(string recipeId) //Tested
         {
             return await data.Recipes.AnyAsync(r => r.Id.ToString() == recipeId);
         }
 
-        public async Task EditRecipeAsync(RecipeFormModel recipeFormModel)
+        public async Task EditRecipeAsync(RecipeFormModel recipeFormModel) // Tested
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeFormModel.Id);
 
@@ -389,11 +358,11 @@ namespace RecipeSharingPlatform.Services.Data
 
         }
 
-        public ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel)
+        public ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel) //Tested
         {
-            ICollection<string> ingredients = recipeFormModel.Ingredients.Split(Environment.NewLine).ToList();
+            List<string> ingredients = recipeFormModel.Ingredients.Split(Environment.NewLine).ToList();
 
-            ICollection<Ingredient> ingredientsForDb = new List<Ingredient>();
+            List<Ingredient> ingredientsForDb = new List<Ingredient>();
 
             foreach (var ingredientRow in ingredients)
             {
@@ -403,15 +372,23 @@ namespace RecipeSharingPlatform.Services.Data
                 // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
 
                 string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string[] typeMeasurementArray = ingredientQuanAndMT.Skip(1).ToArray();
+
+                string typeMeasurement = string.Empty;
+
+                foreach (var item in typeMeasurementArray)
+                {
+                    typeMeasurement += item;
+                }
 
                 Ingredient ingredientForDb = new Ingredient()
                 {
                     Name = ingredientInfo[0],
 
-                    TypeMeasurement = ingredientQuanAndMT[1]
+                    TypeMeasurement = typeMeasurement
                 };
 
-                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',','.'));
+                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',', '.'));
 
                 ingredientsForDb.Add(ingredientForDb);
             }
@@ -419,20 +396,22 @@ namespace RecipeSharingPlatform.Services.Data
             return ingredientsForDb;
         }
 
-        public async Task DeleteAsync(RecipeDeleteViewModel recipeDeleteViewModel)
+        public async Task DeleteAsync(string recipeId) // tested
         {
-            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeDeleteViewModel.RecipeId);
+            ICollection<Ingredient> ingredients = await data.Ingredients.Where(i => i.RecipeId.ToString() == recipeId).ToListAsync();
+
+            data.Ingredients.RemoveRange(ingredients);
+
+            Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
 
             data.Recipes.Remove(recipe!);
 
-            ICollection<Ingredient> ingredients = await data.Ingredients.Where(i => i.RecipeId.ToString() == recipeDeleteViewModel.RecipeId).ToListAsync();
-
-            data.Ingredients.RemoveRange(ingredients);
+           
 
             await data.SaveChangesAsync();
         }
 
-        public async Task MarkAsCookedRecipe(string id)
+        public async Task MarkAsCookedRecipe(string id) //Tested
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == id);
 
@@ -441,7 +420,7 @@ namespace RecipeSharingPlatform.Services.Data
             await data.SaveChangesAsync();
         }
 
-        public async Task MarkAsUnCookedRecipe(string recipeId)
+        public async Task MarkAsUnCookedRecipe(string recipeId) //Tested
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
 

@@ -30,7 +30,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
         ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel);
 
-        Task DeleteAsync(RecipeDeleteViewModel recipeDeleteViewModel);
+        Task DeleteAsync(string recipeId);
 
         Task MarkAsCookedRecipe(string id);
 

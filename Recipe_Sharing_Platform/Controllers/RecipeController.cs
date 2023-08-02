@@ -333,12 +333,24 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return View(recipeDeleteViewModel);
             }
 
+            try
+            {
+                await recipeService.DeleteAsync(recipeDeleteViewModel.RecipeId);
 
-            await recipeService.DeleteAsync(recipeDeleteViewModel);
+                TempData[SuccessMessage] = "Successfuly deleted recipe";
 
-            TempData[SuccessMessage] = "Successfuly deleted recipe";
+                return RedirectToAction("All");
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
 
-            return RedirectToAction("All");
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                return RedirectToAction("All");
+
+            }
+  
         }
 
         [HttpPost]
