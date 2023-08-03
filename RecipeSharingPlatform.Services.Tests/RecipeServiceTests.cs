@@ -210,7 +210,7 @@
                 Ingredients = "ddd - 1 kg"
             };
 
-            ICollection<Ingredient> ingredientsActual = recipeService.CreateIngredients(recipeFormModel);
+            ICollection<Ingredient> ingredientsActual =  recipeService.CreateIngredients(recipeFormModel);
 
             Ingredient ingredientActual = ingredientsActual.FirstOrDefault(i => i.Name == "ddd ");
 

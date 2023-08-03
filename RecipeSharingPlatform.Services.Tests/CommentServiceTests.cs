@@ -153,7 +153,7 @@ namespace RecipeSharingPlatform.Services.Tests
 
 
         [Test]
-        public async Task GetCommentAsFormModelAsyncThrowsArgumetnNullExceptionWhenIdIsNotFound()
+        public async Task  GetCommentAsFormModelAsyncThrowsArgumetnNullExceptionWhenIdIsNotFound()
         {
             Assert.ThrowsAsync<ArgumentNullException>(async () => { CommentFormModel commentFormModel = await commentService.GetCommentAsFormModelAsync("babati"); });
 

@@ -101,7 +101,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                 recipe.Comments = comments;
 
-            
+
 
                 recipe.GuestUser = await userService.GetUserWithCookedRecipes(User.GetId()!);
 
@@ -350,19 +350,41 @@ namespace Recipe_Sharing_Platform_2.Controllers
                 return RedirectToAction("All");
 
             }
-  
+
         }
 
         [HttpPost]
         public async Task<IActionResult> MarkCooked(string recipeId)
         {
-            await recipeService.MarkAsCookedRecipe(recipeId);
+            if (!await recipeService.ExistsByIdAsync(recipeId))
+            {
+                TempData[ErrorMessage] = "No such a recipe";
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
 
-            await userService.AddCookedRecipe(recipeId, User!.GetId().ToString());
+            }
 
-            TempData[SuccessMessage] = "Successfully marked recipe as cooked";
 
-            return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            try
+            {
+                await recipeService.MarkAsCookedRecipe(recipeId);
+
+                await userService.AddCookedRecipe(recipeId, User!.GetId()!.ToString());
+
+                TempData[SuccessMessage] = "Successfully marked recipe as cooked";
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+
+            }
+
+
         }
 
         [HttpGet]
@@ -374,13 +396,36 @@ namespace Recipe_Sharing_Platform_2.Controllers
         [HttpPost]
         public async Task<IActionResult> MarkUncooked(string recipeId)
         {
-            await recipeService.MarkAsUnCookedRecipe(recipeId);
+            if (!await recipeService.ExistsByIdAsync(recipeId))
+            {
+                TempData[ErrorMessage] = "No such a recipe";
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
 
-            await userService.RemoveCookedRecipe(recipeId, User!.GetId().ToString());
+            }
 
-            TempData[SuccessMessage] = "Successfully marked recipe as uncooked";
 
-            return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+
+            try
+            {
+                await recipeService.MarkAsUnCookedRecipe(recipeId);
+
+                await userService.RemoveCookedRecipe(recipeId, User!.GetId().ToString());
+
+                TempData[SuccessMessage] = "Successfully marked recipe as uncooked";
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.";
+
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to create your recipe! Please try again later or contact administrator.");
+
+                return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{recipeId}");
+            }
+
+
+
         }
 
         [HttpPost]
