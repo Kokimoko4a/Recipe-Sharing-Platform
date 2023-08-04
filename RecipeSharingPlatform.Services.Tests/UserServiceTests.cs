@@ -12,6 +12,7 @@
     using RecipeSharingPlatform.Web.ViewModels.DifficultyType;
     using RecipeSharingPlatform.Web.ViewModels.Home;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
+    using RecipeSharingPlatform.Web.ViewModels.User;
     using RecipesSharingPlatform.Data.Models;
     using static DatabaseSeeder;
 
@@ -191,6 +192,16 @@
             Assert.AreEqual(1, recipeBigViewModelsActual.Count);
             Assert.IsNotNull(recipeBigViewModelsActual.First().Author);
 
+        }
+
+        [Test]
+        public async Task GetAllUsersAsViewModelReturnsCollectionOfUsers()
+        {
+            int expected = 1;
+
+            ICollection<UserViewModel> userViewModels = await userService.GetAllUsersAsViewModel();
+
+            Assert.That(expected, Is.EqualTo(userViewModels.Count));
         }
     }
 }

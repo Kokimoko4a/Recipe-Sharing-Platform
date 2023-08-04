@@ -15,5 +15,15 @@
         public const string OnlineUsersCookieName = "IsOnline";
 
         public const int LastActivityBeforeOfflineMinutes = 5;
+
+        public const string AdminAreaName = "Admin";
+
+        public const string UsersCacheKey = "UsersCacheKey";
+
+        public const string RecipesCacheKey = "RecipesCacheKey";
+
+        public const int CacheUsersDuration = 3;
+
+        public const int CacheRecipesDuration = 3;
     }
 }

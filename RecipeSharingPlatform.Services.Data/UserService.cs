@@ -4,6 +4,7 @@
     using Recipe_Sharing_Platform.Data;
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
+    using RecipeSharingPlatform.Web.ViewModels.User;
     using RecipesSharingPlatform.Data.Models;
     using System.Collections.Generic;
 
@@ -117,6 +118,19 @@
             user.FavouriteRecipes.Remove(recipe);
 
             await data.SaveChangesAsync();
+        }
+
+        public async Task<ICollection<UserViewModel>> GetAllUsersAsViewModel()
+        {
+            ICollection<UserViewModel> users = await data.Users.Select(u => new UserViewModel()
+            {
+                Email = u.Email,
+                FirstName = u.FirstName,
+                Id = u.Id.ToString(),
+                LastName = u.LastName
+            }).ToListAsync();
+
+            return users;
         }
     }
 }

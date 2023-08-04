@@ -1,0 +1,32 @@
+﻿@using RecipeSharingPlatform.Web.ViewModels.User;
+@using RecipeSharingPlatfrom.Web.Infrastructure.Middlewares;
+@model ICollection<UserViewModel>;
+<h2>User List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>ID</th>
+            <th>Is Online</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+                <tr>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Id</td>
+                    <td>@(OnlineUsersMiddleware.CheckIfUserIsOnline(user.Id.ToString()) ? "😀" : "😴")</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+

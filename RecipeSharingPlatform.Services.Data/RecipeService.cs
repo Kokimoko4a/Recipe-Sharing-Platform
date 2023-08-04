@@ -25,15 +25,15 @@ namespace RecipeSharingPlatform.Services.Data
             this.data = data;
         }
 
-        public async Task<IEnumerable<IndexViewModel>> LastThreeRecipesAsync()
+        public async Task<IEnumerable<RecipeViewModel>> LastThreeRecipesAsync()
         {
-            List<IndexViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new IndexViewModel()
+            List<RecipeViewModel> recipes = await data.Recipes.OrderByDescending(r => r.CreatedOn).Select(x => new RecipeViewModel()
             {
                 Id = x.Id,
                 AuthorName = x.Author!.Email,
                 ImageURL = x.ImageUrl,
                 Title = x.Title,
-                Category = x.Category.Name
+                CountBeenCooked= x.CountBeenCooked
             }).Take(3).ToListAsync();
 
             return recipes;

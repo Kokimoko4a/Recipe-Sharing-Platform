@@ -10,7 +10,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
 
     public interface IRecipeService
     {
-        Task<IEnumerable<IndexViewModel>> LastThreeRecipesAsync();
+        Task<IEnumerable<RecipeViewModel>> LastThreeRecipesAsync();
 
         Task<RecipeBigViewModel> GetRecipeByIdAsync(string id,string userId);
 

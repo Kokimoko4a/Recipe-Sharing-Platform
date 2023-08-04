@@ -15,7 +15,7 @@
             <ul>
                 @foreach (var ingredient in Model.Ingredients)
                 {
-                            <li>@ingredient.Name - @ingredient.Quantity@ingredient.TypeMeasurement</li>
+                            <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
                 }
             </ul>
             <div class="my-3">
@@ -114,7 +114,7 @@
                     <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
                     @if (OnlineUsersMiddleware.CheckIfUserIsOnline(comment.AuthorId.ToString()))
                     {
-                            <img src="https://media.tenor.com/QgIVNgtez6sAAAAM/cooking.gif" alt="Online" class="online-gif" />
+                            <img src="https://media.tenor.com/QgIVNgtez6sAAAAM/cooking.gif"  alt="Online" class="online-gif" />
                     }
                 </div>
                 <p class="card-text">@comment.Content</p>
@@ -128,7 +128,7 @@
                         <p>Written on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
                 }
 
-                @if (comment.Author.Email == User?.Identity?.Name)
+                @if (comment.Author.Email == User?.Identity?.Name || User.IsInRole("Administrator"))
                 {
                         <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
                         <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-primary">Edit Comment</a>

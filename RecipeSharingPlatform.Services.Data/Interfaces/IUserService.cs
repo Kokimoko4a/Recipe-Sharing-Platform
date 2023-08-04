@@ -1,8 +1,11 @@
-﻿using RecipeSharingPlatform.Web.ViewModels.Recipe;
-using RecipesSharingPlatform.Data.Models;
+﻿
 
 namespace RecipeSharingPlatform.Services.Data.Interfaces
 {
+    using RecipeSharingPlatform.Web.ViewModels.Recipe;
+    using RecipesSharingPlatform.Data.Models;
+    using RecipeSharingPlatform.Web.ViewModels.User;
+
 
     public interface IUserService
     {
@@ -23,6 +26,8 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task<ICollection<Recipe>> GetFavouriteRecipesByUserIdAsRecipeFullModel(string userId);
 
         Task MarkRecipeAsUnfavouriteAsync(string recipeId, string userId);
+
+        Task<ICollection<UserViewModel>> GetAllUsersAsViewModel();
 
 
     }

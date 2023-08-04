@@ -15,13 +15,8 @@ namespace Recipe_Sharing_Platform_2
 
     public class Program
     {
-
-
-
         public static void Main(string[] args)
         {
-
-
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -36,6 +31,7 @@ namespace Recipe_Sharing_Platform_2
 
             builder.Services.AddRecaptchaService();
 
+            builder.Services.AddMemoryCache();
 
             builder.Services.ConfigureApplicationCookie(cfg => cfg.LoginPath = "/User/Login");
 
@@ -78,10 +74,26 @@ namespace Recipe_Sharing_Platform_2
 
             app.SeedAdministrator(AdminEmail);
 
-            app.MapControllerRoute(
+
+            app.UseEndpoints(config =>
+            {
+                config.MapControllerRoute(
+name: "areas",
+pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+
+                config.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
+
+
+
+                config.MapRazorPages();
+            });
+
+
+
+
 
             app.Run();
         }

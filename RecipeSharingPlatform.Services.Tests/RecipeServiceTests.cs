@@ -60,12 +60,12 @@
             string expectedId2 = "b7c3e305-4425-43e7-a294-570eceb5ac13";
             string expectedId3 = "b9c3e305-4425-43e7-a294-570eceb5ac13";
 
-            IEnumerable<IndexViewModel> actualRecipes = await recipeService.LastThreeRecipesAsync();
+            IEnumerable<RecipeViewModel> actualRecipes = await recipeService.LastThreeRecipesAsync();
 
 
-            IndexViewModel indexViewModel1 = actualRecipes.FirstOrDefault(r => r.Title == "ffffffffkkkkkkkkffffff");
-            IndexViewModel indexViewModel2 = actualRecipes.FirstOrDefault(r => r.Title == "fffffggggggffffffffff");
-            IndexViewModel indexViewModel3 = actualRecipes.FirstOrDefault(r => r.Title == "ffffffffffffffffffff");
+            RecipeViewModel indexViewModel1 = actualRecipes.FirstOrDefault(r => r.Title == "ffffffffkkkkkkkkffffff");
+            RecipeViewModel indexViewModel2 = actualRecipes.FirstOrDefault(r => r.Title == "fffffggggggffffffffff");
+            RecipeViewModel indexViewModel3 = actualRecipes.FirstOrDefault(r => r.Title == "ffffffffffffffffffff");
 
             Assert.That(expectedCount, Is.EqualTo(actualRecipes.Count()));
 

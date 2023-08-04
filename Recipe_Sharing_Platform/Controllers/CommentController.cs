@@ -78,7 +78,7 @@
                 return Redirect($"https://localhost:7024/Recipe/All/");
             }
 
-            if (!await commentService.IsCommentYours(id, User?.GetId()!.ToString()))
+            if (!await commentService.IsCommentYours(id, User?.GetId()!.ToString()) && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "Comment is not yours! You are miserable!";
                 return Redirect($"https://localhost:7024/Recipe/All/");
@@ -100,7 +100,7 @@
                 
             }
 
-            if (! await commentService.IsCommentYours(commentDeleteViewModel.CommentId, User?.GetId()!.ToString()))
+            if (!await commentService.IsCommentYours(commentDeleteViewModel.CommentId, User?.GetId()!.ToString()) && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "Comment is not yours! You are miserable!";
                 return Redirect($"https://localhost:7024/Recipe/All/");
@@ -147,7 +147,7 @@
                 return Redirect($"https://localhost:7024/Recipe/All/");
             }
 
-            if (!await commentService.IsCommentYours(id, User?.GetId()!.ToString()))
+            if (!await commentService.IsCommentYours(id, User?.GetId()!.ToString()) && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "Comment is not yours! You are miserable!";
                 return Redirect($"https://localhost:7024/Recipe/All/");
@@ -168,7 +168,7 @@
                 return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}"); // make it redirects to recipe
             }
 
-            if (!await commentService.IsCommentYours(commentFormModel.CommentId, User?.GetId()!.ToString()))
+            if (!await commentService.IsCommentYours(commentFormModel.CommentId, User?.GetId()!.ToString()) && !User.IsAdmin())
             {
                 TempData[WarningMessage] = "Comment is not yours! You are miserable!";
                 return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");  // make it redirects to recipe

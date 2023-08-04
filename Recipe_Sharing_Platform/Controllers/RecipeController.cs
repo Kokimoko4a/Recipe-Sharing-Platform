@@ -8,6 +8,10 @@ namespace Recipe_Sharing_Platform_2.Controllers
     using RecipeSharingPlatform.Services.Data.Models.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
+    using Microsoft.Extensions.Caching.Memory;
+    using RecipeSharingPlatform.Web.ViewModels.User;
+    using static RecipeSharingPlatform.Common.GeneralApplicationConstants;
+    using static RecipeSharingPlatform.Common.EntityValidationConstants;
 
     [Authorize]
     public class RecipeController : Controller
@@ -36,6 +40,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
         [AllowAnonymous]
         [HttpGet]
+        [ResponseCache(Duration = 30)]
         public async Task<IActionResult> All([FromQuery] AllRecipesQueryModel queryModel)
         {
             AllRecipesFilteredAndPagedServiceModel serviceRecipes = await recipeService.AllFilteredAsync(queryModel);
@@ -171,7 +176,11 @@ namespace Recipe_Sharing_Platform_2.Controllers
 
                 TempData[SuccessMessage] = "Succesfuly created recipe.";
 
+             
+
                 return RedirectToAction("All");
+
+               
             }
             catch (Exception)
             {
