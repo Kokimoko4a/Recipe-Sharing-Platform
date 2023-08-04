@@ -382,6 +382,7 @@ namespace RecipeSharingPlatform.Services.Data
                     foreach (var item in typeMeasurementArray)
                     {
                         typeMeasurement += item;
+                        typeMeasurement += " ";
                     }
 
                     ingredientForDb = new Ingredient()
