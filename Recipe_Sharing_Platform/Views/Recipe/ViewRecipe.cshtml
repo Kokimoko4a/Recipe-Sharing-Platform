@@ -15,6 +15,18 @@
             <ul>
                 @foreach (var ingredient in Model.Ingredients)
                 {
+                    if (ingredient.Quantity == 0)
+                    {
+                        <li>@ingredient.Name - @ingredient.TypeMeasurement</li>
+                        continue;
+                    }
+
+                    if (ingredient.Quantity.ToString().EndsWith(".00"))
+                    {
+                        <li>@ingredient.Name - @Convert.ToInt32(@ingredient.Quantity) @ingredient.TypeMeasurement</li>
+                        continue;
+                    }
+
                             <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
                 }
             </ul>

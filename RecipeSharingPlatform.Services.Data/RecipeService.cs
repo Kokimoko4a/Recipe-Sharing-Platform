@@ -33,13 +33,13 @@ namespace RecipeSharingPlatform.Services.Data
                 AuthorName = x.Author!.Email,
                 ImageURL = x.ImageUrl,
                 Title = x.Title,
-                CountBeenCooked= x.CountBeenCooked
+                CountBeenCooked = x.CountBeenCooked
             }).Take(3).ToListAsync();
 
             return recipes;
         } //tested
 
-        public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId,string userId)
+        public async Task<RecipeBigViewModel> GetRecipeByIdAsync(string recipeId, string userId)
         {
             ApplicationUser user = null;
 
@@ -48,7 +48,7 @@ namespace RecipeSharingPlatform.Services.Data
                 user = await data.Users.FirstOrDefaultAsync(u => u.Id.ToString() == userId);
             }
 
-            
+
 
             RecipeBigViewModel recipeBigView = await data.Recipes.
                 Include(r => r.Category)
@@ -57,7 +57,7 @@ namespace RecipeSharingPlatform.Services.Data
                 .Include(r => r.Difficulty)
                 .Include(r => r.Ingredients)
                 .Include(r => r.Comments)
-                .Select(r => new RecipeBigViewModel() 
+                .Select(r => new RecipeBigViewModel()
                 {
                     Author = r!.Author!,
                     Description = r!.Description!,
@@ -84,7 +84,7 @@ namespace RecipeSharingPlatform.Services.Data
 
         public async Task CreateRecipeAsync(RecipeFormModel recipeFormModel, string userId) // tested
         {
-            ICollection<Ingredient> ingredients =  CreateIngredients(recipeFormModel);
+            ICollection<Ingredient> ingredients = CreateIngredients(recipeFormModel);
 
             Recipe recipe = new Recipe()
             {
@@ -132,12 +132,12 @@ namespace RecipeSharingPlatform.Services.Data
                         sb.AppendLine(ingredient.Name);
                     }
 
-                   
+
                 }
 
                 if (!string.IsNullOrWhiteSpace(queryModel.Category))
                 {
-                    
+
 
                     //string additionalInfoToSearchIn = 
 
@@ -150,7 +150,7 @@ namespace RecipeSharingPlatform.Services.Data
                     recipes = data.Recipes.Where(r => EF.Functions.Like(r.Title, wildcard) || EF.Functions.Like(r.Category.Name, wildcard) ||
                    EF.Functions.Like(r.CookingType.Name, wildcard) || EF.Functions.Like(r.Difficulty.Name, wildcard) || EF.Functions.Like(sb.ToString(), wildcard));
 
-                   
+
                 }
 
             }
@@ -314,7 +314,7 @@ namespace RecipeSharingPlatform.Services.Data
                 CategoryId = r.CategoryId,
                 DifficultyTypeId = r.DifficultyId,
                 CookingTypeId = r.CookingTypeId,
-                PreparingTime= r.PreparingTime
+                PreparingTime = r.PreparingTime
             }).FirstOrDefaultAsync(r => r.Id == recipeId);
 
 
@@ -325,7 +325,7 @@ namespace RecipeSharingPlatform.Services.Data
                 sb.AppendLine($"{ingredient.Name} - {ingredient.Quantity} {ingredient.TypeMeasurement}");
             }
 
-            recipeFormModel.Ingredients = sb.ToString().TrimEnd();    
+            recipeFormModel.Ingredients = sb.ToString().TrimEnd();
 
             return recipeFormModel;
         }
@@ -360,37 +360,57 @@ namespace RecipeSharingPlatform.Services.Data
 
         public ICollection<Ingredient> CreateIngredients(RecipeFormModel recipeFormModel) //Tested
         {
+
             List<string> ingredients = recipeFormModel.Ingredients.Split(Environment.NewLine).ToList();
 
             List<Ingredient> ingredientsForDb = new List<Ingredient>();
 
             foreach (var ingredientRow in ingredients)
             {
+                Ingredient ingredientForDb = null;
 
-                string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
 
-                // string[] ingredientQuanAndMT = ingredientInfo.ToString()!.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
-
-                string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string[] typeMeasurementArray = ingredientQuanAndMT.Skip(1).ToArray();
-
-                string typeMeasurement = string.Empty;
-
-                foreach (var item in typeMeasurementArray)
+                if (ingredientRow.Any(x => char.IsDigit(x)))
                 {
-                    typeMeasurement += item;
+                    string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
+
+                    string[] ingredientQuanAndMT = ingredientInfo[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    string[] typeMeasurementArray = ingredientQuanAndMT.Skip(1).ToArray();
+
+                    string typeMeasurement = string.Empty;
+
+                    foreach (var item in typeMeasurementArray)
+                    {
+                        typeMeasurement += item;
+                    }
+
+                    ingredientForDb = new Ingredient()
+                    {
+                        Name = ingredientInfo[0],
+
+                        TypeMeasurement = typeMeasurement
+                    };
+
+                    ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',', '.'));
                 }
 
-                Ingredient ingredientForDb = new Ingredient()
+                else
                 {
-                    Name = ingredientInfo[0],
+                    string[] ingredientInfo = ingredientRow.Split('-', StringSplitOptions.RemoveEmptyEntries).ToArray()!;
 
-                    TypeMeasurement = typeMeasurement
-                };
+                    ingredientForDb = new Ingredient()
+                    {
+                        Name = ingredientInfo[0],
 
-                ingredientForDb.Quantity = decimal.Parse(ingredientQuanAndMT[0].Replace(',', '.'));
+                        TypeMeasurement = ingredientInfo[1]
+                    };
+                }
+
+
 
                 ingredientsForDb.Add(ingredientForDb);
+
+
             }
 
             return ingredientsForDb;
@@ -406,7 +426,7 @@ namespace RecipeSharingPlatform.Services.Data
 
             data.Recipes.Remove(recipe!);
 
-           
+
 
             await data.SaveChangesAsync();
         }

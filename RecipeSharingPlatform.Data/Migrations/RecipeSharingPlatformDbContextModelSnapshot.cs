@@ -540,7 +540,7 @@ namespace RecipeSharingPlatform.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("Quantity")
+                    b.Property<decimal?>("Quantity")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid>("RecipeId")
