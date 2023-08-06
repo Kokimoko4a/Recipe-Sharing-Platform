@@ -17,21 +17,21 @@
                 {
                     if (ingredient.Quantity == 0)
                     {
-                        <li>@ingredient.Name - @ingredient.TypeMeasurement</li>
+                                <li>@ingredient.Name - @ingredient.TypeMeasurement</li>
                         continue;
                     }
 
                     if (ingredient.Quantity.ToString().EndsWith(".00"))
                     {
-                        <li>@ingredient.Name - @Convert.ToInt32(@ingredient.Quantity) @ingredient.TypeMeasurement</li>
+                                <li>@ingredient.Name - @Convert.ToInt32(@ingredient.Quantity) @ingredient.TypeMeasurement</li>
                         continue;
                     }
 
-                            <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
+                                <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
                 }
             </ul>
             <div class="my-3">
-                <h4>Description</h4>
+                <h4>How to make it:</h4>
                 <p>@Model.Description</p>
             </div>
             <div class="my-3">
@@ -63,7 +63,7 @@
                     {
                                 <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
                                     <input type="hidden" name="recipeId" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-danger">Uncook</button>
+                                    <button type="submit" class="btn btn-danger">Remove  from cooked recipes</button>
                                 </form>
                     }
 
@@ -157,8 +157,3 @@
 @section Scripts {
             <partial name="_ValidationScriptsPartial" />
 }
-
-
-
-
-
