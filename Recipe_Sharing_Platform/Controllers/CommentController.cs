@@ -6,6 +6,12 @@
     using RecipeSharingPlatform.Services.Data.Interfaces;
     using RecipeSharingPlatform.Web.ViewModels.Comment;
     using static RecipeSharingPlatform.Common.NotificationMessagesConstants;
+    using Microsoft.EntityFrameworkCore;
+    using static System.Net.Mime.MediaTypeNames;
+    using System.Numerics;
+    using Microsoft.AspNetCore.Mvc.Infrastructure;
+    using Recipe_Sharing_Platform.Data;
+    using RecipesSharingPlatform.Data.Models;
 
     [Authorize]
     [Route("Comment")]
@@ -13,12 +19,15 @@
     {
         private readonly ICommentService commentService;
         private readonly IRecipeService recipeService;
+        private readonly RecipeSharingPlatformDbContext data;
 
         public CommentController(ICommentService commentService,
-            IRecipeService recipeService)
+            IRecipeService recipeService,
+            RecipeSharingPlatformDbContext data)
         {
             this.commentService = commentService;
             this.recipeService = recipeService;
+            this.data = data;
         }
 
         [HttpGet]
@@ -27,13 +36,13 @@
         {
             bool exists = await recipeService.ExistsByIdAsync(id);
 
-            if (!exists) 
+            if (!exists)
             {
                 TempData[WarningMessage] = "No such a recipe!";
                 return RedirectToAction("All", "Recipe");
             }
 
-            return View("AddComment",new CommentFormModel() { RecipeId = id});
+            return View("AddComment", new CommentFormModel() { RecipeId = id });
         }
 
         [Route("Comment/AddComment/{id}")]
@@ -86,7 +95,7 @@
 
 
 
-            return View("Delete",new CommentDeleteViewModel() {CommentId = id});
+            return View("Delete", new CommentDeleteViewModel() { CommentId = id });
         }
 
         [Route("Comment/Delete/{id}")]
@@ -97,7 +106,7 @@
             {
                 TempData[ErrorMessage] = "Comment does not exist";
                 return Redirect($"https://localhost:7024/Recipe/All/");
-                
+
             }
 
             if (!await commentService.IsCommentYours(commentDeleteViewModel.CommentId, User?.GetId()!.ToString()) && !User.IsAdmin())
@@ -132,8 +141,8 @@
                 ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to post your comment! Please try again later or contact administrator.");
                 return Redirect($"https://localhost:7024/Recipe/All");
             }
-           
-           
+
+
 
         }
 
@@ -153,12 +162,12 @@
                 return Redirect($"https://localhost:7024/Recipe/All/");
             }
 
-            return View("Edit",await commentService.GetCommentAsFormModelAsync(id));
+            return View("Edit", await commentService.GetCommentAsFormModelAsync(id));
         }
 
         [Route("Comment/Edit/{id}")]
         [HttpPost]
-       
+
         public async Task<IActionResult> Edit(CommentFormModel commentFormModel)
         {
 
@@ -193,9 +202,16 @@
                 ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to post your comment! Please try again later or contact administrator.");
                 return Redirect($"https://localhost:7024/Recipe/ViewRecipe/{commentFormModel.RecipeId}");
             }
-           
+
 
         }
+
+        
+
+
+        
+
+
 
 
     }

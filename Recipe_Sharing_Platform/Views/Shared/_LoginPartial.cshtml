@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using RecipeSharingPlatform.Services.Data.Interfaces;
+@using RecipeSharingPlatform.Web.Infrastructure.Extensions;
 @using RecipesSharingPlatform.Data.Models;
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -7,14 +8,17 @@
 
 @{
     string userName = await UserService.GetNameByEmailAsync(User.Identity?.Name!);
+   
 
 }
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        Guid userId = Guid.Parse(User.GetId()!);
+        
         <li class="nav-item">
-                <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @userName!</a>
+                         <a class="nav-link text-dark" asp-controller="User" asp-action="ViewProfile" asp-route-id="@userId">Hello @userName</a>
         </li>
         <li class="nav-item">
             <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

@@ -30,5 +30,11 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task<ICollection<UserViewModel>> GetAllUsersAsViewModel();
 
 
+        Task<ApplicationUser> GetAllInfoAboutUserByIdAsync(Guid id);
+
+        Task DeleteUserInfo(Guid id);
+
+        Task<string> GetUserDataForCurrentUser(Guid id);
+
     }
 }

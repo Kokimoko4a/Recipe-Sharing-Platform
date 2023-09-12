@@ -1,6 +1,4 @@
-﻿
-
-namespace RecipesSharingPlatform.Data.Models
+﻿namespace RecipesSharingPlatform.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -39,6 +37,7 @@ namespace RecipesSharingPlatform.Data.Models
         public DateTime CreatedOn { get; set; }
 
         public bool HaveBeenEdited { get; set; }
+
 
     }
 }

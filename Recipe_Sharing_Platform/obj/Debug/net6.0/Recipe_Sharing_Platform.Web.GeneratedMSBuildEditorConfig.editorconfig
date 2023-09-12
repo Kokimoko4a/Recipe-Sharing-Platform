@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/User/ViewProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxWaWV3UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,6 +134,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/User/ViewProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWaWV3UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/_ViewImports.cshtml]

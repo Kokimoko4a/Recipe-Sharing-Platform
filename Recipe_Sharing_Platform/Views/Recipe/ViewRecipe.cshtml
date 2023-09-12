@@ -17,17 +17,17 @@
                 {
                     if (ingredient.Quantity == 0)
                     {
-                                <li>@ingredient.Name - @ingredient.TypeMeasurement</li>
+                                        <li>@ingredient.Name - @ingredient.TypeMeasurement</li>
                         continue;
                     }
 
                     if (ingredient.Quantity.ToString().EndsWith(".00"))
                     {
-                                <li>@ingredient.Name - @Convert.ToInt32(@ingredient.Quantity) @ingredient.TypeMeasurement</li>
+                                        <li>@ingredient.Name - @Convert.ToInt32(@ingredient.Quantity) @ingredient.TypeMeasurement</li>
                         continue;
                     }
 
-                                <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
+                                    <li>@ingredient.Name - @ingredient.Quantity @ingredient.TypeMeasurement</li>
                 }
             </ul>
             <div class="my-3">
@@ -54,41 +54,41 @@
 
                     if (Model.GuestUser.CookedRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
                     {
-                                <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
-                                    <input type="hidden" name="recipeId" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-success">I Cooked</button>
-                                </form>
+                                        <form asp-controller="Recipe" asp-action="MarkCooked" method="post">
+                                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                                            <button type="submit" class="btn btn-success">I Cooked</button>
+                                        </form>
                     }
                     else
                     {
-                                <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
-                                    <input type="hidden" name="recipeId" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-danger">Remove  from cooked recipes</button>
-                                </form>
+                                        <form asp-controller="Recipe" asp-action="MarkUncooked" method="post">
+                                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                                            <button type="submit" class="btn btn-danger">Remove  from cooked recipes</button>
+                                        </form>
                     }
 
                     if (Model.GuestUser.FavouriteRecipes.FirstOrDefault(x => x.Id == Model.Id) == null)
                     {
-                                                        <form asp-controller="Recipe" asp-action="MarkFavourite" method="post">
-                                                    <input type="hidden" name="recipeId" value="@Model.Id" />
-                                                    <button type="submit" class="btn btn-warning">Add to favourite</button>
-                                                </form>
+                                                                <form asp-controller="Recipe" asp-action="MarkFavourite" method="post">
+                                                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                                                            <button type="submit" class="btn btn-warning">Add to favourite</button>
+                                                        </form>
                     }
                     else
                     {
-                                                <form asp-controller="Recipe" asp-action="MarkUnfavourite" method="post">
-                                                    <input type="hidden" name="recipeId" value="@Model.Id" />
-                                                    <button type="submit" class="btn btn-warning">Remove from favourite</button>
-                                                </form>
+                                                        <form asp-controller="Recipe" asp-action="MarkUnfavourite" method="post">
+                                                            <input type="hidden" name="recipeId" value="@Model.Id" />
+                                                            <button type="submit" class="btn btn-warning">Remove from favourite</button>
+                                                        </form>
                     }
                 }
 
                 else
                 {
-                                  <form asp-controller="User" asp-action="Login" method="get">
+                                      <form asp-controller="User" asp-action="Login" method="get">
 
-                                                    <button type="submit" class="btn btn-warning">Log in to have more features</button>
-                                                </form>
+                                                        <button type="submit" class="btn btn-warning">Log in to have more features</button>
+                                                    </form>
                 }
 
 
@@ -100,13 +100,13 @@
 
 
 <style>
-   
+
     .author-info {
         display: flex;
         align-items: center;
     }
 
- 
+
     .online-gif {
         width: 30px; 
         height: 30px;
@@ -114,39 +114,42 @@
     }
 </style>
 
-<!-- Display comments -->
-<div class="container my-4">
+
+  <!-- Display comments -->
+   <div class="container my-4">
     <h3>Comments</h3>
     <hr>
     @foreach (var comment in Model.Comments)
     {
-        <div class="card mb-2">
-            <div class="card-body">
-                <div class="author-info">
-                    <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="author-info">
+                        <h5 class="card-title">Author: @comment.Author.FirstName @comment.Author.LastName</h5>
                     @if (OnlineUsersMiddleware.CheckIfUserIsOnline(comment.AuthorId.ToString()))
                     {
-                            <img src="https://media.tenor.com/QgIVNgtez6sAAAAM/cooking.gif"  alt="Online" class="online-gif" />
+                                <img src="https://media.tenor.com/QgIVNgtez6sAAAAM/cooking.gif" alt="Online" class="online-gif" />
                     }
-                </div>
-                <p class="card-text">@comment.Content</p>
+                    </div>
+                    <p class="card-text">@comment.Content</p>
 
                 @if (comment.HaveBeenEdited)
                 {
-                        <p>Edited on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
+                            <p>Edited on: @comment.CreatedOn.ToString("dd/MM/yyyy")</p>
                 }
                 else
                 {
-                        <p>Written on: @comment.CreatedOn.ToString("MM/dd/yyyy")</p>
+                            <p>Written on: @comment.CreatedOn.ToString("dd/MM/yyyy")</p>
                 }
 
                 @if (comment.Author.Email == User?.Identity?.Name || User.IsInRole("Administrator"))
                 {
-                        <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
-                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-primary">Edit Comment</a>
+                            <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-primary">Delete Comment</a>
+                            <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-primary">Edit Comment</a>
                 }
+
+                         
+                </div>
             </div>
-        </div>
     }
 </div>
 
@@ -154,6 +157,4 @@
     <a asp-controller="Comment" asp-action="AddComment" asp-route-id="@Model.Id" class="btn btn-primary">Add Comment</a>
 </div>
 
-@section Scripts {
-            <partial name="_ValidationScriptsPartial" />
-}
+

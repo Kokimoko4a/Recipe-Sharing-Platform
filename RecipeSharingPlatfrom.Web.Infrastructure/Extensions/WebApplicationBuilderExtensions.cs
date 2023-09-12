@@ -42,6 +42,8 @@
             }
         }
 
+
+
         public static IApplicationBuilder SeedAdministrator(this IApplicationBuilder app, string email)
         { 
             using IServiceScope scopedServices = app.ApplicationServices.CreateScope();

@@ -34,5 +34,7 @@ namespace RecipesSharingPlatform.Data.Models
         public virtual ICollection<Recipe> CookedRecipes { get; set; } = null!;
 
         public virtual ICollection<Recipe> FavouriteRecipes { get; set; } = null!;
+
+
     }
 }

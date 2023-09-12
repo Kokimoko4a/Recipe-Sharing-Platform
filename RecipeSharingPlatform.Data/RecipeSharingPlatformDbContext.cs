@@ -30,6 +30,9 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+     
+
+
             Assembly configAssembly = Assembly.GetAssembly(typeof(RecipeSharingPlatformDbContext)) ??
                                      Assembly.GetExecutingAssembly();
 

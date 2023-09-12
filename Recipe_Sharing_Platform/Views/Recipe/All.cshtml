@@ -14,7 +14,7 @@
                     <option value="">All</option>
                     @foreach (var category in Model.Categories)
                     {
-                            <option value="@category">@category</option>
+                                <option value="@category">@category</option>
                     }
                 </select>
             </div>
@@ -26,7 +26,7 @@
                     <option value="">All</option>
                     @foreach (var cookingType in Model.CookingTypes)
                     {
-                            <option value="@cookingType">@cookingType</option>
+                                <option value="@cookingType">@cookingType</option>
                     }
                 </select>
             </div>
@@ -38,7 +38,7 @@
                     <option value="">All</option>
                     @foreach (var difficultyType in Model.DifficultyTypes)
                     {
-                            <option value="@difficultyType">@difficultyType</option>
+                                <option value="@difficultyType">@difficultyType</option>
                     }
                 </select>
             </div>
@@ -80,7 +80,7 @@
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
         @if (!hideNextButton)
         {
-                <a class="btn btn-primary"
+                    <a class="btn btn-primary"
                asp-controller="Recipe"
                asp-action="All"
                asp-route-currentPage="@(Model.CurrentPage + 1)"
@@ -88,18 +88,19 @@
                asp-route-cookingType="@Model.CookingType"
                asp-route-difficulty="@Model.DifficultyType"
                asp-route-searchTerm="@Model.SearchString">
-                    Next <i class="fas fa-chevron-right"></i>
-                </a>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </a>
         }
     </div>
 </div>
 @if (!Model.Recipes.Any())
 {
-        <h2 class="text-center">No recipes found by the given criteria!</h2>
+            <h2 class="text-center">No recipes found by the given criteria!</h2>
 }
 <div class="row">
     @foreach (var recipe in Model.Recipes)
     {
-            <partial name="_RecipePartial" model="@recipe" />
+                <partial name="_RecipePartial" model="@recipe" />
     }
 </div>
+

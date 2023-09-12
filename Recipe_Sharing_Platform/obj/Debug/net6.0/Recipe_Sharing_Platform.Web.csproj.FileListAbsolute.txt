@@ -278,3 +278,10 @@ D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.AspNet.Identity.Owin.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.Owin.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.Owin.Security.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.Owin.Security.Cookies.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Microsoft.Owin.Security.OAuth.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\bin\Debug\net6.0\Owin.dll

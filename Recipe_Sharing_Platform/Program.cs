@@ -19,7 +19,7 @@ namespace Recipe_Sharing_Platform_2
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+
             string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<RecipeSharingPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -31,18 +31,18 @@ namespace Recipe_Sharing_Platform_2
 
             builder.Services.AddRecaptchaService();
 
+
+
             builder.Services.AddMemoryCache();
 
             builder.Services.ConfigureApplicationCookie(cfg => cfg.LoginPath = "/User/Login");
-
-            // builder.Services.Configure<EmailSenderOptions>(Configuration.GetSection("EmailSenderOptions"));
 
             builder.Services.AddApplicationServices(typeof(IRecipeService));
 
             builder.Services.AddControllersWithViews().AddMvcOptions(options =>
             {
-                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
-                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                //  options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+                //options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>(); 
 
             });
 
@@ -52,6 +52,7 @@ namespace Recipe_Sharing_Platform_2
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
+
             }
 
             else
@@ -87,7 +88,6 @@ pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-
                 config.MapRazorPages();
             });
 
@@ -97,5 +97,6 @@ pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
+
     }
 }

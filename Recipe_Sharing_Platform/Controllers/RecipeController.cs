@@ -60,7 +60,7 @@ namespace Recipe_Sharing_Platform_2.Controllers
         {
 
 
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity!.IsAuthenticated)
             {
 
                 if (await recipeService.GetRecipeByIdAsync(id, string.Empty) == null)

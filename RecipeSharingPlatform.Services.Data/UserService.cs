@@ -6,7 +6,9 @@
     using RecipeSharingPlatform.Web.ViewModels.Recipe;
     using RecipeSharingPlatform.Web.ViewModels.User;
     using RecipesSharingPlatform.Data.Models;
+    using System;
     using System.Collections.Generic;
+    using System.Text;
 
     public class UserService : IUserService
     {
@@ -41,7 +43,7 @@
 
         public async Task AddCookedRecipe(string recipeId, string userId) //Tested
         {
-           
+
 
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
 
@@ -77,7 +79,7 @@
             await data.SaveChangesAsync();
         }
 
-        public async Task MarkRecipeAsFavouriteAsync(string recipeId,string userId) //tested
+        public async Task MarkRecipeAsFavouriteAsync(string recipeId, string userId) //tested
         {
             Recipe recipe = await data.Recipes.FirstOrDefaultAsync(r => r.Id.ToString() == recipeId);
 
@@ -92,7 +94,7 @@
         {
             ApplicationUser user = await data.Users.Include(u => u.FavouriteRecipes).ThenInclude(x => x.Author).FirstOrDefaultAsync(u => u.Id.ToString() == userId);
 
-            return  user!.FavouriteRecipes.Select(r => new RecipeViewModel()
+            return user!.FavouriteRecipes.Select(r => new RecipeViewModel()
             {
                 Id = r.Id,
                 AuthorName = r.Author!.Email,
@@ -131,6 +133,39 @@
             }).ToListAsync();
 
             return users;
+        }
+
+        public async Task<ApplicationUser> GetAllInfoAboutUserByIdAsync(Guid id) => await data.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+        public async Task DeleteUserInfo(Guid id)
+        {
+            ApplicationUser user = await data.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+            user.FirstName = "Deleted";
+            user.LastName = "User";
+            user.Email = "I.am.fool@abv.bg";
+            user.UserName = $"Idiot{id.ToString()}";
+            user.NormalizedEmail= user.Email;
+            user.NormalizedUserName = user.UserName;
+            
+            await data.SaveChangesAsync();
+
+
+        }
+
+        public async Task<string> GetUserDataForCurrentUser(Guid id)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            ApplicationUser user = await data.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+
+            sb.AppendLine("Here is your data sir/lady");
+            sb.AppendLine(user.FirstName + " " + user.LastName);
+            sb.AppendLine(user.Email);
+            sb.AppendLine(user.Id.ToString());
+
+            return sb.ToString().TrimEnd();
         }
     }
 }

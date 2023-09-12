@@ -20,5 +20,7 @@ namespace RecipeSharingPlatform.Services.Data.Interfaces
         Task<CommentFormModel> GetCommentAsFormModelAsync(string commentId);
 
         Task UpdateData(CommentFormModel commentFormModel);
+
+ 
     }
 }

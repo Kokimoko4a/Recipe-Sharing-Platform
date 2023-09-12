@@ -69,14 +69,14 @@ namespace RecipeSharingPlatform.Services.Data
                     CountBeenCooked = r!.CountBeenCooked!,
                     CountOfPortions = r!.CountOfPortions!,
                     CreatedOn = r!.CreatedOn!,
-                    Id = r!.Id!,
+                    Id = r!.Id,
                     ImageUrl = r!.ImageUrl!,
                     Ingredients = r!.Ingredients!,
                     PreparingTime = r!.PreparingTime!,
                     Title = r!.Title!,
                     GuestUser = user
                 })
-                .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!; //I do not why but with these includes the Nunit does not have any problems and passes the tests.
+                .FirstOrDefaultAsync(r => r.Id.ToString() == recipeId)!; //I do not know why but with these includes the Nunit does not have any problems and passes the tests.
 
 
             return recipeBigView;

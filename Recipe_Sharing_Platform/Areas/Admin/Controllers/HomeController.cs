@@ -5,6 +5,7 @@ namespace Recipe_Sharing_Platform.Web.Areas.Admin.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Caching.Memory;
     using RecipeSharingPlatform.Services.Data.Interfaces;
+    using RecipeSharingPlatform.Web.Infrastructure.Extensions;
     using RecipeSharingPlatform.Web.ViewModels.User;
     using static RecipeSharingPlatform.Common.GeneralApplicationConstants;
 
@@ -43,5 +44,7 @@ namespace Recipe_Sharing_Platform.Web.Areas.Admin.Controllers
 
             return View(users);
         }
+
+       
     }
 }
