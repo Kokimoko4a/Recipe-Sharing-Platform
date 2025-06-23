@@ -66,8 +66,6 @@ Edit
 ├── appsettings.json
 └── Startup.cs
 📸 Screenshots
-Add screenshots here for better visual representation
-(Optional: drag and drop .png or .jpg in GitHub)
 
 🤝 Contributing
 Contributions are welcome! If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request.
