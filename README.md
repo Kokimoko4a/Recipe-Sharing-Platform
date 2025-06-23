@@ -79,10 +79,3 @@ This project is open-source and available under the MIT License.
 Created by Kaloyan Rusev
 Feel free to reach out for any suggestions or collaboration!
 
-yaml
-Copy
-Edit
-
----
-
-Let me know if you'd like me to generate a `LICENSE` file or add a more detailed **database diagram**, **API reference**,
