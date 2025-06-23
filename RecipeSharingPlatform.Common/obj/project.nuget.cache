@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sS8nRFM77s7OM51meZCyyeSsVRZzhPxkBB6GxOlF5qhBitMbIS7Sbq7VNe7vPbfylYtFqx2+GjnsN9bY8pQA3g==",
+  "dgSpecHash": "OH6pv+jq71kQk1KKpntHmyIeFxU6JrloyKhNh2Nh8kKDGoqtngPHtIPqSOJsHEIO3rH1/Mt/fQhzL6u41tHc0g==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Common\\RecipeSharingPlatform.Common.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\RecipeSharingPlatform.Common\\RecipeSharingPlatform.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

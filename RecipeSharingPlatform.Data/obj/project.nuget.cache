@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NtMhNox2m65ZD+rf7P9Yl4hbQOM7Wtg2GRQ0qJddTgxSDjALeQUDJ6yL/i2vbGk4ME0sqglIpq2Lzl1CgSYLFg==",
+  "dgSpecHash": "hEMg9Ii47E309HAZ6ibrpERsI82pIab17/W339F1KHBs3xeLpoPUAaayEx4lGikLzZc4VJfDtnKbj27rPJPVng==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Data\\RecipeSharingPlatform.Data.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\RecipeSharingPlatform.Data\\RecipeSharingPlatform.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.10\\microsoft.aspnetcore.cryptography.internal.6.0.10.nupkg.sha512",

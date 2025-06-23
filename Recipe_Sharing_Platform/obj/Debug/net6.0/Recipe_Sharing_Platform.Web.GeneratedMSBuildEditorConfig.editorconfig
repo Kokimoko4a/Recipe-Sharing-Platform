@@ -9,145 +9,147 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Recipe_Sharing_Platform.Web
 build_property.RootNamespace = Recipe_Sharing_Platform.Web
-build_property.ProjectDir = D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform\
+build_property.ProjectDir = D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\Recipe_Sharing_Platform\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\Recipe_Sharing_Platform
+build_property.MSBuildProjectDirectory = D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\Recipe_Sharing_Platform
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/Home/GetAllUsers.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Admin/Views/Home/GetAllUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxHZXRBbGxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/Home/Index.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/User/ViewProfile.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Admin/Views/User/ViewProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxWaWV3UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/_ViewImports.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Admin/Views/_ViewStart.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Comment/AddComment.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Comment/AddComment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxBZGRDb21tZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Comment/Delete.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Comment/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Comment/Edit.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Comment/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/CookingType/Detail.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/CookingType/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va2luZ1R5cGVcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/CookingType/ViewCookingTypes.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/CookingType/ViewCookingTypes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va2luZ1R5cGVcVmlld0Nvb2tpbmdUeXBlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Home/Error.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Home/Error404.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Home/Error404.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwNC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Home/Index.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Home/Privacy.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/Add.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/All.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/Delete.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/Edit.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/Mine.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/Mine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXE1pbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/ViewCookedRecipes.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/ViewCookedRecipes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXFZpZXdDb29rZWRSZWNpcGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/ViewFavourites.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/ViewFavourites.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXFZpZXdGYXZvdXJpdGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Recipe/ViewRecipe.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Recipe/ViewRecipe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXFZpZXdSZWNpcGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/Error.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/_LoginPartial.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/_NotificationsPartial.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/_NotificationsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25zUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/_RecipePartial.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/_RecipePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWNpcGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/User/Login.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/User/Register.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/User/ViewProfile.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/User/ViewProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWaWV3UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/_ViewImports.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/_ViewStart.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kaloyan/Zadachi_Softuni_C\#/Web - May 2023/Project/Recipe_Sharing_Platform/Views/Shared/_Layout.cshtml]
+[D:/Kaloyan/Zadachi_Softuni_C\#/Recipe-Sharing-Platform-Repo/Recipe-Sharing-Platform/Recipe_Sharing_Platform/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-fzww0veyzw

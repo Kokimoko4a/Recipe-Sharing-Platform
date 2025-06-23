@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J87coxSII0c/A+vbzEVfHuAMJ5UKDGv1iXFZ5isLv3u2014W2s2V3S/l5sOteJPt78lJ5oqfuZykRW6nGV1fSA==",
+  "dgSpecHash": "3hqaSXG55DE5trCnA2mXuHEelQlJdxNT6UT8P4+nXresyZ1rcHVPrewv7dnuZUD7/9c+8KUgdRKgBPTogmnvXA==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\Recipe_Sharing_Platform\\Recipe_Sharing_Platform.Web.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\Recipe_Sharing_Platform\\Recipe_Sharing_Platform.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bootstrap\\3.0.1\\bootstrap.3.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\griesoft.aspnetcore.recaptcha\\2.2.0\\griesoft.aspnetcore.recaptcha.2.2.0.nupkg.sha512",

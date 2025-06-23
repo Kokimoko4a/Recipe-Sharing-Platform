@@ -17,3 +17,23 @@ D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Data\
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.pdb
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.genruntimeconfig.cache
 D:\Kaloyan\Zadachi_Softuni_C#\Web - May 2023\Project\RecipeSharingPlatform.Data\obj\Debug\net6.0\ref\RecipeSharingPlatform.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Data.deps.json
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Data.runtimeconfig.json
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Data.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Common.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipesSharingPlatform.Data.Models.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipeSharingPlatform.Common.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\bin\Debug\net6.0\RecipesSharingPlatform.Data.Models.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.csproj.AssemblyReference.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.AssemblyInfoInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.AssemblyInfo.cs
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.sourcelink.json
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.csproj.CopyComplete
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\refint\RecipeSharingPlatform.Data.dll
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.pdb
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\RecipeSharingPlatform.Data.genruntimeconfig.cache
+D:\Kaloyan\Zadachi_Softuni_C#\Recipe-Sharing-Platform-Repo\Recipe-Sharing-Platform\RecipeSharingPlatform.Data\obj\Debug\net6.0\ref\RecipeSharingPlatform.Data.dll

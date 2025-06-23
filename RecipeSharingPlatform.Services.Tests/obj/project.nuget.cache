@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SVhG3l22N34hVxFQvPMpcGeTJ30HSAdPUqatYLkIrhwzfk5Nh23WZE5mfA5lbKmi9wKO3RHZ1uqNtDHuDoh4ow==",
+  "dgSpecHash": "k1hEhHLWkWRTgD9YVrPWHy7BK3W0WS8C0rNf4p+MA2glcm2FI9vcP3yajqMMzxg4xg2X5XXUMogaSE9dXTUyDw==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Services.Tests\\RecipeSharingPlatform.Services.Tests.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\RecipeSharingPlatform.Services.Tests\\RecipeSharingPlatform.Services.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

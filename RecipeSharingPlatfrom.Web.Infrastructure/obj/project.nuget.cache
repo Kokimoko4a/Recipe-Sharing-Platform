@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pX6zIfbqAKnklQ7MzyId4oZAp2YSBhPRQIozyUopfT6EJOnpeehY8qHaSygMYenwDEzC9HPMO/Kt608C15uOYA==",
+  "dgSpecHash": "D08kXBO4P/7C0+Tu34Wxy/5eCorlPeY4uXk0ix7ZrRyqRucUlEH0ko4DlVhkl3IwHVgys2fmn7VNTJTUUu7stA==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatfrom.Web.Infrastructure\\RecipeSharingPlatfrom.Web.Infrastructure.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\RecipeSharingPlatfrom.Web.Infrastructure\\RecipeSharingPlatfrom.Web.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

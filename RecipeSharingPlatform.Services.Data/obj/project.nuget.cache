@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "62+xoZ3kM1XVRqeed2w0Utib7CR3awQ8sDcDRGE7wf8cXpyEPNEmtAZYUqC5/fRMg+Yg6SKRmE/K8DCgliEi6A==",
+  "dgSpecHash": "4GIOPYrA2WDlE+4S1uM6WGWUR96VE8vB2FR7xQf9uviMXsfkZ47WVFKh3ah7uiBb2kIRhcJIg+bOGWa2/TLomQ==",
   "success": true,
-  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Web - May 2023\\Project\\RecipeSharingPlatform.Services.Data\\RecipeSharingPlatform.Services.Data.csproj",
+  "projectFilePath": "D:\\Kaloyan\\Zadachi_Softuni_C#\\Recipe-Sharing-Platform-Repo\\Recipe-Sharing-Platform\\RecipeSharingPlatform.Services.Data\\RecipeSharingPlatform.Services.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.10\\microsoft.aspnetcore.cryptography.internal.6.0.10.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.10\\microsoft.aspnetcore.cryptography.keyderivation.6.0.10.nupkg.sha512",
